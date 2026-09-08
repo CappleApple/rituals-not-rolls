@@ -1,0 +1,43 @@
+{
+  "enchantment": "minecraft:fire_aspect",
+  "materials": [
+    {
+      "id": "blaze_powder",
+      "item": "minecraft:blaze_powder",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "blaze_rod",
+      "item": "minecraft:blaze_rod",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "magma_cream",
+      "item": "minecraft:magma_cream",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "fire_charge",
+      "item": "minecraft:fire_charge",
+      "power": 52,
+      "resource_value": 6.5
+    },
+    {
+      "id": "netherite_scrap",
+      "item": "minecraft:netherite_scrap",
+      "power": 46,
+      "resource_value": 5.75
+    }
+  ],
+  "levels": {
+    "1": 80.5714,
+    "2": 188,
+    "3": 402.8571
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:flame",
+  "particle_color": "#FF7A22"
+}

@@ -1,0 +1,47 @@
+{
+  "enchantment": "minecraft:unbreaking",
+  "materials": [
+    {
+      "id": "obsidian",
+      "item": "minecraft:obsidian",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "anvil",
+      "item": "minecraft:anvil",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "diamond",
+      "item": "minecraft:diamond",
+      "power": 45,
+      "resource_value": 5.62
+    },
+    {
+      "id": "ancient_debris",
+      "item": "minecraft:ancient_debris",
+      "power": 65,
+      "resource_value": 8.12
+    },
+    {
+      "id": "netherite_ingot",
+      "item": "minecraft:netherite_ingot",
+      "power": 100,
+      "resource_value": 12.5
+    }
+  ],
+  "levels": {
+    "1": 56.4,
+    "2": 131.6,
+    "3": 282,
+    "4": 488.8,
+    "5": 789.6,
+    "6": 1203.2,
+    "7": 1804.8
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#8FE4FF"
+}

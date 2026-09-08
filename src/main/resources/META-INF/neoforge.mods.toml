@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="ritualsnotrolls"
+version="${version}"
+displayName="Rituals Not Rolls"
+logoFile="logo.png"
+logoBlur=false
+authors="CappleApple"
+description='''Physical, knowledge-driven ritual enchanting. Discover material affinities, build a library, and channel your ritual.'''
+[[mixins]]
+config="ritualsnotrolls.mixins.json"
+[[dependencies.ritualsnotrolls]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.244,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.ritualsnotrolls]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"

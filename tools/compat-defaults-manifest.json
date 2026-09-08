@@ -1,0 +1,132 @@
+[
+  {
+    "enchantment": "aggrofix:aggrobaiting",
+    "native_maximum": 5,
+    "total_power": 220
+  },
+  {
+    "enchantment": "aggrofix:aggronizing",
+    "native_maximum": 5,
+    "total_power": 220
+  },
+  {
+    "enchantment": "botanypots:idle_hands",
+    "native_maximum": 1,
+    "total_power": 184
+  },
+  {
+    "enchantment": "combat_roll:acrobat",
+    "native_maximum": 5,
+    "total_power": 140
+  },
+  {
+    "enchantment": "combat_roll:longfooted",
+    "native_maximum": 4,
+    "total_power": 160
+  },
+  {
+    "enchantment": "combat_roll:multi_roll",
+    "native_maximum": 3,
+    "total_power": 240
+  },
+  {
+    "enchantment": "create:capacity",
+    "native_maximum": 3,
+    "total_power": 224
+  },
+  {
+    "enchantment": "create:potato_recovery",
+    "native_maximum": 3,
+    "total_power": 140
+  },
+  {
+    "enchantment": "critical_strike:chance",
+    "native_maximum": 5,
+    "total_power": 180
+  },
+  {
+    "enchantment": "critical_strike:damage",
+    "native_maximum": 5,
+    "total_power": 240
+  },
+  {
+    "enchantment": "dungeons_arise:discharge",
+    "native_maximum": 3,
+    "total_power": 240
+  },
+  {
+    "enchantment": "dungeons_arise:ensnaring",
+    "native_maximum": 4,
+    "total_power": 140
+  },
+  {
+    "enchantment": "dungeons_arise:lolths_curse",
+    "native_maximum": 1,
+    "total_power": 240
+  },
+  {
+    "enchantment": "dungeons_arise:purification",
+    "native_maximum": 3,
+    "total_power": 240
+  },
+  {
+    "enchantment": "dungeons_arise:voltaic_shot",
+    "native_maximum": 1,
+    "total_power": 240
+  },
+  {
+    "enchantment": "farmersdelight:backstabbing",
+    "native_maximum": 3,
+    "total_power": 160
+  },
+  {
+    "enchantment": "gouge:grip",
+    "native_maximum": 3,
+    "total_power": 160
+  },
+  {
+    "enchantment": "gouge:momentum",
+    "native_maximum": 3,
+    "total_power": 180
+  },
+  {
+    "enchantment": "minecraft:soul_fire_aspect",
+    "native_maximum": 2,
+    "total_power": 256
+  },
+  {
+    "enchantment": "minecraft:soul_flame",
+    "native_maximum": 1,
+    "total_power": 224
+  },
+  {
+    "enchantment": "notenoughtrials:daredevil",
+    "native_maximum": 1,
+    "total_power": 384
+  },
+  {
+    "enchantment": "notenoughtrials:equity",
+    "native_maximum": 1,
+    "total_power": 192
+  },
+  {
+    "enchantment": "notenoughtrials:storm_front",
+    "native_maximum": 1,
+    "total_power": 256
+  },
+  {
+    "enchantment": "passablefoliage:leaf_walker",
+    "native_maximum": 1,
+    "total_power": 192
+  },
+  {
+    "enchantment": "supplementaries:stasis",
+    "native_maximum": 1,
+    "total_power": 224
+  },
+  {
+    "enchantment": "veinmining:vein_mining",
+    "native_maximum": 1,
+    "total_power": 256
+  }
+]

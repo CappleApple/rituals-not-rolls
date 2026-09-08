@@ -1,0 +1,43 @@
+{
+  "enchantment": "minecraft:mending",
+  "materials": [
+    {
+      "id": "experience_bottle",
+      "item": "minecraft:experience_bottle",
+      "power": 96,
+      "resource_value": 12.0
+    },
+    {
+      "id": "echo_shard",
+      "item": "minecraft:echo_shard",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "glistering_melon_slice",
+      "item": "minecraft:glistering_melon_slice",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "honey_bottle",
+      "item": "minecraft:honey_bottle",
+      "power": 16,
+      "resource_value": 2.0
+    },
+    {
+      "id": "heart_of_the_sea",
+      "item": "minecraft:heart_of_the_sea",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 256
+  },
+  "conflict_groups": [
+    "bow"
+  ],
+  "particle": "minecraft:happy_villager",
+  "particle_color": "#72F08C"
+}

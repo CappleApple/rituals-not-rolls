@@ -1,0 +1,5 @@
+{
+  "enchantment": "notenoughtrials:storm_front_marker",
+  "enabled": false,
+  "disabled_reason": "Internal function marker used by Storm Front; not a player enchantment."
+}

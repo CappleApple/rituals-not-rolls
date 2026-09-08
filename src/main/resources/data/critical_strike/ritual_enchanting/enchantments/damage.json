@@ -1,0 +1,49 @@
+{
+  "enchantment": "critical_strike:damage",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/flint",
+      "item": "minecraft:flint",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "minecraft/iron_block",
+      "item": "minecraft:iron_block",
+      "power": 44,
+      "resource_value": 5.5
+    },
+    {
+      "id": "minecraft/fire_charge",
+      "item": "minecraft:fire_charge",
+      "power": 26,
+      "resource_value": 3.25
+    },
+    {
+      "id": "minecraft/blaze_rod",
+      "item": "minecraft:blaze_rod",
+      "power": 52,
+      "resource_value": 6.5
+    },
+    {
+      "id": "minecraft/netherite_scrap",
+      "item": "minecraft:netherite_scrap",
+      "power": 106,
+      "resource_value": 13.25
+    }
+  ],
+  "levels": {
+    "1": 17.1429,
+    "2": 40.0,
+    "3": 85.7143,
+    "4": 148.5714,
+    "5": 240,
+    "6": 365.7143
+  },
+  "conflict_groups": [
+    "critical_strike:critical"
+  ],
+  "particle": "minecraft:crit",
+  "particle_color": "#D95478"
+}

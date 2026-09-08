@@ -1,0 +1,40 @@
+{
+  "enchantment": "minecraft:riptide",
+  "materials": [
+    {
+      "id": "prismarine_crystals",
+      "item": "minecraft:prismarine_crystals",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "heart_of_the_sea",
+      "item": "minecraft:heart_of_the_sea",
+      "power": 104,
+      "resource_value": 13.0
+    },
+    {
+      "id": "breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "wind_charge",
+      "item": "minecraft:wind_charge",
+      "power": 80,
+      "resource_value": 10.0
+    }
+  ],
+  "levels": {
+    "1": 52.8,
+    "2": 123.2,
+    "3": 264,
+    "4": 457.6
+  },
+  "conflict_groups": [
+    "trident"
+  ],
+  "particle": "minecraft:cloud",
+  "particle_color": "#A8E8EF"
+}

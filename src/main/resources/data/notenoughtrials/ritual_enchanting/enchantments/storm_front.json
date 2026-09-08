@@ -1,0 +1,44 @@
+{
+  "enchantment": "notenoughtrials:storm_front",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "minecraft/nautilus_shell",
+      "item": "minecraft:nautilus_shell",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "minecraft/wind_charge",
+      "item": "minecraft:wind_charge",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/lightning_rod",
+      "item": "minecraft:lightning_rod",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/heart_of_the_sea",
+      "item": "minecraft:heart_of_the_sea",
+      "power": 120,
+      "resource_value": 15.0
+    }
+  ],
+  "levels": {
+    "1": 256
+  },
+  "conflict_groups": [
+    "trident"
+  ],
+  "particle": "minecraft:cloud",
+  "particle_color": "#87BECF"
+}

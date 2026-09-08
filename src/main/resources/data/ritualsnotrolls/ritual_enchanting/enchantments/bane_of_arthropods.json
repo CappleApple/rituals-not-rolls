@@ -1,0 +1,48 @@
+{
+  "enchantment": "minecraft:bane_of_arthropods",
+  "materials": [
+    {
+      "id": "spider_eye",
+      "item": "minecraft:spider_eye",
+      "power": 26,
+      "resource_value": 3.25
+    },
+    {
+      "id": "fermented_spider_eye",
+      "item": "minecraft:fermented_spider_eye",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "string",
+      "item": "minecraft:string",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "honeycomb",
+      "item": "minecraft:honeycomb",
+      "power": 20,
+      "resource_value": 2.5
+    },
+    {
+      "id": "slime_ball",
+      "item": "minecraft:slime_ball",
+      "power": 34,
+      "resource_value": 4.25
+    }
+  ],
+  "levels": {
+    "1": 10.0,
+    "2": 23.3333,
+    "3": 50.0,
+    "4": 86.6667,
+    "5": 140,
+    "6": 213.3333
+  },
+  "conflict_groups": [
+    "damage"
+  ],
+  "particle": "minecraft:spore_blossom_air",
+  "particle_color": "#B5E86B"
+}

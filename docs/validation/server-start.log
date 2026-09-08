@@ -1,0 +1,8 @@
+		Rituals Not Rolls 1.4.0 (ritualsnotrolls)
+[15:49:07] [main/INFO] [co.ca.ri.RitualsNotRolls/]: Loaded 42 ritual enchantment definitions, revision 1
+[15:49:08] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[15:49:08] [Server thread/INFO] [minecraft/DedicatedServer]: Done (0.346s)! For help, type "help"
+[16:01:03] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[16:01:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[16:01:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[16:01:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end

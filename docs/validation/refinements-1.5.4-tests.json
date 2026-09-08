@@ -1,0 +1,97 @@
+{
+  "version": "1.5.4",
+  "date": "2026-09-08",
+  "suites": [
+    {
+      "suite": "com.cappleapple.ritualsnotrolls.data.AnimationTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        "nextStartsAtPriorRingFormationAndFinishWaitsForAll()",
+        "longRoutesStillFormAllRingsWithShortConfiguredDuration()",
+        "actualOrbitUsesSynchronizedPowerRadius()",
+        "simultaneousStartsTogetherAndSingleEnchantHasNoExtraDelay()",
+        "manyEnchantsRetainFairEmissionShares()",
+        "pageMeshHasCenteredThicknessAndAnEdgeAroundEveryCutout()",
+        "radiusAndEmissionDensityGrowWithPowerButStayBounded()"
+      ]
+    },
+    {
+      "suite": "com.cappleapple.ritualsnotrolls.data.DefinitionTest",
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        "affinityRejectsNonfinitePower()",
+        "ringsUseSeveralRadiiAndNearVerticalPlanes()",
+        "magicalRoutesBendAndArriveAtTheirDestination()",
+        "autoAddBelongsToBook()",
+        "catalystBonusesAreAdditive()",
+        "flightCodecPreservesLayerAndBurstParameters()",
+        "knowledgeIsNotLevels()",
+        "missingLevelIsNotClamped()",
+        "duplicateDataIsCanonicalized()",
+        "invalidParticleColorsAreRejected()",
+        "particleHexColorIsOptionalAndRoundTrips()",
+        "engineCodecLimitIsExplicit()",
+        "knowledgeIdentityIsIndependentOfPower()",
+        "extendedLevelsDecode()",
+        "catalystRulesAreDatapackReplaceable()",
+        "affinityRejectsAmbiguousSelectors()",
+        "burstExpandsIntoEveryOctantAndFadesToTransparent()",
+        "arrivalsOrbitAndPulseBeforeTheRitualEnd()",
+        "impossibleThresholdsRejected()",
+        "reloadKeepsLogicalKnowledge()",
+        "removalPreservesOthers()"
+      ]
+    },
+    {
+      "suite": "com.cappleapple.ritualsnotrolls.data.ParticlePathTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        "everyRingHasAContinuousTangentEntranceAndFinishesFillingBeforeNextStage()",
+        "spacingAlongSplineKeepsOneLaneAndDoesNotDesynchronizeFinishingPulse()",
+        "allEmissionsShareOneCurvePerHopAcrossBatchesAndRingArrivals()",
+        "splineIsCurvedReversibleAndFiniteForVerticalAndShortHops()",
+        "reverseStreamDrainsDownstreamAfterReleaseWithoutRushingExistingFlights()"
+      ]
+    },
+    {
+      "suite": "com.cappleapple.ritualsnotrolls.data.PowerTest",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        "cannotUpgradeOneSideSoItDoesNotShare()",
+        "subtractionOffsetsIncomingPowerBeforeDecidingTheUpgrade()",
+        "allFiveMayShareWithTheirOwnRelativePowers()",
+        "uselessSharedMaterialIsReleasedWhenOtherMaterialsAlreadySupplySameLevel()",
+        "subtractionNeedsAnEntireLevelAndDoesNotCreateProgress()",
+        "costsForExistingLevelsMissingFromPackAreInterpolated()",
+        "weakSubtractionHasNoUsers()",
+        "halvesRelativeAffinitiesWhenBothReachNextLevel()",
+        "duplicateConsumedMaterialsAreConsideredTogether()"
+      ]
+    },
+    {
+      "suite": "com.cappleapple.ritualsnotrolls.data.PowerTierTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        "strongestUndiscoveredAndTagAffinitiesBothSetTheScale()",
+        "tierBoundariesIncludeTheirLowerLimitWithoutRounding()",
+        "extremeFinitePowersKeepTheirRelativeTier()",
+        "updatedDefinitionAndDifferentEnchantmentsCanGiveDifferentTiers()"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "enchantment": "minecraft:blast_protection",
+  "materials": [
+    {
+      "id": "gunpowder",
+      "item": "minecraft:gunpowder",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "tnt",
+      "item": "minecraft:tnt",
+      "power": 38,
+      "resource_value": 4.75
+    },
+    {
+      "id": "obsidian",
+      "item": "minecraft:obsidian",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "crying_obsidian",
+      "item": "minecraft:crying_obsidian",
+      "power": 62,
+      "resource_value": 7.75
+    },
+    {
+      "id": "end_crystal",
+      "item": "minecraft:end_crystal",
+      "power": 90,
+      "resource_value": 11.25
+    }
+  ],
+  "levels": {
+    "1": 30.0,
+    "2": 70.0,
+    "3": 150.0,
+    "4": 260,
+    "5": 420.0
+  },
+  "conflict_groups": [
+    "protection"
+  ],
+  "particle": "minecraft:poof",
+  "particle_color": "#C4B4B0"
+}

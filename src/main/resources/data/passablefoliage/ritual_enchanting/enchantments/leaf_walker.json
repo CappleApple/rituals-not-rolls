@@ -1,0 +1,42 @@
+{
+  "enchantment": "passablefoliage:leaf_walker",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/azalea_leaves",
+      "item": "minecraft:azalea_leaves",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/moss_block",
+      "item": "minecraft:moss_block",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/big_dripleaf",
+      "item": "minecraft:big_dripleaf",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "minecraft/flowering_azalea",
+      "item": "minecraft:flowering_azalea",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/spore_blossom",
+      "item": "minecraft:spore_blossom",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 192
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:spore_blossom_air",
+  "particle_color": "#63AE79"
+}

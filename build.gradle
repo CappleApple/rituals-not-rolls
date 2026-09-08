@@ -1,0 +1,48 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.143'
+}
+version = mod_version
+group = 'com.cappleapple.ritualsnotrolls'
+base { archivesName = 'ritualsnotrolls' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge {
+    version = project.neo_version
+    parchment { minecraftVersion = '1.21.1'; mappingsVersion = '2024.11.17' }
+    runs {
+        client { client(); gameDirectory = file('run-client') }
+        server { server(); programArgument '--nogui' }
+        smokeServer { server(); gameDirectory = file('run'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.devFixture', 'true' }
+        powerTooltipClient { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.powerTooltipSmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }
+        clientSmoke { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.clientActionSmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }
+        refinementServer { server(); gameDirectory = file('run-refinement-server'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.refinementFixture', 'true' }
+        refinementClient { client(); gameDirectory = file('run-refinement-client'); systemProperty 'ritualsnotrolls.refinementSmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }
+        pedestalCompatServer { server(); gameDirectory = file('run-pedestal-compat'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.pedestalCompatFixture', 'true' }
+        definitionCompatServer { server(); gameDirectory = file('run-compat'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.definitionCompatFixture', 'true' }
+        migrationServer { server(); gameDirectory = file('run-migration'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.migrationFixture', 'true' }
+        gameTestServer {
+            type = 'gameTestServer'
+            gameDirectory = file('run-gametest')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'ritualsnotrolls'
+        }
+    }
+    mods { ritualsnotrolls { sourceSet(sourceSets.main) } }
+    unitTest { enable(); testedMod = mods.ritualsnotrolls }
+}
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.named('test', Test) { useJUnitPlatform() }
+tasks.named('jar', Jar) { exclude 'com/cappleapple/ritualsnotrolls/gametest/**'; exclude 'data/ritualsnotrolls/structure/empty.nbt', 'data/ritualsnotrolls/structure/network.nbt' }
+def resourceVersion = project.version.toString()
+tasks.named('processResources', ProcessResources) {
+    inputs.property 'version', project.version
+    filesMatching('META-INF/neoforge.mods.toml') { expand version: resourceVersion }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+    options.compilerArgs.add('-Xlint:deprecation')
+}

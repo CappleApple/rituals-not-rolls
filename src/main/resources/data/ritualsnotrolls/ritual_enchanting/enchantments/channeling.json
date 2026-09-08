@@ -1,0 +1,37 @@
+{
+  "enchantment": "minecraft:channeling",
+  "materials": [
+    {
+      "id": "copper_ingot",
+      "item": "minecraft:copper_ingot",
+      "power": 26,
+      "resource_value": 3.25
+    },
+    {
+      "id": "amethyst_shard",
+      "item": "minecraft:amethyst_shard",
+      "power": 34,
+      "resource_value": 4.25
+    },
+    {
+      "id": "lightning_rod",
+      "item": "minecraft:lightning_rod",
+      "power": 68,
+      "resource_value": 8.5
+    },
+    {
+      "id": "weathered_copper",
+      "item": "minecraft:weathered_copper",
+      "power": 52,
+      "resource_value": 6.5
+    }
+  ],
+  "levels": {
+    "1": 180
+  },
+  "conflict_groups": [
+    "trident"
+  ],
+  "particle": "minecraft:electric_spark",
+  "particle_color": "#F7F5A0"
+}

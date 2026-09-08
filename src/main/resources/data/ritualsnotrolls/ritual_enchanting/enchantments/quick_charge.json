@@ -1,0 +1,44 @@
+{
+  "enchantment": "minecraft:quick_charge",
+  "materials": [
+    {
+      "id": "redstone",
+      "item": "minecraft:redstone",
+      "power": 38,
+      "resource_value": 4.75
+    },
+    {
+      "id": "tripwire_hook",
+      "item": "minecraft:tripwire_hook",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "copper_ingot",
+      "item": "minecraft:copper_ingot",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 62,
+      "resource_value": 7.75
+    },
+    {
+      "id": "clock",
+      "item": "minecraft:clock",
+      "power": 40,
+      "resource_value": 5.0
+    }
+  ],
+  "levels": {
+    "1": 36.0,
+    "2": 84.0,
+    "3": 180,
+    "4": 312.0
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:electric_spark",
+  "particle_color": "#F2A358"
+}

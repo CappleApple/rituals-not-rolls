@@ -1,0 +1,44 @@
+{
+  "enchantment": "minecraft:swift_sneak",
+  "materials": [
+    {
+      "id": "white_wool",
+      "item": "minecraft:white_wool",
+      "power": 14,
+      "resource_value": 1.75
+    },
+    {
+      "id": "echo_shard",
+      "item": "minecraft:echo_shard",
+      "power": 85,
+      "resource_value": 10.62
+    },
+    {
+      "id": "sculk",
+      "item": "minecraft:sculk",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "rabbit_foot",
+      "item": "minecraft:rabbit_foot",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "phantom_membrane",
+      "item": "minecraft:phantom_membrane",
+      "power": 56,
+      "resource_value": 7.0
+    }
+  ],
+  "levels": {
+    "1": 45.8,
+    "2": 106.8667,
+    "3": 229,
+    "4": 396.9333
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:sculk_soul",
+  "particle_color": "#247E91"
+}

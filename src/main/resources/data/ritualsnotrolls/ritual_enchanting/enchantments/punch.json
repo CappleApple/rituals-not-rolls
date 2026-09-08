@@ -1,0 +1,43 @@
+{
+  "enchantment": "minecraft:punch",
+  "materials": [
+    {
+      "id": "piston",
+      "item": "minecraft:piston",
+      "power": 46,
+      "resource_value": 5.75
+    },
+    {
+      "id": "slime_ball",
+      "item": "minecraft:slime_ball",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 64,
+      "resource_value": 8.0
+    },
+    {
+      "id": "wind_charge",
+      "item": "minecraft:wind_charge",
+      "power": 84,
+      "resource_value": 10.5
+    },
+    {
+      "id": "iron_ingot",
+      "item": "minecraft:iron_ingot",
+      "power": 20,
+      "resource_value": 2.5
+    }
+  ],
+  "levels": {
+    "1": 109.7143,
+    "2": 256,
+    "3": 548.5714
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:poof",
+  "particle_color": "#D6C0A0"
+}

@@ -1,0 +1,35 @@
+{
+  "enchantment": "minecraft:vanishing_curse",
+  "materials": [
+    {
+      "id": "ender_pearl",
+      "item": "minecraft:ender_pearl",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "phantom_membrane",
+      "item": "minecraft:phantom_membrane",
+      "power": 46,
+      "resource_value": 5.75
+    },
+    {
+      "id": "echo_shard",
+      "item": "minecraft:echo_shard",
+      "power": 70,
+      "resource_value": 8.75
+    },
+    {
+      "id": "dragon_breath",
+      "item": "minecraft:dragon_breath",
+      "power": 96,
+      "resource_value": 12.0
+    }
+  ],
+  "levels": {
+    "1": 244
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:reverse_portal",
+  "particle_color": "#925BBB"
+}

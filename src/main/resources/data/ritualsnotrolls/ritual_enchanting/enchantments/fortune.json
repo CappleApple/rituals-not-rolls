@@ -1,0 +1,46 @@
+{
+  "enchantment": "minecraft:fortune",
+  "materials": [
+    {
+      "id": "lapis_lazuli",
+      "item": "minecraft:lapis_lazuli",
+      "power": 26,
+      "resource_value": 3.25
+    },
+    {
+      "id": "raw_gold",
+      "item": "minecraft:raw_gold",
+      "power": 38,
+      "resource_value": 4.75
+    },
+    {
+      "id": "raw_iron_block",
+      "item": "minecraft:raw_iron_block",
+      "power": 62,
+      "resource_value": 7.75
+    },
+    {
+      "id": "raw_copper_block",
+      "item": "minecraft:raw_copper_block",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "emerald",
+      "item": "minecraft:emerald",
+      "power": 80,
+      "resource_value": 10.0
+    }
+  ],
+  "levels": {
+    "1": 48.4,
+    "2": 112.9333,
+    "3": 242,
+    "4": 419.4667
+  },
+  "conflict_groups": [
+    "mining"
+  ],
+  "particle": "minecraft:enchant",
+  "particle_color": "#68D99E"
+}

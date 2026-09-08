@@ -1,0 +1,45 @@
+{
+  "enchantment": "dungeons_arise:discharge",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/copper_ingot",
+      "item": "minecraft:copper_ingot",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "minecraft/lightning_rod",
+      "item": "minecraft:lightning_rod",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "minecraft/redstone_block",
+      "item": "minecraft:redstone_block",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "minecraft/glowstone_dust",
+      "item": "minecraft:glowstone_dust",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/trident",
+      "item": "minecraft:trident",
+      "power": 110,
+      "resource_value": 13.75
+    }
+  ],
+  "levels": {
+    "1": 48.0,
+    "2": 112.0,
+    "3": 240,
+    "4": 416.0
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:electric_spark",
+  "particle_color": "#7AD8F1"
+}

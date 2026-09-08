@@ -1,0 +1,45 @@
+{
+  "enchantment": "minecraft:frost_walker",
+  "materials": [
+    {
+      "id": "snowball",
+      "item": "minecraft:snowball",
+      "power": 10,
+      "resource_value": 1.25
+    },
+    {
+      "id": "ice",
+      "item": "minecraft:ice",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "packed_ice",
+      "item": "minecraft:packed_ice",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "blue_ice",
+      "item": "minecraft:blue_ice",
+      "power": 72,
+      "resource_value": 9.0
+    },
+    {
+      "id": "diamond",
+      "item": "minecraft:diamond",
+      "power": 20,
+      "resource_value": 2.5
+    }
+  ],
+  "levels": {
+    "1": 72.0,
+    "2": 168,
+    "3": 360.0
+  },
+  "conflict_groups": [
+    "boots"
+  ],
+  "particle": "minecraft:snowflake",
+  "particle_color": "#C9F7FF"
+}

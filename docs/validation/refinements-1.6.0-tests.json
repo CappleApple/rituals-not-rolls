@@ -1,0 +1,53 @@
+{
+  "suites": [
+    {
+      "name": "com.cappleapple.ritualsnotrolls.data.AnimationTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.041"
+    },
+    {
+      "name": "com.cappleapple.ritualsnotrolls.data.ContinuousFlightTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.008"
+    },
+    {
+      "name": "com.cappleapple.ritualsnotrolls.data.DefinitionTest",
+      "tests": "21",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.022"
+    },
+    {
+      "name": "com.cappleapple.ritualsnotrolls.data.ParticlePathTest",
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.012"
+    },
+    {
+      "name": "com.cappleapple.ritualsnotrolls.data.PowerTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.006"
+    },
+    {
+      "name": "com.cappleapple.ritualsnotrolls.data.PowerTierTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.003"
+    }
+  ],
+  "total": 51
+}

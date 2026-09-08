@@ -1,0 +1,42 @@
+{
+  "enchantment": "botanypots:idle_hands",
+  "optional": true,
+  "materials": [
+    {
+      "id": "botanypots/terracotta_botany_pot",
+      "item": "botanypots:terracotta_botany_pot",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "botanypots/terracotta_hopper_botany_pot",
+      "item": "botanypots:terracotta_hopper_botany_pot",
+      "power": 80,
+      "resource_value": 10.0
+    },
+    {
+      "id": "minecraft/composter",
+      "item": "minecraft:composter",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/bone_meal",
+      "item": "minecraft:bone_meal",
+      "power": 16,
+      "resource_value": 2.0
+    },
+    {
+      "id": "minecraft/moss_block",
+      "item": "minecraft:moss_block",
+      "power": 32,
+      "resource_value": 4.0
+    }
+  ],
+  "levels": {
+    "1": 184
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:happy_villager",
+  "particle_color": "#89BE62"
+}

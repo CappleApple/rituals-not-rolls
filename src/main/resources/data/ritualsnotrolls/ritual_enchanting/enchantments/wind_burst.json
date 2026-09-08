@@ -1,0 +1,44 @@
+{
+  "enchantment": "minecraft:wind_burst",
+  "materials": [
+    {
+      "id": "feather",
+      "item": "minecraft:feather",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 68,
+      "resource_value": 8.5
+    },
+    {
+      "id": "wind_charge",
+      "item": "minecraft:wind_charge",
+      "power": 92,
+      "resource_value": 11.5
+    },
+    {
+      "id": "heavy_core",
+      "item": "minecraft:heavy_core",
+      "power": 120,
+      "resource_value": 15.0
+    },
+    {
+      "id": "nether_star",
+      "item": "minecraft:nether_star",
+      "power": 138,
+      "resource_value": 17.25
+    }
+  ],
+  "levels": {
+    "1": 88.0,
+    "2": 205.3333,
+    "3": 440,
+    "4": 762.6667
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:cloud",
+  "particle_color": "#D9FFE6"
+}

@@ -1,0 +1,15 @@
+1.2.1 initial start, reload, save, and stop
+		Rituals Not Rolls 1.2.1 (ritualsnotrolls)
+[07Sep2026 02:02:11.551] [main/INFO] [com.cappleapple.ritualsnotrolls.RitualsNotRolls/]: Loaded 42 ritual enchantment definitions, revision 1
+[07Sep2026 02:02:12.283] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (0.331s)! For help, type "help"
+[07Sep2026 02:04:51.797] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Reloading!]
+[07Sep2026 02:04:52.008] [Server thread/INFO] [com.cappleapple.ritualsnotrolls.RitualsNotRolls/]: Loaded 42 ritual enchantment definitions, revision 2
+[07Sep2026 02:05:28.297] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[07Sep2026 02:05:28.362] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+1.2.1 saved-world restart and clean stop
+		Rituals Not Rolls 1.2.1 (ritualsnotrolls)
+[07Sep2026 02:06:04.524] [main/INFO] [com.cappleapple.ritualsnotrolls.RitualsNotRolls/]: Loaded 42 ritual enchantment definitions, revision 1
+[07Sep2026 02:06:05.345] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (0.322s)! For help, type "help"
+[07Sep2026 02:06:34.554] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[07Sep2026 02:06:34.611] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved

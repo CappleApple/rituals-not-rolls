@@ -1,0 +1,48 @@
+{
+  "enchantment": "minecraft:smite",
+  "materials": [
+    {
+      "id": "bone",
+      "item": "minecraft:bone",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "rotten_flesh",
+      "item": "minecraft:rotten_flesh",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "gold_ingot",
+      "item": "minecraft:gold_ingot",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "glowstone_dust",
+      "item": "minecraft:glowstone_dust",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "ghast_tear",
+      "item": "minecraft:ghast_tear",
+      "power": 68,
+      "resource_value": 8.5
+    }
+  ],
+  "levels": {
+    "1": 12.4286,
+    "2": 29.0,
+    "3": 62.1429,
+    "4": 107.7143,
+    "5": 174,
+    "6": 265.1429
+  },
+  "conflict_groups": [
+    "damage"
+  ],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#FFE89C"
+}

@@ -1,0 +1,47 @@
+{
+  "enchantment": "minecraft:fire_protection",
+  "materials": [
+    {
+      "id": "magma_cream",
+      "item": "minecraft:magma_cream",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "blaze_powder",
+      "item": "minecraft:blaze_powder",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "polished_basalt",
+      "item": "minecraft:polished_basalt",
+      "power": 20,
+      "resource_value": 2.5
+    },
+    {
+      "id": "nether_brick",
+      "item": "minecraft:nether_brick",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "fire_charge",
+      "item": "minecraft:fire_charge",
+      "power": 50,
+      "resource_value": 6.25
+    }
+  ],
+  "levels": {
+    "1": 15.6923,
+    "2": 36.6154,
+    "3": 78.4615,
+    "4": 136,
+    "5": 219.6923
+  },
+  "conflict_groups": [
+    "protection"
+  ],
+  "particle": "minecraft:flame",
+  "particle_color": "#FFC078"
+}

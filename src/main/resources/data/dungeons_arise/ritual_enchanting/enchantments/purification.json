@@ -1,0 +1,45 @@
+{
+  "enchantment": "dungeons_arise:purification",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/milk_bucket",
+      "item": "minecraft:milk_bucket",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/honey_bottle",
+      "item": "minecraft:honey_bottle",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/lily_of_the_valley",
+      "item": "minecraft:lily_of_the_valley",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/ghast_tear",
+      "item": "minecraft:ghast_tear",
+      "power": 68,
+      "resource_value": 8.5
+    },
+    {
+      "id": "minecraft/golden_apple",
+      "item": "minecraft:golden_apple",
+      "power": 88,
+      "resource_value": 11.0
+    }
+  ],
+  "levels": {
+    "1": 48.0,
+    "2": 112.0,
+    "3": 240,
+    "4": 416.0
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#F6F0C7"
+}

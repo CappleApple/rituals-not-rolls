@@ -1,0 +1,61 @@
+[13:25:07] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as knowledge-book.png
+[13:25:07] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: per-book Auto-Add off synchronized
+[13:25:08] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: per-book Auto-Add on synchronized
+[13:25:09] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: tear-out packet removed one entry
+[13:25:10] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: gather packet restored loose page
+[13:25:13] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: resource reload completed
+[13:25:13] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as knowledge-book-reloaded.png
+[13:25:16] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: reference UI has no target or inventory slots
+[13:25:16] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: table lists only six nearby known enchantments
+[13:25:16] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: two placed catalysts show 550 XP and +20 percent
+[13:25:16] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: all six pedestal orientations synchronized to the client
+[13:25:17] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as reference-page-forward.png
+[13:25:18] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as reference-page-back.png
+[13:25:18] [IO-Worker-2/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as knowledge-reference.png
+[13:25:20] [IO-Worker-2/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as automatic-ritual-early.png
+[13:25:23] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: client target stays at a stable height for 50 ticks (range=0.0)
+[13:25:23] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: curved flights include player input to both displayed XP catalysts
+[13:25:23] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: arrived particles move around the target in an orbit
+[13:25:23] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: initial enchantment ring reached the client
+[13:25:23] [IO-Worker-2/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as automatic-ritual-late.png
+[13:25:36] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: different imbuement powers produce different synchronized ring radii: {11522047=0.96224535, 9430271=0.8876537, 15586908=1.0196999, 16742946=0.9863568}
+[13:25:36] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: next enchantment starts after the prior ring arrives
+[13:25:36] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: next enchantment starts after the prior ring arrives
+[13:25:36] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: next enchantment starts after the prior ring arrives
+[13:25:36] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: multi-enchantment animation starts are staggered
+[13:25:36] [IO-Worker-2/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as automatic-ritual-layered.png
+[13:25:41] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual power-scaled rings pulse inward (radius=0.14146093627221304)
+[13:25:41] [IO-Worker-2/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as ritual-pulse.png
+[13:25:41] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: completion burst renders visible vertices
+[13:25:42] [IO-Worker-2/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as ritual-burst.png
+[13:25:42] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: burst vertex opacity fades (221 -> 44)
+[13:25:42] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual burst particles travel into all eight spatial octants
+[13:25:42] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as ritual-burst-fading.png
+[13:25:45] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: completion burst fades and expires after the enchantment
+[13:25:45] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA target trace: alive=true removed=null pos=(0.5, 64.75, 0.5) stack={components:{"minecraft:enchantments":{levels:{"minecraft:fire_aspect":2,"minecraft:looting":2,"minecraft:sharpness":4,"minecraft:unbreaking":2}}},count:1,id:"minecraft:netherite_sword"} nearby=[(0.5, 64.75, 0.5) 1 minecraft:netherite_sword]
+[13:25:45] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: unarmed thrown target automatically enchanted on actual client
+[13:25:45] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: released result has normal client gravity
+[13:25:45] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: two XP catalysts debit exactly 550 of the starting 1395 XP
+[13:25:45] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA result: {components:{"minecraft:enchantments":{levels:{"minecraft:fire_aspect":2,"minecraft:looting":2,"minecraft:sharpness":4,"minecraft:unbreaking":2}}},count:1,id:"minecraft:netherite_sword"}
+[13:25:45] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as automatic-ritual-complete.png
+[13:25:46] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as oriented-pedestal-rims.png
+[13:25:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual page vertices stay centered while spinning at 0 degrees
+[13:25:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: page renders a real 3D edge
+[13:25:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual page vertices stay centered while spinning at 45 degrees
+[13:25:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual page vertices stay centered while spinning at 90 degrees
+[13:25:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual page vertices stay centered while spinning at 180 degrees
+[13:25:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual page vertices stay centered while spinning at 270 degrees
+[13:25:48] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as ceiling-pedestal-rim.png
+[13:25:50] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as knowledge-page-centered.png
+[13:25:52] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as knowledge-page-rotated.png
+[13:25:54] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: both pedestal modifiers synchronize to the client
+[13:25:55] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: reference shows -145 potential power with the return visit
+[13:25:55] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as subtraction-reference.png
+[13:25:59] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual subtraction flights travel from target to pedestal
+[13:25:59] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as subtraction-inverse-flow.png
+[13:26:04] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as disenchantment-draining.png
+[13:26:06] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: actual subtraction changes Sharpness V to III
+[13:26:06] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: disenchantment releases the item, lets reverse flights finish, and has no burst
+[13:26:06] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA passed: subtraction consumes the marked material and retains both modifiers
+[13:26:07] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: CLIENT_ACTION_SMOKE_COMPLETE
+[13:26:07] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: Client QA: Saved screenshot as multiple-pedestal-modifiers.png

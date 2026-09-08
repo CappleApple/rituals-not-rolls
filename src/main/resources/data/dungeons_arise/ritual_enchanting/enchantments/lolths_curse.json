@@ -1,0 +1,42 @@
+{
+  "enchantment": "dungeons_arise:lolths_curse",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/spider_eye",
+      "item": "minecraft:spider_eye",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "minecraft/fermented_spider_eye",
+      "item": "minecraft:fermented_spider_eye",
+      "power": 56,
+      "resource_value": 7.0
+    },
+    {
+      "id": "minecraft/cobweb",
+      "item": "minecraft:cobweb",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/poisonous_potato",
+      "item": "minecraft:poisonous_potato",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/wither_rose",
+      "item": "minecraft:wither_rose",
+      "power": 88,
+      "resource_value": 11.0
+    }
+  ],
+  "levels": {
+    "1": 240
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:witch",
+  "particle_color": "#9D43A5"
+}

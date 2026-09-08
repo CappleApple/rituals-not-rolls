@@ -1,0 +1,42 @@
+{
+  "enchantment": "notenoughtrials:equity",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/iron_axe",
+      "item": "minecraft:iron_axe",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/amethyst_shard",
+      "item": "minecraft:amethyst_shard",
+      "power": 20,
+      "resource_value": 2.5
+    },
+    {
+      "id": "minecraft/gold_ingot",
+      "item": "minecraft:gold_ingot",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/diamond",
+      "item": "minecraft:diamond",
+      "power": 64,
+      "resource_value": 8.0
+    },
+    {
+      "id": "minecraft/trial_key",
+      "item": "minecraft:trial_key",
+      "power": 56,
+      "resource_value": 7.0
+    }
+  ],
+  "levels": {
+    "1": 192
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:enchant",
+  "particle_color": "#E4B987"
+}

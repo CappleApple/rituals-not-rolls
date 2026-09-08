@@ -1,0 +1,42 @@
+{
+  "enchantment": "minecraft:soul_flame",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/soul_sand",
+      "item": "minecraft:soul_sand",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/soul_torch",
+      "item": "minecraft:soul_torch",
+      "power": 16,
+      "resource_value": 2.0
+    },
+    {
+      "id": "minecraft/fire_charge",
+      "item": "minecraft:fire_charge",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "minecraft/crying_obsidian",
+      "item": "minecraft:crying_obsidian",
+      "power": 68,
+      "resource_value": 8.5
+    },
+    {
+      "id": "minecraft/ghast_tear",
+      "item": "minecraft:ghast_tear",
+      "power": 76,
+      "resource_value": 9.5
+    }
+  ],
+  "levels": {
+    "1": 224
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:soul",
+  "particle_color": "#7EECF2"
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "ritualsnotrolls:pedestal",
+    {
+      "id": "supplementaries:pedestal",
+      "required": false
+    },
+    {
+      "id": "irons_spellbooks:pedestal",
+      "required": false
+    }
+  ]
+}

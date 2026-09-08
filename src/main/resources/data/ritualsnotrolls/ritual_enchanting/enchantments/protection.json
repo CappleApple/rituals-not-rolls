@@ -1,0 +1,47 @@
+{
+  "enchantment": "minecraft:protection",
+  "materials": [
+    {
+      "id": "iron_ingot",
+      "item": "minecraft:iron_ingot",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "copper_ingot",
+      "item": "minecraft:copper_ingot",
+      "power": 10,
+      "resource_value": 1.25
+    },
+    {
+      "id": "diamond",
+      "item": "minecraft:diamond",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "netherite_scrap",
+      "item": "minecraft:netherite_scrap",
+      "power": 64,
+      "resource_value": 8.0
+    },
+    {
+      "id": "turtle_scute",
+      "item": "minecraft:turtle_scute",
+      "power": 36,
+      "resource_value": 4.5
+    }
+  ],
+  "levels": {
+    "1": 19.8462,
+    "2": 46.3077,
+    "3": 99.2308,
+    "4": 172,
+    "5": 277.8462
+  },
+  "conflict_groups": [
+    "protection"
+  ],
+  "particle": "minecraft:enchant",
+  "particle_color": "#94BCD6"
+}

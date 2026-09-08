@@ -1,0 +1,43 @@
+{
+  "enchantment": "minecraft:silk_touch",
+  "materials": [
+    {
+      "id": "string",
+      "item": "minecraft:string",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "cobweb",
+      "item": "minecraft:cobweb",
+      "power": 46,
+      "resource_value": 5.75
+    },
+    {
+      "id": "honeycomb",
+      "item": "minecraft:honeycomb",
+      "power": 30,
+      "resource_value": 3.75
+    },
+    {
+      "id": "slime_block",
+      "item": "minecraft:slime_block",
+      "power": 38,
+      "resource_value": 4.75
+    },
+    {
+      "id": "amethyst_cluster",
+      "item": "minecraft:amethyst_cluster",
+      "power": 54,
+      "resource_value": 6.75
+    }
+  ],
+  "levels": {
+    "1": 192
+  },
+  "conflict_groups": [
+    "mining"
+  ],
+  "particle": "minecraft:enchant",
+  "particle_color": "#E2DAF2"
+}

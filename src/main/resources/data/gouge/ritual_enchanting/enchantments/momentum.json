@@ -1,0 +1,45 @@
+{
+  "enchantment": "gouge:momentum",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/piston",
+      "item": "minecraft:piston",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/iron_ingot",
+      "item": "minecraft:iron_ingot",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "minecraft/activator_rail",
+      "item": "minecraft:activator_rail",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/powered_rail",
+      "item": "minecraft:powered_rail",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "minecraft/minecart",
+      "item": "minecraft:minecart",
+      "power": 60,
+      "resource_value": 7.5
+    }
+  ],
+  "levels": {
+    "1": 36.0,
+    "2": 84.0,
+    "3": 180,
+    "4": 312.0
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:crit",
+  "particle_color": "#E6AA87"
+}

@@ -1,0 +1,50 @@
+{
+  "enchantment": "minecraft:looting",
+  "materials": [
+    {
+      "id": "emerald",
+      "item": "minecraft:emerald",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "gold_nugget",
+      "item": "minecraft:gold_nugget",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "rabbit_foot",
+      "item": "minecraft:rabbit_foot",
+      "power": 56,
+      "resource_value": 7.0
+    },
+    {
+      "id": "raw_gold_block",
+      "item": "minecraft:raw_gold_block",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "nether_star",
+      "item": "minecraft:nether_star",
+      "power": 108,
+      "resource_value": 13.5
+    },
+    {
+      "id": "glistering_melon_slice",
+      "item": "minecraft:glistering_melon_slice",
+      "power": 28,
+      "resource_value": 3.5
+    }
+  ],
+  "levels": {
+    "1": 56.0,
+    "2": 130.6667,
+    "3": 280,
+    "4": 485.3333
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:enchant",
+  "particle_color": "#EDD65C"
+}

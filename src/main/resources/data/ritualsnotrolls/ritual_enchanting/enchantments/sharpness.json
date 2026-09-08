@@ -1,0 +1,60 @@
+{
+  "enchantment": "minecraft:sharpness",
+  "materials": [
+    {
+      "id": "flint",
+      "item": "minecraft:flint",
+      "power": 7,
+      "resource_value": 1
+    },
+    {
+      "id": "iron_ingot",
+      "item": "minecraft:iron_ingot",
+      "power": 8,
+      "resource_value": 1
+    },
+    {
+      "id": "diamond",
+      "item": "minecraft:diamond",
+      "power": 30,
+      "resource_value": 3.75
+    },
+    {
+      "id": "netherite_scrap",
+      "item": "minecraft:netherite_scrap",
+      "power": 55,
+      "resource_value": 6.88
+    },
+    {
+      "id": "quartz",
+      "item": "minecraft:quartz",
+      "power": 44,
+      "resource_value": 5.5
+    },
+    {
+      "id": "amethyst_shard",
+      "item": "minecraft:amethyst_shard",
+      "power": 53,
+      "resource_value": 6.62
+    },
+    {
+      "id": "amethyst_group",
+      "tag": "c:gems/amethyst",
+      "power": 16,
+      "resource_value": 2
+    }
+  ],
+  "levels": {
+    "1": 14.0714,
+    "2": 32.8333,
+    "3": 70.3571,
+    "4": 121.9524,
+    "5": 197,
+    "6": 300.1905
+  },
+  "conflict_groups": [
+    "damage"
+  ],
+  "particle": "minecraft:enchant",
+  "particle_color": "#AFCFFF"
+}

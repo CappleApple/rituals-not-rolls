@@ -1,0 +1,45 @@
+{
+  "enchantment": "create:capacity",
+  "optional": true,
+  "materials": [
+    {
+      "id": "create/copper_sheet",
+      "item": "create:copper_sheet",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "create/fluid_tank",
+      "item": "create:fluid_tank",
+      "power": 54,
+      "resource_value": 6.75
+    },
+    {
+      "id": "create/propeller",
+      "item": "create:propeller",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "create/brass_ingot",
+      "item": "create:brass_ingot",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "create/precision_mechanism",
+      "item": "create:precision_mechanism",
+      "power": 86,
+      "resource_value": 10.75
+    }
+  ],
+  "levels": {
+    "1": 44.8,
+    "2": 104.5333,
+    "3": 224,
+    "4": 388.2667
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:cloud",
+  "particle_color": "#CDA477"
+}

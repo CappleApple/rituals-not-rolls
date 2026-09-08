@@ -1,0 +1,42 @@
+{
+  "enchantment": "dungeons_arise:voltaic_shot",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/lightning_rod",
+      "item": "minecraft:lightning_rod",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "minecraft/copper_block",
+      "item": "minecraft:copper_block",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "minecraft/glowstone",
+      "item": "minecraft:glowstone",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "minecraft/firework_star",
+      "item": "minecraft:firework_star",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "minecraft/end_rod",
+      "item": "minecraft:end_rod",
+      "power": 80,
+      "resource_value": 10.0
+    }
+  ],
+  "levels": {
+    "1": 240
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:electric_spark",
+  "particle_color": "#A4AEFF"
+}

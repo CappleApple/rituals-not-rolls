@@ -1,0 +1,19 @@
+.gradle/
+build/
+run/
+run-client/
+run-gametest/
+run-migration/
+run-compat/
+.idea/
+*.iml
+*.log
+!docs/validation/*.log
+run-pedestal-compat/
+run-refinement-client/
+run-refinement-server/
+
+# Local release archives and artwork work files
+/dist/
+/output/
+__pycache__/

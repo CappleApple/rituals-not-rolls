@@ -1,0 +1,21 @@
+Calculating task graph as configuration cache cannot be reused because file 'gradle.properties' has changed.
+> Task :downloadAssets UP-TO-DATE
+> Task :jarJar NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :writeNeoForgeTestClasspath UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareNeoForgeTestFiles UP-TO-DATE
+> Task :processResources
+> Task :compileJava
+> Task :classes
+> Task :compileTestJava UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+> Task :jar
+> Task :assemble
+> Task :test
+> Task :check
+> Task :build
+
+BUILD SUCCESSFUL in 8s
+9 actionable tasks: 4 executed, 5 up-to-date
+Configuration cache entry stored.

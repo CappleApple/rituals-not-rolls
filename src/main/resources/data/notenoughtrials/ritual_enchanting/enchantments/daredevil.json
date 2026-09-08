@@ -1,0 +1,42 @@
+{
+  "enchantment": "notenoughtrials:daredevil",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/heavy_core",
+      "item": "minecraft:heavy_core",
+      "power": 160,
+      "resource_value": 20.0
+    },
+    {
+      "id": "minecraft/breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "minecraft/ominous_trial_key",
+      "item": "minecraft:ominous_trial_key",
+      "power": 80,
+      "resource_value": 10.0
+    },
+    {
+      "id": "minecraft/wind_charge",
+      "item": "minecraft:wind_charge",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/phantom_membrane",
+      "item": "minecraft:phantom_membrane",
+      "power": 64,
+      "resource_value": 8.0
+    }
+  ],
+  "levels": {
+    "1": 384
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:gust",
+  "particle_color": "#ED9866"
+}

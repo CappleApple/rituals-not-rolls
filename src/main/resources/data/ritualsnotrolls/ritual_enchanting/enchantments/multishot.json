@@ -1,0 +1,37 @@
+{
+  "enchantment": "minecraft:multishot",
+  "materials": [
+    {
+      "id": "arrow",
+      "item": "minecraft:arrow",
+      "power": 20,
+      "resource_value": 2.5
+    },
+    {
+      "id": "firework_star",
+      "item": "minecraft:firework_star",
+      "power": 44,
+      "resource_value": 5.5
+    },
+    {
+      "id": "prismarine_crystals",
+      "item": "minecraft:prismarine_crystals",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "echo_shard",
+      "item": "minecraft:echo_shard",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 164
+  },
+  "conflict_groups": [
+    "crossbow"
+  ],
+  "particle": "minecraft:crit",
+  "particle_color": "#C898E7"
+}

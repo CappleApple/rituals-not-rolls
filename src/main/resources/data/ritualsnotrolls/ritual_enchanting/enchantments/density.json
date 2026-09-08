@@ -1,0 +1,48 @@
+{
+  "enchantment": "minecraft:density",
+  "materials": [
+    {
+      "id": "iron_ingot",
+      "item": "minecraft:iron_ingot",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "gold_ingot",
+      "item": "minecraft:gold_ingot",
+      "power": 50,
+      "resource_value": 6.25
+    },
+    {
+      "id": "obsidian",
+      "item": "minecraft:obsidian",
+      "power": 58,
+      "resource_value": 7.25
+    },
+    {
+      "id": "heavy_core",
+      "item": "minecraft:heavy_core",
+      "power": 110,
+      "resource_value": 13.75
+    },
+    {
+      "id": "netherite_scrap",
+      "item": "minecraft:netherite_scrap",
+      "power": 84,
+      "resource_value": 10.5
+    }
+  ],
+  "levels": {
+    "1": 23.8571,
+    "2": 55.6667,
+    "3": 119.2857,
+    "4": 206.7619,
+    "5": 334,
+    "6": 508.9524
+  },
+  "conflict_groups": [
+    "mace"
+  ],
+  "particle": "minecraft:poof",
+  "particle_color": "#8C99B5"
+}

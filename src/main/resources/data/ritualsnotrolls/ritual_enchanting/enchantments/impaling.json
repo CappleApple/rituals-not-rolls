@@ -1,0 +1,40 @@
+{
+  "enchantment": "minecraft:impaling",
+  "materials": [
+    {
+      "id": "pointed_dripstone",
+      "item": "minecraft:pointed_dripstone",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "prismarine_shard",
+      "item": "minecraft:prismarine_shard",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "iron_nugget",
+      "item": "minecraft:iron_nugget",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "nautilus_shell",
+      "item": "minecraft:nautilus_shell",
+      "power": 62,
+      "resource_value": 7.75
+    }
+  ],
+  "levels": {
+    "1": 9.7143,
+    "2": 22.6667,
+    "3": 48.5714,
+    "4": 84.1905,
+    "5": 136,
+    "6": 207.2381
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:crit",
+  "particle_color": "#67CED3"
+}

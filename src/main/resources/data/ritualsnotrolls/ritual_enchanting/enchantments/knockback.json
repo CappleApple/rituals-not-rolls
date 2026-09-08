@@ -1,0 +1,43 @@
+{
+  "enchantment": "minecraft:knockback",
+  "materials": [
+    {
+      "id": "piston",
+      "item": "minecraft:piston",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "slime_ball",
+      "item": "minecraft:slime_ball",
+      "power": 38,
+      "resource_value": 4.75
+    },
+    {
+      "id": "iron_ingot",
+      "item": "minecraft:iron_ingot",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 58,
+      "resource_value": 7.25
+    },
+    {
+      "id": "wind_charge",
+      "item": "minecraft:wind_charge",
+      "power": 76,
+      "resource_value": 9.5
+    }
+  ],
+  "levels": {
+    "1": 102.0,
+    "2": 238,
+    "3": 510.0
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:crit",
+  "particle_color": "#EDBE6F"
+}

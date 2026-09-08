@@ -1,0 +1,35 @@
+{
+  "enchantment": "minecraft:aqua_affinity",
+  "materials": [
+    {
+      "id": "sponge",
+      "item": "minecraft:sponge",
+      "power": 34,
+      "resource_value": 4.25
+    },
+    {
+      "id": "wet_sponge",
+      "item": "minecraft:wet_sponge",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "sea_lantern",
+      "item": "minecraft:sea_lantern",
+      "power": 54,
+      "resource_value": 6.75
+    },
+    {
+      "id": "conduit",
+      "item": "minecraft:conduit",
+      "power": 82,
+      "resource_value": 10.25
+    }
+  ],
+  "levels": {
+    "1": 212
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#27C7C2"
+}

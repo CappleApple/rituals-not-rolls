@@ -1,0 +1,53 @@
+{
+  "enchantment": "aggrofix:aggrobaiting",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/carrot",
+      "item": "minecraft:carrot",
+      "power": 30,
+      "resource_value": 3.75
+    },
+    {
+      "id": "minecraft/rotten_flesh",
+      "item": "minecraft:rotten_flesh",
+      "power": 15,
+      "resource_value": 1.88
+    },
+    {
+      "id": "minecraft/salmon",
+      "item": "minecraft:salmon",
+      "power": 25,
+      "resource_value": 3.12
+    },
+    {
+      "id": "minecraft/spider_eye",
+      "item": "minecraft:spider_eye",
+      "power": 35,
+      "resource_value": 4.38
+    },
+    {
+      "id": "minecraft/honey_bottle",
+      "item": "minecraft:honey_bottle",
+      "power": 45,
+      "resource_value": 5.62
+    },
+    {
+      "id": "minecraft/golden_apple",
+      "item": "minecraft:golden_apple",
+      "power": 70,
+      "resource_value": 8.75
+    }
+  ],
+  "levels": {
+    "1": 15.7143,
+    "2": 36.6667,
+    "3": 78.5714,
+    "4": 136.1905,
+    "5": 220,
+    "6": 335.2381
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:happy_villager",
+  "particle_color": "#E9AC64"
+}

@@ -1,0 +1,23 @@
+{
+  "description": {
+    "translate": "enchantment.ritualsnotrolls.arcane_assembly"
+  },
+  "supported_items": [
+    "minecraft:enchanting_table"
+  ],
+  "weight": 1,
+  "max_level": 5,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "max_cost": {
+    "base": 30,
+    "per_level_above_first": 10
+  },
+  "anvil_cost": 4,
+  "slots": [
+    "any"
+  ],
+  "effects": {}
+}

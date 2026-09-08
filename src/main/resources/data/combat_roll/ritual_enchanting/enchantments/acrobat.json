@@ -1,0 +1,47 @@
+{
+  "enchantment": "combat_roll:acrobat",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/string",
+      "item": "minecraft:string",
+      "power": 10,
+      "resource_value": 1.25
+    },
+    {
+      "id": "minecraft/rabbit_hide",
+      "item": "minecraft:rabbit_hide",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "minecraft/leather",
+      "item": "minecraft:leather",
+      "power": 26,
+      "resource_value": 3.25
+    },
+    {
+      "id": "minecraft/scaffolding",
+      "item": "minecraft:scaffolding",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/slime_ball",
+      "item": "minecraft:slime_ball",
+      "power": 50,
+      "resource_value": 6.25
+    }
+  ],
+  "levels": {
+    "1": 10.0,
+    "2": 23.3333,
+    "3": 50.0,
+    "4": 86.6667,
+    "5": 140,
+    "6": 213.3333
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:cloud",
+  "particle_color": "#F2D5A2"
+}

@@ -1,0 +1,41 @@
+{
+  "enchantment": "minecraft:binding_curse",
+  "materials": [
+    {
+      "id": "string",
+      "item": "minecraft:string",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "cobweb",
+      "item": "minecraft:cobweb",
+      "power": 48,
+      "resource_value": 6.0
+    },
+    {
+      "id": "slime_ball",
+      "item": "minecraft:slime_ball",
+      "power": 30,
+      "resource_value": 3.75
+    },
+    {
+      "id": "chain",
+      "item": "minecraft:chain",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "crying_obsidian",
+      "item": "minecraft:crying_obsidian",
+      "power": 64,
+      "resource_value": 8.0
+    }
+  ],
+  "levels": {
+    "1": 200
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:enchant",
+  "particle_color": "#CE5E84"
+}

@@ -1,0 +1,46 @@
+{
+  "enchantment": "combat_roll:longfooted",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/rabbit_foot",
+      "item": "minecraft:rabbit_foot",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/bamboo",
+      "item": "minecraft:bamboo",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "minecraft/snow_block",
+      "item": "minecraft:snow_block",
+      "power": 20,
+      "resource_value": 2.5
+    },
+    {
+      "id": "minecraft/honeycomb",
+      "item": "minecraft:honeycomb",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/phantom_membrane",
+      "item": "minecraft:phantom_membrane",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 18.4615,
+    "2": 43.0769,
+    "3": 92.3077,
+    "4": 160,
+    "5": 258.4615
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#B9E996"
+}

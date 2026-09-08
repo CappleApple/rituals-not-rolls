@@ -1,0 +1,45 @@
+{
+  "enchantment": "farmersdelight:backstabbing",
+  "optional": true,
+  "materials": [
+    {
+      "id": "farmersdelight/flint_knife",
+      "item": "farmersdelight:flint_knife",
+      "power": 20,
+      "resource_value": 2.5
+    },
+    {
+      "id": "farmersdelight/straw",
+      "item": "farmersdelight:straw",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "farmersdelight/canvas",
+      "item": "farmersdelight:canvas",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "farmersdelight/rope",
+      "item": "farmersdelight:rope",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/fermented_spider_eye",
+      "item": "minecraft:fermented_spider_eye",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 32.0,
+    "2": 74.6667,
+    "3": 160,
+    "4": 277.3333
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:crit",
+  "particle_color": "#AD7958"
+}

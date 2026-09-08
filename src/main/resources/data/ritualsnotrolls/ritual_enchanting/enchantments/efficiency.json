@@ -1,0 +1,46 @@
+{
+  "enchantment": "minecraft:efficiency",
+  "materials": [
+    {
+      "id": "redstone",
+      "item": "minecraft:redstone",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "copper_block",
+      "item": "minecraft:copper_block",
+      "power": 20,
+      "resource_value": 2.5
+    },
+    {
+      "id": "diamond",
+      "item": "minecraft:diamond",
+      "power": 44,
+      "resource_value": 5.5
+    },
+    {
+      "id": "netherite_scrap",
+      "item": "minecraft:netherite_scrap",
+      "power": 70,
+      "resource_value": 8.75
+    },
+    {
+      "id": "repeater",
+      "item": "minecraft:repeater",
+      "power": 32,
+      "resource_value": 4.0
+    }
+  ],
+  "levels": {
+    "1": 13.5714,
+    "2": 31.6667,
+    "3": 67.8571,
+    "4": 117.619,
+    "5": 190,
+    "6": 289.5238
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:electric_spark",
+  "particle_color": "#E36A54"
+}

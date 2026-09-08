@@ -1,0 +1,52 @@
+{
+  "enchantment": "dungeons_arise:ensnaring",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/cobweb",
+      "item": "minecraft:cobweb",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/vine",
+      "item": "minecraft:vine",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "minecraft/lead",
+      "item": "minecraft:lead",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/sweet_berries",
+      "item": "minecraft:sweet_berries",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "minecraft/string",
+      "item": "minecraft:string",
+      "power": 8,
+      "resource_value": 1
+    },
+    {
+      "id": "minecraft/spider_eye",
+      "item": "minecraft:spider_eye",
+      "power": 46,
+      "resource_value": 5.75
+    }
+  ],
+  "levels": {
+    "1": 16.1538,
+    "2": 37.6923,
+    "3": 80.7692,
+    "4": 140,
+    "5": 226.1538
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:spore_blossom_air",
+  "particle_color": "#96B877"
+}

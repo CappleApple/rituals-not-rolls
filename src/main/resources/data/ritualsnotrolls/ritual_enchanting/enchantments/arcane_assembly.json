@@ -1,0 +1,5 @@
+{
+  "enchantment": "ritualsnotrolls:arcane_assembly",
+  "enabled": false,
+  "disabled_reason": "Legacy table-upgrade storage retained for old saves; current rituals have no upgrade requirement or Assembly gameplay benefit."
+}

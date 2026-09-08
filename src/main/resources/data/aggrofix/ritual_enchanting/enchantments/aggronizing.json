@@ -1,0 +1,47 @@
+{
+  "enchantment": "aggrofix:aggronizing",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/bell",
+      "item": "minecraft:bell",
+      "power": 52,
+      "resource_value": 6.5
+    },
+    {
+      "id": "minecraft/redstone",
+      "item": "minecraft:redstone",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "minecraft/magma_cream",
+      "item": "minecraft:magma_cream",
+      "power": 34,
+      "resource_value": 4.25
+    },
+    {
+      "id": "minecraft/target",
+      "item": "minecraft:target",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "minecraft/goat_horn",
+      "item": "minecraft:goat_horn",
+      "power": 74,
+      "resource_value": 9.25
+    }
+  ],
+  "levels": {
+    "1": 15.7143,
+    "2": 36.6667,
+    "3": 78.5714,
+    "4": 136.1905,
+    "5": 220,
+    "6": 335.2381
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:crit",
+  "particle_color": "#DB4C3F"
+}

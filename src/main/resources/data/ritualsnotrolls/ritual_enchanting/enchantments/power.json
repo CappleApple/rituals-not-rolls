@@ -1,0 +1,46 @@
+{
+  "enchantment": "minecraft:power",
+  "materials": [
+    {
+      "id": "flint",
+      "item": "minecraft:flint",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "arrow",
+      "item": "minecraft:arrow",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "iron_ingot",
+      "item": "minecraft:iron_ingot",
+      "power": 16,
+      "resource_value": 2.0
+    },
+    {
+      "id": "diamond",
+      "item": "minecraft:diamond",
+      "power": 42,
+      "resource_value": 5.25
+    },
+    {
+      "id": "blaze_rod",
+      "item": "minecraft:blaze_rod",
+      "power": 54,
+      "resource_value": 6.75
+    }
+  ],
+  "levels": {
+    "1": 10.4286,
+    "2": 24.3333,
+    "3": 52.1429,
+    "4": 90.381,
+    "5": 146,
+    "6": 222.4762
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:crit",
+  "particle_color": "#EFA58D"
+}

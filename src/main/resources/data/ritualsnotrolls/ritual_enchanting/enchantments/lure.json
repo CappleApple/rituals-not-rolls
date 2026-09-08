@@ -1,0 +1,44 @@
+{
+  "enchantment": "minecraft:lure",
+  "materials": [
+    {
+      "id": "cod",
+      "item": "minecraft:cod",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "salmon",
+      "item": "minecraft:salmon",
+      "power": 26,
+      "resource_value": 3.25
+    },
+    {
+      "id": "tropical_fish",
+      "item": "minecraft:tropical_fish",
+      "power": 38,
+      "resource_value": 4.75
+    },
+    {
+      "id": "pufferfish",
+      "item": "minecraft:pufferfish",
+      "power": 56,
+      "resource_value": 7.0
+    },
+    {
+      "id": "fishing_rod",
+      "item": "minecraft:fishing_rod",
+      "power": 44,
+      "resource_value": 5.5
+    }
+  ],
+  "levels": {
+    "1": 36.4,
+    "2": 84.9333,
+    "3": 182,
+    "4": 315.4667
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#75AFDC"
+}

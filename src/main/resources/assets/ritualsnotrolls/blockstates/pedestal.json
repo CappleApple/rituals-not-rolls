@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "ritualsnotrolls:block/pedestal",
+      "x": 0,
+      "y": 0
+    },
+    "facing=down": {
+      "model": "ritualsnotrolls:block/pedestal",
+      "x": 180,
+      "y": 0
+    },
+    "facing=north": {
+      "model": "ritualsnotrolls:block/pedestal",
+      "x": 90,
+      "y": 0
+    },
+    "facing=south": {
+      "model": "ritualsnotrolls:block/pedestal",
+      "x": 270,
+      "y": 0
+    },
+    "facing=east": {
+      "model": "ritualsnotrolls:block/pedestal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "ritualsnotrolls:block/pedestal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

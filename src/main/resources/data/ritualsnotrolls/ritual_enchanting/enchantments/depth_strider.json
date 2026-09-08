@@ -1,0 +1,46 @@
+{
+  "enchantment": "minecraft:depth_strider",
+  "materials": [
+    {
+      "id": "prismarine_bricks",
+      "item": "minecraft:prismarine_bricks",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "water_bucket",
+      "item": "minecraft:water_bucket",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "seagrass",
+      "item": "minecraft:seagrass",
+      "power": 12,
+      "resource_value": 1.5
+    },
+    {
+      "id": "prismarine_shard",
+      "item": "minecraft:prismarine_shard",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "turtle_egg",
+      "item": "minecraft:turtle_egg",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 36.0,
+    "2": 84.0,
+    "3": 180,
+    "4": 312.0
+  },
+  "conflict_groups": [
+    "boots"
+  ],
+  "particle": "minecraft:enchant",
+  "particle_color": "#348DAA"
+}

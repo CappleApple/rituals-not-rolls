@@ -1,0 +1,28 @@
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun UP-TO-DATE
+> Task :runGameTestServer
+[13:23:03] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [ritualsnotrolls]
+> Task :runGameTestServer
+[13:23:05] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[13:23:05] [Server thread/INFO] [minecraft/GameTestServer]: 109 tests are now running at position 10776990, -59, -5408804!
+[13:23:06] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (50 tests)...
+[13:23:06] [Server thread/INFO] [minecraft/GameTestServer]: [                                                                                                             ]
+[13:23:07] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_++++_++++++++_++++++++++++_++++++                                                              ]
+[13:23:07] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_++++++++++++_+++++++++                                                           ]
+[13:23:07] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_++++++++++++_+++++++++                                                           ]
+[13:23:07] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_++++++++++++_+++++++++                                                           ]
+[13:23:07] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_++++++++++++_+++++++++                                                           ]
+[13:23:07] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_++++++++++++_+++++++++                                                           ]
+[13:23:08] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:1' (50 tests)...
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++                                                           ]
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  +          ]
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++          ]
+[13:23:08] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:2' (9 tests)...
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++         ]
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ]
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++]
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: ========= 109 GAME TESTS COMPLETE IN 3.299 s ======================
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: All 109 required tests passed :)
+[13:23:08] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[13:23:09] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+BUILD SUCCESSFUL in 16s

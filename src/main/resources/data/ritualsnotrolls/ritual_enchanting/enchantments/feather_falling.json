@@ -1,0 +1,45 @@
+{
+  "enchantment": "minecraft:feather_falling",
+  "materials": [
+    {
+      "id": "feather",
+      "item": "minecraft:feather",
+      "power": 30,
+      "resource_value": 3.75
+    },
+    {
+      "id": "phantom_membrane",
+      "item": "minecraft:phantom_membrane",
+      "power": 62,
+      "resource_value": 7.75
+    },
+    {
+      "id": "slime_ball",
+      "item": "minecraft:slime_ball",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "rabbit_foot",
+      "item": "minecraft:rabbit_foot",
+      "power": 54,
+      "resource_value": 6.75
+    },
+    {
+      "id": "breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 29.7692,
+    "2": 69.4615,
+    "3": 148.8462,
+    "4": 258,
+    "5": 416.7692
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#FFF5DC"
+}

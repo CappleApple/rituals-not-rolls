@@ -1,0 +1,44 @@
+{
+  "enchantment": "minecraft:sweeping_edge",
+  "materials": [
+    {
+      "id": "bamboo",
+      "item": "minecraft:bamboo",
+      "power": 10,
+      "resource_value": 1.25
+    },
+    {
+      "id": "shears",
+      "item": "minecraft:shears",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "iron_sword",
+      "item": "minecraft:iron_sword",
+      "power": 34,
+      "resource_value": 4.25
+    },
+    {
+      "id": "dried_kelp_block",
+      "item": "minecraft:dried_kelp_block",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "breeze_rod",
+      "item": "minecraft:breeze_rod",
+      "power": 66,
+      "resource_value": 8.25
+    }
+  ],
+  "levels": {
+    "1": 31.2,
+    "2": 72.8,
+    "3": 156,
+    "4": 270.4
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:end_rod",
+  "particle_color": "#DAE5FF"
+}

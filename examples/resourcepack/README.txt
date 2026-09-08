@@ -1,0 +1,1 @@
+Install this folder/ZIP in resourcepacks. This includes editable ritual sound events (assets/ritualsnotrolls/sounds.json) with explicit volume/pitch multipliers and a selected-enchantment sprite. Edit the sound entries, or the PNG and matching nine-slice metadata, then use F3+T. Failure pitch choices are separate equally weighted entries. No vanilla texture is overwritten.

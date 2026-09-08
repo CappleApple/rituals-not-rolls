@@ -1,0 +1,51 @@
+{
+  "enchantment": "create:potato_recovery",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/potato",
+      "item": "minecraft:potato",
+      "power": 8,
+      "resource_value": 1
+    },
+    {
+      "id": "create/brass_hand",
+      "item": "create:brass_hand",
+      "power": 46,
+      "resource_value": 5.75
+    },
+    {
+      "id": "create/andesite_alloy",
+      "item": "create:andesite_alloy",
+      "power": 26,
+      "resource_value": 3.25
+    },
+    {
+      "id": "minecraft/wheat_seeds",
+      "item": "minecraft:wheat_seeds",
+      "power": 16,
+      "resource_value": 2.0
+    },
+    {
+      "id": "minecraft/dried_kelp",
+      "item": "minecraft:dried_kelp",
+      "power": 14,
+      "resource_value": 1.75
+    },
+    {
+      "id": "minecraft/composter",
+      "item": "minecraft:composter",
+      "power": 30,
+      "resource_value": 3.75
+    }
+  ],
+  "levels": {
+    "1": 28.0,
+    "2": 65.3333,
+    "3": 140,
+    "4": 242.6667
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:happy_villager",
+  "particle_color": "#D7CB79"
+}

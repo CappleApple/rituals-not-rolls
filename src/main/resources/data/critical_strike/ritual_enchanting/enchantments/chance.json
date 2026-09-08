@@ -1,0 +1,49 @@
+{
+  "enchantment": "critical_strike:chance",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/amethyst_shard",
+      "item": "minecraft:amethyst_shard",
+      "power": 16,
+      "resource_value": 2.0
+    },
+    {
+      "id": "minecraft/rabbit_foot",
+      "item": "minecraft:rabbit_foot",
+      "power": 28,
+      "resource_value": 3.5
+    },
+    {
+      "id": "minecraft/golden_carrot",
+      "item": "minecraft:golden_carrot",
+      "power": 40,
+      "resource_value": 5.0
+    },
+    {
+      "id": "minecraft/quartz",
+      "item": "minecraft:quartz",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/emerald",
+      "item": "minecraft:emerald",
+      "power": 72,
+      "resource_value": 9.0
+    }
+  ],
+  "levels": {
+    "1": 12.8571,
+    "2": 30.0,
+    "3": 64.2857,
+    "4": 111.4286,
+    "5": 180,
+    "6": 274.2857
+  },
+  "conflict_groups": [
+    "critical_strike:critical"
+  ],
+  "particle": "minecraft:enchant",
+  "particle_color": "#FFCE67"
+}

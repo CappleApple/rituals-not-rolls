@@ -1,0 +1,45 @@
+{
+  "enchantment": "gouge:grip",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/lead",
+      "item": "minecraft:lead",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/leather",
+      "item": "minecraft:leather",
+      "power": 16,
+      "resource_value": 2.0
+    },
+    {
+      "id": "minecraft/honeycomb",
+      "item": "minecraft:honeycomb",
+      "power": 32,
+      "resource_value": 4.0
+    },
+    {
+      "id": "minecraft/slime_block",
+      "item": "minecraft:slime_block",
+      "power": 72,
+      "resource_value": 9.0
+    },
+    {
+      "id": "minecraft/tripwire_hook",
+      "item": "minecraft:tripwire_hook",
+      "power": 16,
+      "resource_value": 2.0
+    }
+  ],
+  "levels": {
+    "1": 32.0,
+    "2": 74.6667,
+    "3": 160,
+    "4": 277.3333
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:enchant",
+  "particle_color": "#C99356"
+}

@@ -1,0 +1,47 @@
+{
+  "enchantment": "minecraft:breach",
+  "materials": [
+    {
+      "id": "flint",
+      "item": "minecraft:flint",
+      "power": 18,
+      "resource_value": 2.25
+    },
+    {
+      "id": "iron_pickaxe",
+      "item": "minecraft:iron_pickaxe",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "diamond",
+      "item": "minecraft:diamond",
+      "power": 58,
+      "resource_value": 7.25
+    },
+    {
+      "id": "heavy_core",
+      "item": "minecraft:heavy_core",
+      "power": 96,
+      "resource_value": 12.0
+    },
+    {
+      "id": "netherite_scrap",
+      "item": "minecraft:netherite_scrap",
+      "power": 88,
+      "resource_value": 11.0
+    }
+  ],
+  "levels": {
+    "1": 34.1538,
+    "2": 79.6923,
+    "3": 170.7692,
+    "4": 296,
+    "5": 478.1538
+  },
+  "conflict_groups": [
+    "mace"
+  ],
+  "particle": "minecraft:crit",
+  "particle_color": "#F08E63"
+}

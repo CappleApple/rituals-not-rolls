@@ -1,0 +1,44 @@
+{
+  "enchantment": "minecraft:soul_speed",
+  "materials": [
+    {
+      "id": "soul_sand",
+      "item": "minecraft:soul_sand",
+      "power": 22,
+      "resource_value": 2.75
+    },
+    {
+      "id": "soul_soil",
+      "item": "minecraft:soul_soil",
+      "power": 34,
+      "resource_value": 4.25
+    },
+    {
+      "id": "ghast_tear",
+      "item": "minecraft:ghast_tear",
+      "power": 58,
+      "resource_value": 7.25
+    },
+    {
+      "id": "echo_shard",
+      "item": "minecraft:echo_shard",
+      "power": 78,
+      "resource_value": 9.75
+    },
+    {
+      "id": "nether_star",
+      "item": "minecraft:nether_star",
+      "power": 115,
+      "resource_value": 14.38
+    }
+  ],
+  "levels": {
+    "1": 61.4,
+    "2": 143.2667,
+    "3": 307,
+    "4": 532.1333
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:soul_fire_flame",
+  "particle_color": "#56F6E3"
+}

@@ -1,0 +1,221 @@
+Calculating task graph as configuration cache cannot be reused because the file system entry 'build\moddev\artifacts\neoforge-21.1.248-client-extra-aka-minecraft-resources.jar' has been created.
+> Task :writeDefinitionCompatServerLegacyClasspath UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareDefinitionCompatServerRun UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources
+> Task :classes
+
+> Task :runDefinitionCompatServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[10:11:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430, --nogui]
+[10:11:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[10:11:50] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[10:11:50] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[10:11:50] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/astra/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[10:11:51] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 12 dependencies adding them to mods collection
+[10:11:51] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Aggro Fix 3.0.1 (aggrofix)
+		Bookshelf 21.1.81 (bookshelf)
+		BotanyPots 21.1.44 (botanypots)
+		Cloth Config v15 API 15.0.140 (cloth_config)
+		Cobweb 1.4.0 (cobweb)
+		CodecUI 1.21.1-1.3.6 (codecui)
+		Combat Roll 2.0.6+1.21.1 (combat_roll)
+		Create 6.0.10 (create)
+		Critical Strike 1.0.4+1.21.1 (critical_strike)
+		Farmer's Delight 1.3.4 (farmersdelight)
+		Flywheel 1.0.6 (flywheel)
+		Forgified Fabric API Base 0.4.42+d1308ded19 (fabric_api_base)
+		Gouge 1.5.1 (gouge)
+		Kiwi Library 15.8.7+neoforge (kiwi)
+		Minecraft 1.21.1 (minecraft)
+		Moonlight Lib 1.21.1-3.6.1 (moonlight)
+		NeoForge 21.1.248 (neoforge)
+		Not Enough Trials 6.4 (notenoughtrials)
+		Passable Foliage 9.2.0+neoforge (passablefoliage)
+		Player Animator 2.0.4+1.21.1 (playeranimator)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		PrickleMC 21.1.11 (prickle)
+		Prometheus 1.2.5 (prometheus)
+		Rituals Not Rolls 1.5.1 (ritualsnotrolls)
+		Sable Companion 1.6.0 (sablecompanion)
+		Soul Fire'd 6.1.0 (soul_fire_d)
+		SpectreLib 0.17.2+1.21 (spectrelib)
+		Supplementaries 1.21.1-3.9.7 (supplementaries)
+		Tiny Config 3.1.0 (tiny_config)
+		Vein Mining 5.0.0-beta.2+1.21 (veinmining)
+		When Dungeons Arise 2.1.68 (dungeons_arise)
+		YUNG's API 1.21.1-NeoForge-5.1.8 (yungsapi)
+[10:11:51] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[10:11:51] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[10:11:52] [main/WARN] [mixin/]: Reference map 'kiwi.refmap.json' for kiwi.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'passablefoliage.refmap.json' for passablefoliage.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'yungsapi.refmap.json' for yungsapi.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'botanypots.refmap.json' for botanypots.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'cobweb.refmap.json' for cobweb.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'prometheus.refmap.json' for prometheus.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'bookshelf.refmap.json' for bookshelf.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'prickle.refmap.json' for prickle.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'soul_fire_d.refmap.json' for soul_fire_d.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Reference map 'veinmining.refmap.json' for veinmining.mixins.json could not be read. If this is a development environment you can ignore this message
+[10:11:52] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[10:11:52] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[10:11:57] [main/ERROR] [minecraft/Bootstrap]: Missing translations: attribute.name.combat_roll.count
+[10:11:57] [main/ERROR] [minecraft/Bootstrap]: Missing translations: attribute.name.combat_roll.distance
+[10:11:57] [main/ERROR] [minecraft/Bootstrap]: Missing translations: attribute.name.combat_roll.recharge
+[10:11:57] [main/ERROR] [minecraft/Bootstrap]: Missing translations: attribute.name.critical_strike.chance
+[10:11:57] [main/ERROR] [minecraft/Bootstrap]: Missing translations: attribute.name.critical_strike.damage
+[10:11:57] [main/ERROR] [minecraft/Bootstrap]: Missing translations: effect.critical_strike.chance
+[10:11:57] [main/ERROR] [minecraft/Bootstrap]: Missing translations: effect.critical_strike.damage
+[10:11:57] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[10:11:57] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[10:11:57] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[10:11:57] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[10:11:57] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[10:11:57] [modloading-worker-0/INFO] [CodecUI/]: Codec construction mixins inactive (Codec, MapCodec, RecordCodecBuilder) - expected on NeoForge; using reflective schema inference (numeric ranges recovered, optional-field defaults not).
+[10:11:57] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[10:11:57] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[10:11:57] [modloading-worker-0/INFO] [Moonlight/]: Detected config change in moonlight-common.toml, from neoforge config event
+[10:11:57] [modloading-worker-0/INFO] [Moonlight/]: Detected config change in supplementaries-common.toml, from neoforge config event
+[10:11:57] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
+[10:11:57] [modloading-worker-0/INFO] [Moonlight/]: Sending changed configs to client
+[10:11:57] [modloading-worker-0/INFO] [sn.ki.Kiwi/INIT]: Processing 9 KiwiModule annotations
+[10:11:58] [modloading-worker-0/WARN] [Supplementaries/]: Dye color white produced diffuse color -1 (white), this should never happen
+[10:11:58] [modloading-worker-0/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/particle/TextureSheetParticle for invalid dist DEDICATED_SERVER
+[10:11:58] [modloading-sync-worker/INFO] [sn.ki.Kiwi/INIT]: Module [passablefoliage:core] initialized
+[10:11:58] [modloading-sync-worker/INFO] [sn.ki.Kiwi/INIT]: Module [passablefoliage:neoforge] initialized
+[10:11:58] [modloading-sync-worker/INFO] [sn.ki.Kiwi/INIT]: 		neoforge:condition_codecs: 1
+[10:11:58] [modloading-sync-worker/INFO] [sn.ki.Kiwi/INIT]: Module [kiwi:data] initialized
+[10:11:58] [modloading-sync-worker/INFO] [sn.ki.Kiwi/INIT]: 		recipe_serializer: 2, neoforge:condition_codecs: 2
+[10:11:58] [modloading-sync-worker/INFO] [sn.ki.Kiwi/INIT]: Module [passablefoliage:enchantment] initialized
+[10:11:58] [modloading-sync-worker/INFO] [sn.ki.Kiwi/INIT]: 		enchantment_effect_component_type: 1
+[10:11:59] [modloading-sync-worker/INFO] [Moonlight/]: Initialized block sets in 4ms
+[10:11:59] [modloading-sync-worker/INFO] [BotanyPots/]: Loaded 1 botany pots plugins!
+[10:12:00] [modloading-sync-worker/INFO] [Moonlight/]: Detected config change in supplementaries-common.toml, from neoforge config event
+[10:12:00] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
+[10:12:00] [modloading-sync-worker/INFO] [Moonlight/]: Detected config change in moonlight-common.toml, from neoforge config event
+[10:12:00] [modloading-sync-worker/INFO] [Moonlight/]: Sending changed configs to client
+[10:12:00] [modloading-sync-worker/INFO] [Moonlight/]: Initialized color sets in 12ms
+[10:12:00] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[10:12:00] [modloading-sync-worker/INFO] [Supplementaries/]: Finished mod setup in: [2, 0, 0, 0, 0, 0] ms
+[10:12:00] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[10:12:00] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.248.jar%23147!/assets/.mcassetsroot' uses unexpected schema
+[10:12:00] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.248.jar%23147!/data/.mcassetsroot' uses unexpected schema
+[10:12:00] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[10:12:00] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[10:12:00] [main/INFO] [minecraft/MinecraftServer]: Found new data pack create:dynamic_data, loading it automatically
+[10:12:00] [main/INFO] [minecraft/MinecraftServer]: Found new data pack prometheus:fire_source_tags, loading it automatically
+[10:12:00] [main/INFO] [minecraft/MinecraftServer]: Found new data pack prometheus:campfire_tags, loading it automatically
+[10:12:00] [main/INFO] [minecraft/MinecraftServer]: Found new data pack prometheus:fire_charge_tags, loading it automatically
+[10:12:00] [main/INFO] [minecraft/MinecraftServer]: Found new data pack mod/soul_fire_d:datapack/enchantments, loading it automatically
+[10:12:00] [main/INFO] [minecraft/MinecraftServer]: Found new data pack supplementaries:generated_pack, loading it automatically
+[10:12:00] [main/INFO] [Moonlight/]: Resource cache state for SERVER_DATA: needs regeneration
+[10:12:00] [main/INFO] [Moonlight/]: Cleared cache pack resources at C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-compat\dynamic-data-pack-cache\supplementaries-generated_pack in 681.5 μs
+[10:12:00] [main/INFO] [Moonlight/]: Starting runtime resource generation for pack type SERVER_DATA with generators [supplementaries:generated_pack]
+[10:12:00] [main/INFO] [Moonlight/]: Regenerating Dynamic SERVER_DATA Resources Provider [supplementaries:generated_pack], requested by strategy CACHED_FOLDER
+[10:12:00] [pool-17-thread-1/INFO] [Supplementaries/]: Generated 10 sign post recipes
+[10:12:00] [main/INFO] [Moonlight/]: Generated runtime SERVER_DATA for pack supplementaries:generated_pack in 35.35 ms
+[10:12:00] [main/INFO] [Moonlight/]: Populated search tree for pack at C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-compat\dynamic-data-pack-cache\supplementaries-generated_pack in 1.483 ms
+[10:12:00] [main/INFO] [Moonlight/]: Finished runtime resources generation for 1 packs in a total of 41.42 ms 
+[10:12:00] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[10:12:00] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [botanypots] Starting version check at https://updates.blamejared.com/get?n=botanypots&gv=1.21.1&ml=neoforge
+[10:12:00] [main/INFO] [minecraft/Main]: No existing world data, creating new world
+[10:12:00] [main/ERROR] [minecraft/DedicatedServerProperties]: No key layers in MapLike[{}]
+[10:12:00] [Worker-Main-3/ERROR] [minecraft/LootDataType]: Couldn't parse element ResourceKey[minecraft:root / minecraft:loot_table]:caverns_and_chasms:spawners/trial_chamber/token - Unknown registry key in ResourceKey[minecraft:root / neoforge:condition_codecs]: blueprint:and
+[10:12:00] [Worker-Main-3/ERROR] [minecraft/LootDataType]: Couldn't parse element ResourceKey[minecraft:root / minecraft:loot_table]:caverns_and_chasms:spawners/ominous/trial_chamber/token - Unknown registry key in ResourceKey[minecraft:root / neoforge:condition_codecs]: blueprint:and
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [botanypots] Found status: BETA Current: 21.1.44 Target: 21.1.44
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [cobweb] Starting version check at https://api.modrinth.com/updates/cobweb/forge_updates.json
+[10:12:01] [Worker-Main-3/WARN] [minecraft/ReloadableServerRegistries]: Found loot table element validation problem in {minecraft:loot_table:minecraft:chests/trial_chambers/vault/weapons}.pools[0].entries[0]: Unknown loot table called miscnetcompat:chests/weapons_magic
+[10:12:01] [Worker-Main-3/WARN] [minecraft/ReloadableServerRegistries]: Found loot table element validation problem in {minecraft:loot_table:minecraft:chests/trial_chambers/vault/valuables}.pools[0].entries[0]: Unknown loot table called miscnetcompat:chests/valuables_magic
+[10:12:01] [Worker-Main-3/WARN] [minecraft/ReloadableServerRegistries]: Found loot table element validation problem in {minecraft:loot_table:minecraft:chests/trial_chambers/special}.pools[6].entries[0]: Unknown loot table called minecraft:chests/trial_chambers/resin
+[10:12:01] [Worker-Main-3/WARN] [minecraft/ReloadableServerRegistries]: Found loot table element validation problem in {minecraft:loot_table:minecraft:chests/trial_chambers/vault/ominous}.pools[0].entries[0]: Unknown loot table called miscnetcompat:chests/ominous_magic
+[10:12:01] [Worker-Main-3/WARN] [minecraft/ReloadableServerRegistries]: Found loot table element validation problem in {minecraft:loot_table:minecraft:chests/trial_chambers/special_vertical}.pools[6].entries[0]: Unknown loot table called minecraft:chests/trial_chambers/resin
+[10:12:01] [Worker-Main-3/WARN] [minecraft/ReloadableServerRegistries]: Found loot table element validation problem in {minecraft:loot_table:minecraft:chests/trial_chambers/vault/armor}.pools[0].entries[0]: Unknown loot table called miscnetcompat:chests/armor_magic
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [cobweb] Found status: BETA Current: 1.4.0 Target: null
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [prometheus] Starting version check at https://api.modrinth.com/updates/prometheus/forge_updates.json
+[10:12:01] [NeoForge Version Check/WARN] [ne.ne.fm.VersionChecker/]: Failed to process update information
+java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "promos" is null
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.VersionChecker$1.process(VersionChecker.java:173) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) [?:?] {re:mixin}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.VersionChecker$1.run(VersionChecker.java:105) [loader-4.0.43.jar%23102!/:4.0] {}
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [bookshelf] Starting version check at https://updates.blamejared.com/get?n=bookshelf&gv=1.21.1&ml=neoforge
+[10:12:01] [main/INFO] [BotanyPots/]: Updating registry access.
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [bookshelf] Found status: BETA Current: 21.1.81 Target: 21.1.81
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [prickle] Starting version check at https://updates.blamejared.com/get?n=prickle&gv=1.21.1&ml=neoforge
+[10:12:01] [main/INFO] [minecraft/RecipeManager]: Loaded 3827 recipes
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [prickle] Found status: BETA Current: 21.1.11 Target: 21.1.11
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [soul_fire_d] Starting version check at https://api.modrinth.com/updates/soul-fire-d/forge_updates.json
+[10:12:01] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [soul_fire_d] Found status: BETA Current: 6.1.0 Target: null
+[10:12:01] [main/ERROR] [minecraft/AdvancementTree]: Couldn't load advancements: [dungeons_arise:find_thornborn_towers, dungeons_arise:find_fishing_hut]
+[10:12:01] [main/INFO] [minecraft/AdvancementTree]: Loaded 3052 advancements
+[10:12:01] [main/INFO] [co.ca.ri.RitualsNotRolls/]: Loaded 68 ritual enchantment definitions, 2 explicitly disabled, revision 1
+[10:12:01] [main/INFO] [Moonlight/]: Applied 17 data villager trades
+[10:12:01] [main/INFO] [Moonlight/]: Failed to load custom color set definition {"id":"quark:rune","colors":{"default":"quark:blank_rune"},"replace":false}. Ignoring
+[10:12:01] [main/INFO] [Moonlight/]: Failed to load custom color set definition {"id":"quark:shard","colors":{"default":"quark:clear_shard"},"replace":false}. Ignoring
+[10:12:01] [main/INFO] [Supplementaries/]: Loaded 29 flute songs
+[10:12:01] [main/WARN] [minecraft/MappedRegistry]: Not all defined tags for registry ResourceKey[minecraft:root / minecraft:item] are present in data pack: ars_nouveau:magic_food, createxnet:loot_zinc, miscnetcompat:ae2_loot, miscnetcompat:aether_loot, miscnetcompat:cnc_loot, miscnetcompat:farmers_delight_loot, miscnetcompat:irons_loot, miscnetcompat:loot_lead, miscnetcompat:loot_mithril, miscnetcompat:loot_neptune_armor, miscnetcompat:loot_osmium, miscnetcompat:loot_ricochet, miscnetcompat:loot_silver, miscnetcompat:loot_turquoise, miscnetcompat:loot_zanite_armor, miscnetcompat:mowzies_loot, notenoughtrials:loot_bombs, tfxnet:loot_ironwood_armor_aqua, tfxnet:loot_ironwood_armor_fall, tfxnet:loot_ironwood_armor_prot, tfxnet:loot_naga_chestplate, tfxnet:loot_naga_leggings, tfxnet:loot_steeleaf_boots, tfxnet:loot_steeleaf_chestplate, tfxnet:loot_steeleaf_helmet, tfxnet:loot_steeleaf_leggings, tfxnet:twilight_forest_loot
+[10:12:02] [main/INFO] [Supplementaries/]: Registering custom dispenser behaviors
+[10:12:02] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[10:12:02] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[10:12:02] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[10:12:02] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[10:12:02] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25596
+[10:12:02] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[10:12:02] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[10:12:02] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[10:12:02] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[10:12:02] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[10:12:02] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "world"
+[10:12:02] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[10:12:02] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[10:12:03] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 117 ms
+[10:12:03] [Server thread/INFO] [minecraft/DedicatedServer]: Done (0.485s)! For help, type "help"
+[10:12:03] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[10:12:03] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS aggrofix:aggrobaiting max=5 power=220.0 materials=[minecraft:golden_apple, minecraft:salmon, minecraft:carrot, minecraft:spider_eye, minecraft:honey_bottle, minecraft:rotten_flesh]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS aggrofix:aggronizing max=5 power=220.0 materials=[minecraft:magma_cream, minecraft:bell, minecraft:redstone, minecraft:target, minecraft:goat_horn]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS botanypots:idle_hands max=1 power=184.0 materials=[minecraft:composter, botanypots:terracotta_hopper_botany_pot, minecraft:moss_block, minecraft:bone_meal, botanypots:terracotta_botany_pot]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS combat_roll:acrobat max=5 power=140.0 materials=[minecraft:string, minecraft:rabbit_hide, minecraft:leather, minecraft:slime_ball, minecraft:scaffolding]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS combat_roll:longfooted max=4 power=160.0 materials=[minecraft:honeycomb, minecraft:bamboo, minecraft:snow_block, minecraft:phantom_membrane, minecraft:rabbit_foot]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS combat_roll:multi_roll max=3 power=240.0 materials=[minecraft:echo_shard, minecraft:wind_charge, minecraft:ender_pearl, minecraft:popped_chorus_fruit, minecraft:chorus_fruit]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS create:capacity max=3 power=224.0 materials=[create:precision_mechanism, create:brass_ingot, create:copper_sheet, create:propeller, create:fluid_tank]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS create:potato_recovery max=3 power=140.0 materials=[create:andesite_alloy, minecraft:composter, minecraft:wheat_seeds, minecraft:potato, minecraft:dried_kelp, create:brass_hand]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS critical_strike:chance max=5 power=180.0 materials=[minecraft:golden_carrot, minecraft:amethyst_shard, minecraft:rabbit_foot, minecraft:emerald, minecraft:quartz]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS critical_strike:damage max=5 power=240.0 materials=[minecraft:netherite_scrap, minecraft:iron_block, minecraft:fire_charge, minecraft:blaze_rod, minecraft:flint]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS dungeons_arise:discharge max=3 power=240.0 materials=[minecraft:copper_ingot, minecraft:redstone_block, minecraft:glowstone_dust, minecraft:trident, minecraft:lightning_rod]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS dungeons_arise:ensnaring max=4 power=140.0 materials=[minecraft:string, minecraft:vine, minecraft:sweet_berries, minecraft:cobweb, minecraft:lead, minecraft:spider_eye]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS dungeons_arise:lolths_curse max=1 power=240.0 materials=[minecraft:fermented_spider_eye, minecraft:wither_rose, minecraft:cobweb, minecraft:spider_eye, minecraft:poisonous_potato]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS dungeons_arise:purification max=3 power=240.0 materials=[minecraft:golden_apple, minecraft:milk_bucket, minecraft:lily_of_the_valley, minecraft:honey_bottle, minecraft:ghast_tear]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS dungeons_arise:voltaic_shot max=1 power=240.0 materials=[minecraft:glowstone, minecraft:copper_block, minecraft:lightning_rod, minecraft:firework_star, minecraft:end_rod]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS farmersdelight:backstabbing max=3 power=160.0 materials=[farmersdelight:canvas, minecraft:fermented_spider_eye, farmersdelight:straw, farmersdelight:flint_knife, farmersdelight:rope]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS gouge:grip max=3 power=160.0 materials=[minecraft:honeycomb, minecraft:leather, minecraft:tripwire_hook, minecraft:lead, minecraft:slime_block]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS gouge:momentum max=3 power=180.0 materials=[minecraft:activator_rail, minecraft:piston, minecraft:iron_ingot, minecraft:minecart, minecraft:powered_rail]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS minecraft:soul_fire_aspect max=2 power=256.0 materials=[minecraft:soul_campfire, minecraft:sculk, minecraft:echo_shard, minecraft:soul_soil, minecraft:soul_lantern]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS minecraft:soul_flame max=1 power=224.0 materials=[minecraft:soul_sand, minecraft:fire_charge, minecraft:soul_torch, minecraft:crying_obsidian, minecraft:ghast_tear]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS notenoughtrials:daredevil max=1 power=384.0 materials=[minecraft:heavy_core, minecraft:phantom_membrane, minecraft:breeze_rod, minecraft:wind_charge, minecraft:ominous_trial_key]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS notenoughtrials:equity max=1 power=192.0 materials=[minecraft:diamond, minecraft:gold_ingot, minecraft:trial_key, minecraft:amethyst_shard, minecraft:iron_axe]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS notenoughtrials:storm_front max=1 power=256.0 materials=[minecraft:heart_of_the_sea, minecraft:breeze_rod, minecraft:wind_charge, minecraft:lightning_rod, minecraft:nautilus_shell]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS passablefoliage:leaf_walker max=1 power=192.0 materials=[minecraft:flowering_azalea, minecraft:big_dripleaf, minecraft:azalea_leaves, minecraft:moss_block, minecraft:spore_blossom]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS supplementaries:stasis max=1 power=224.0 materials=[supplementaries:bubble_blower, supplementaries:hourglass, minecraft:blue_ice, minecraft:ender_pearl, supplementaries:soap]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITION PASS veinmining:vein_mining max=1 power=256.0 materials=[minecraft:raw_copper_block, minecraft:diamond_pickaxe, minecraft:sculk_sensor, minecraft:raw_iron_block, minecraft:raw_gold_block]
+[10:12:03] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: OPTIONAL DEFINITIONS GATE PASS: 26 requested, 68 active total, 2 excluded; zero missing or unresolved
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:12:03] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 1m 12s
+7 actionable tasks: 2 executed, 5 up-to-date
+Configuration cache entry stored.

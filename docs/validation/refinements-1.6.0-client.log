@@ -1,0 +1,377 @@
+Calculating task graph as configuration cache cannot be reused because file 'gradle.properties' has changed.
+> Task :writeRefinementClientLegacyClasspath UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :prepareRefinementClientRun UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava
+> Task :processResources
+> Task :classes
+
+> Task :runRefinementClient
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[14:53:29] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.248, --assetIndex, 17, --assetsDir, C:\\Users\\astra\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430, --username, RitualTester, --width, 1280, --height, 720]
+[14:53:29] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[14:53:29] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[14:53:29] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[14:53:29] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[14:53:29] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[14:53:29] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/astra/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23138!/ Service=ModLauncher Env=CLIENT
+[14:53:29] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 5070 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 610.88, NVIDIA Corporation
+[14:53:30] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 6 dependencies adding them to mods collection
+[14:53:30] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		CodecUI 1.21.1-1.3.6 (codecui)
+		Curios API 9.5.1+1.21.1 (curios)
+		GeckoLib 4 4.9.2 (geckolib)
+		Iron's Lib 1.21.1-2.1.0 (irons_lib)
+		Iron's Spells 'n Spellbooks 1.21.1-3.16.3 (irons_spellbooks)
+		Minecraft 1.21.1 (minecraft)
+		Moonlight Lib 1.21.1-3.6.1 (moonlight)
+		NeoForge 21.1.248 (neoforge)
+		Player Animator 2.0.4+1.21.1 (playeranimator)
+		Rituals Not Rolls 1.6.0 (ritualsnotrolls)
+		Sable Companion 1.6.0 (sablecompanion)
+		Supplementaries 1.21.1-3.9.7 (supplementaries)
+[14:53:30] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[14:53:30] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.248, --gameDir, ., --assetsDir, C:\Users\astra\.gradle\caches\neoformruntime\assets, --assetIndex, 17, --username, RitualTester, --width, 1280, --height, 720]
+[14:53:30] [main/WARN] [mixin/]: Reference map 'irons_spellbooks.refmap.json' for irons_spellbooks.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:53:30] [main/WARN] [mixin/]: Reference map 'geckolib.refmap.json' for geckolib.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:53:30] [main/WARN] [mixin/]: Reference map 'irons_lib.refmap.json' for irons_lib.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:53:30] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:53:30] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message
+[14:53:31] [main/WARN] [mixin/]: Error loading class: org/embeddedt/embeddium/impl/render/chunk/compile/pipeline/FluidRenderer (java.lang.ClassNotFoundException: org.embeddedt.embeddium.impl.render.chunk.compile.pipeline.FluidRenderer)
+[14:53:31] [main/WARN] [mixin/]: Error loading class: net/raphimc/immediatelyfast/feature/map_atlas_generation/MapAtlasTexture (java.lang.ClassNotFoundException: net.raphimc.immediatelyfast.feature.map_atlas_generation.MapAtlasTexture)
+[14:53:31] [main/WARN] [mixin/]: Error loading class: net/caffeinemc/mods/sodium/client/render/chunk/compile/pipeline/DefaultFluidRenderer (java.lang.ClassNotFoundException: net.caffeinemc.mods.sodium.client.render.chunk.compile.pipeline.DefaultFluidRenderer)
+[14:53:31] [main/WARN] [mixin/]: Error loading class: vectorwing/farmersdelight/common/block/TomatoBlock (java.lang.ClassNotFoundException: vectorwing.farmersdelight.common.block.TomatoBlock)
+[14:53:31] [main/WARN] [mixin/]: Error loading class: traben/entity_model_features/models/parts/EMFModelPartCustom (java.lang.ClassNotFoundException: traben.entity_model_features.models.parts.EMFModelPartCustom)
+[14:53:31] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[14:53:32] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 193 milliseconds
+[14:53:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:53:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:53:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:53:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[14:53:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[14:53:36] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.248.jar%23196!/assets/.mcassetsroot' uses unexpected schema
+[14:53:36] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.248.jar%23196!/data/.mcassetsroot' uses unexpected schema
+[14:53:36] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:53:36] [Render thread/INFO] [minecraft/Minecraft]: Setting user: RitualTester
+[14:53:36] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[14:53:36] [modloading-worker-0/INFO] [CodecUI/]: Codec construction mixins inactive (Codec, MapCodec, RecordCodecBuilder) - expected on NeoForge; using reflective schema inference (numeric ranges recovered, optional-field defaults not).
+[14:53:36] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[14:53:36] [modloading-worker-0/INFO] [Moonlight/]: Detected config change in moonlight-common.toml, from neoforge config event
+[14:53:36] [modloading-worker-0/INFO] [Moonlight/]: Detected config change in supplementaries-common.toml, from neoforge config event
+[14:53:36] [modloading-worker-0/INFO] [Moonlight/]: Detected config change in supplementaries-client.toml, from neoforge config event
+[14:53:36] [modloading-worker-0/INFO] [Moonlight/]: Detected config change in moonlight-client.toml, from neoforge config event
+[14:53:36] [modloading-worker-0/WARN] [Supplementaries/]: Dye color white produced diffuse color -1 (white), this should never happen
+[14:53:37] [modloading-sync-worker/INFO] [Moonlight/]: Initialized block sets in 5ms
+[14:53:37] [modloading-sync-worker/INFO] [Moonlight/]: Detected config change in supplementaries-client.toml, from neoforge config event
+[14:53:37] [modloading-sync-worker/INFO] [Moonlight/]: Detected config change in moonlight-client.toml, from neoforge config event
+[14:53:37] [modloading-sync-worker/INFO] [Moonlight/]: Detected config change in supplementaries-common.toml, from neoforge config event
+[14:53:37] [modloading-sync-worker/INFO] [Moonlight/]: Detected config change in moonlight-common.toml, from neoforge config event
+[14:53:37] [Render thread/INFO] [Moonlight/]: Merging 2 images using mode MIN_AREA_NO_UPSCALE
+[14:53:38] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[14:53:38] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/irons_spellbooks, mod/moonlight, mod/codecui, mod/geckolib, mod/ritualsnotrolls, mod/playeranimator, mod/irons_lib, mod/curios, mod/sablecompanion, mod/supplementaries, mod/neoforge, moonlight:merged_pack
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Resource cache state for CLIENT_RESOURCES: needs regeneration
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Deleting directory: C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-refinement-client\dynamic-resource-pack-cache\supplementaries-generated_pack
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Cleared cache pack resources at C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-refinement-client\dynamic-resource-pack-cache\supplementaries-generated_pack in 2.390 ms
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Starting runtime resource generation for pack type CLIENT_RESOURCES with generators [supplementaries:generated_pack, moonlight:dynamic_resources]
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Regenerating Dynamic CLIENT_RESOURCES Resources Provider [supplementaries:generated_pack], requested by strategy CACHED_FOLDER
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Generated runtime CLIENT_RESOURCES for pack supplementaries:generated_pack in 54.19 ms
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Populated search tree for pack at C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-refinement-client\dynamic-resource-pack-cache\supplementaries-generated_pack in 1.160 ms
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Regenerating Dynamic CLIENT_RESOURCES Resources Provider [moonlight:dynamic_resources], requested by strategy REGEN_ON_EVERY_RELOAD
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Generated runtime CLIENT_RESOURCES for pack moonlight:dynamic_resources in 311.8 μs
+[14:53:38] [Worker-Main-1/INFO] [Moonlight/]: Finished runtime resources generation for 2 packs in a total of 66.80 ms 
+[14:53:38] [Worker-Main-10/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_spellbooks:animations/root_animations.json'
+[14:53:38] [Worker-Main-6/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_spellbooks:animations/ice_block_animations.json'
+[14:53:38] [Worker-Main-14/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_spellbooks:animations/spectral_hammer.json'
+[14:53:38] [Worker-Main-1/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_spellbooks:animations/casting_animations.json'
+[14:53:38] [Worker-Main-3/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_spellbooks:animations/summoned_weapon_animations.json'
+[14:53:38] [Worker-Main-7/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_spellbooks:animations/void_tentacle_animations.json'
+[14:53:38] [Worker-Main-9/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_lib:animations/wizard_armor_animation.json'
+[14:53:38] [Worker-Main-12/WARN] [GeckoLib/]: Found animation file with improper file name format; animation files should end in .animation.json: 'irons_spellbooks:animations/wizard_armor_animation.json'
+[14:53:38] [Render thread/INFO] [Moonlight/]: Initialized color sets in 15ms
+[14:53:38] [Render thread/INFO] [Supplementaries/]: Finished mod setup in: [0, 2, 1, 0, 10, 4] ms
+[14:53:38] [Worker-Main-5/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[14:53:38] [Worker-Main-4/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[14:53:38] [Worker-Main-6/WARN] [minecraft/SpriteContents]: Unused frames in sprite irons_spellbooks:item/upgrade_orb_ender: [1, 5, 6, 7]
+[14:53:38] [Worker-Main-11/WARN] [minecraft/SpriteContents]: Unused frames in sprite irons_spellbooks:item/energized_core_energy: [11]
+[14:53:39] [Worker-Main-12/WARN] [minecraft/ModelBakery]: Unable to load model: 'irons_spellbooks:item/template_open_spell_book_model' referenced from: irons_spellbooks:item/template_open_spell_book_model: java.io.FileNotFoundException: irons_spellbooks:models/item/template_open_spell_book_model.json
+[14:53:39] [Worker-Main-9/INFO] [io.re.ir.IronsSpellbooks/]: Got IMC []
+[14:53:40] [Render thread/ERROR] [minecraft/SoundManager]: Missing subtitle translation{key='subtitles.entity.plunderer.death', args=[]} for sound event: supplementaries:entity.plunderer.death
+[14:53:40] [Render thread/ERROR] [minecraft/SoundManager]: Missing subtitle translation{key='subtitles.supplementaries.wrench.rotate', args=[]} for sound event: supplementaries:item.wrench.rotate
+[14:53:40] [Render thread/ERROR] [minecraft/SoundManager]: Missing subtitle translation{key='subtitles.entity.plunderer.ambient', args=[]} for sound event: supplementaries:entity.plunderer.ambient
+[14:53:40] [Render thread/ERROR] [minecraft/SoundManager]: Missing subtitle translation{key='subtitles.entity.plunderer.hurt', args=[]} for sound event: supplementaries:entity.plunderer.hurt
+[14:53:40] [Render thread/ERROR] [minecraft/SoundManager]: Missing subtitle translation{key='subtitles.entity.plunderer.celebrate', args=[]} for sound event: supplementaries:entity.plunderer.celebrate
+[14:53:40] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[14:53:40] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[14:53:40] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: irons_spellbooks:entity.generic.swing_weird
+[14:53:40] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: irons_spellbooks:entity.dead_king.music.drum_loop
+[14:53:40] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: supplementaries:entity.plunderer.cannon_use
+[14:53:40] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on SteelSeries Sonar - Gaming (SteelSeries Sonar Virtual Audio Device)
+[14:53:40] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 2048x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x0 minecraft:textures/atlas/particles.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x0 minecraft:textures/atlas/map_decorations.png-atlas
+[14:53:40] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x0 minecraft:textures/atlas/gui.png-atlas
+[14:53:40] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[14:53:40] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+[14:53:42] [Render thread/INFO] [minecraft/ConnectScreen]: Connecting to 127.0.0.1, 25589
+[14:53:43] [Render thread/INFO] [Moonlight/]: Synced Custom World Data [supplementaries_globe_data]
+[14:53:43] [Render thread/INFO] [io.re.ir.IronsSpellbooks/]: Handling spell config sync 0 files
+[14:53:43] [Render thread/INFO] [Supplementaries/]: Synced Captured Mobs settings
+[14:53:43] [Render thread/INFO] [Supplementaries/]: Synced Hourglass data
+[14:53:43] [Render thread/INFO] [Moonlight/]: Detected config change in supplementaries-common.toml, from neoforge config event
+[14:53:43] [Render thread/INFO] [Moonlight/]: Synced supplementaries-common.toml configs
+[14:53:43] [Render thread/INFO] [Moonlight/]: Detected config change in moonlight-common.toml, from neoforge config event
+[14:53:43] [Render thread/INFO] [Moonlight/]: Synced moonlight-common.toml configs
+[14:53:43] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 2 advancements
+[14:53:46] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported RitualTester to 0.500000, 68.000000, -6.500000
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Native held item and both modifiers synchronized BlockPos{x=-4, y=65, z=0}
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Both modifiers render on native pedestal faces BlockPos{x=-4, y=65, z=0}
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Native held item and both modifiers synchronized BlockPos{x=-1, y=65, z=3}
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Both modifiers render on native pedestal faces BlockPos{x=-1, y=65, z=3}
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound capture
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound knowledge
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound material
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound experience
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound complete
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Allay event pitch .5 multiplies vanilla asset pitch 1.25
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound consumption
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Beacon disenchant pitch .6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound disenchant
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.3
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.5
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.6
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.2
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: failure pitch within configured range 0.4
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Resolved sound failure
+[14:53:48] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: All five failure pitches resolve, including below vanilla clamp
+[14:53:48] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT screenshot native-pedestal-modifiers
+[14:53:52] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT screenshot failure-collapse-3
+[14:53:53] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Failed particles fall with fading vertex opacity
+[14:53:55] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT screenshot continuous-spline-orbit
+[14:53:56] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT screenshot continuous-chain-rings
+[14:54:13] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Native materials disappear in particle arrival order
+[14:54:13] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Complete spline, stable start, progressive shake, failure fall and successful burst coexist
+[14:54:13] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Mixed ritual completes successful enchantment
+[14:54:13] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Failed chain retains consumption-marked item
+[14:54:13] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Modifier survives native held-item sync
+[14:54:13] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Modifier survives native held-item sync
+[14:54:17] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT screenshot failure-collapse-4
+[14:54:18] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Failed particles fall with fading vertex opacity
+[14:54:31] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Failed-only chain destabilizes and falls without success burst
+[14:54:31] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Failed-only ritual releases unchanged tool
+[14:54:51] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT CLIENT PASS: Pure disenchantment drains after release without burst
+[14:54:51] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT_CLIENT_SMOKE_COMPLETE
+[14:54:51] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+[14:54:51] [IO-Worker-1/INFO] [co.ca.ri.RitualsNotRolls/]: REFINEMENT screenshot native-disenchantment-complete
+
+BUILD SUCCESSFUL in 1m 29s
+7 actionable tasks: 3 executed, 4 up-to-date
+Configuration cache entry stored.

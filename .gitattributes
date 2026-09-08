@@ -1,0 +1,15 @@
+* text=auto
+*.java text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.gradle text eol=lf
+gradlew text eol=lf
+*.bat text eol=crlf
+*.png binary
+*.nbt binary
+*.jar binary
+*.zip binary
+
+# Keep raw validation evidence intact, including logger whitespace.
+docs/validation/*.log -text -whitespace

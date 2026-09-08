@@ -1,0 +1,99 @@
+Reusing configuration cache.
+> Task :jarJar NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :writeNeoForgeTestClasspath UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareGameTestServerRun UP-TO-DATE
+> Task :prepareNeoForgeTestFiles UP-TO-DATE
+> Task :compileJava
+> Task :classes
+> Task :jar
+> Task :assemble
+> Task :compileTestJava
+> Task :testClasses
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[10:32:40] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.244, --fml.neoFormVersion, 20240808.144430]
+[10:32:40] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[10:32:40] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[10:32:40] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[10:32:40] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/astra/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[10:32:40] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[10:32:40] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.244 (neoforge)
+		Rituals Not Rolls 1.5.2 (ritualsnotrolls)
+[10:32:41] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[10:32:41] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[10:32:42] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[10:32:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[10:32:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[10:32:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[10:32:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[10:32:47] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[10:32:47] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.244, for MC 1.21.1
+[10:32:48] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[10:32:48] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+ritualsnotrolls (version 1.5.1 -> 1.5.2)
+Things may not work well.
+[10:32:48] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[10:32:48] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[10:32:48] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [ritualsnotrolls]
+
+> Task :test
+> Task :check
+> Task :build
+
+> Task :runGameTestServer
+[10:32:49] [main/INFO] [minecraft/RecipeManager]: Loaded 1296 recipes
+[10:32:49] [main/INFO] [minecraft/AdvancementTree]: Loaded 1400 advancements
+[10:32:49] [main/INFO] [co.ca.ri.RitualsNotRolls/]: Loaded 42 ritual enchantment definitions, 2 explicitly disabled, revision 1
+[10:32:49] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[10:32:49] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[10:32:49] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 113 ms
+[10:32:49] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[10:32:49] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[10:32:50] [Server thread/INFO] [minecraft/GameTestServer]: 103 tests are now running at position 13313376, -59, -8384497!
+[10:32:51] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (50 tests)...
+[10:32:51] [Server thread/INFO] [minecraft/GameTestServer]: [                                                                                                       ]
+[10:32:51] [Server thread/WARN] [co.ca.ri.RitualsNotRolls/]: Preserving unresolved knowledge entry minecraft:sharpness/removed_affinity; restore its stable datapack ID to reactivate it
+[10:32:51] [Server thread/WARN] [co.ca.ri.RitualsNotRolls/]: Ignoring ritual data ritualsnotrolls:enchantments/bad: Not a boolean: "not a boolean"
+[10:32:51] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++_++++_++++++++_+++++++++++_+++++++                                                        ]
+[10:32:51] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_+++++++++++_++++++++++                                                     ]
+[10:32:51] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_+++++++++++_++++++++++                                                     ]
+[10:32:51] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_+++++++++++_++++++++++                                                     ]
+[10:32:51] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_+++++++++++_++++++++++                                                     ]
+[10:32:51] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_++++++++_+++++++++++_++++++++++                                                     ]
+[10:32:52] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:1' (50 tests)...
+[10:32:52] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++                                                     ]
+[10:32:52] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  ++    ]
+[10:32:53] [Server thread/WARN] [co.ca.ri.RitualsNotRolls/]: Preserving unresolved knowledge entry minecraft:sharpness/netherite_scrap; restore its stable datapack ID to reactivate it
+[10:32:53] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:2' (3 tests)...
+[10:32:53] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   ]
+[10:32:53] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ]
+[10:32:53] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++]
+[10:32:53] [Server thread/INFO] [minecraft/GameTestServer]: ========= 103 GAME TESTS COMPLETE IN 3.189 s ======================
+[10:32:53] [Server thread/INFO] [minecraft/GameTestServer]: All 103 required tests passed :)
+[10:32:53] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[10:32:53] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[10:32:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[10:32:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[10:32:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[10:32:54] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[10:32:54] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[10:32:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[10:32:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:32:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:32:54] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[10:32:54] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 17s
+12 actionable tasks: 5 executed, 7 up-to-date
+Configuration cache entry reused.

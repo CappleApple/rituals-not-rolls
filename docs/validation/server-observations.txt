@@ -1,0 +1,11 @@
+1.4.0 dedicated-server and client observations, 2026-09-07
+Minecraft 1.21.1, NeoForge 21.1.244, Java 21.0.12.
+/ritual validate: Validated 42 definitions; 0 warnings.
+/ritual missing: 1 registered enchantment without a definition: ritualsnotrolls:arcane_assembly (retained legacy registry entry).
+Example datapack Sharpness VI=300 loaded from run/world/datapacks.
+Two XP catalysts: 1395 -> 845 XP on successful automatic multi-enchantment ritual.
+Subtraction fixture: diamond 30 x consumption 2 x return 1.5 = -90; scrap -55; total -145.
+Sharpness V (197) -> III after -145 on a rating-10 diamond sword.
+Subtraction consumed the marked diamond once; both modifiers remained attached; unmarked scrap remained.
+Client result checks accept normal item pickup as well as a released world item.
+Original page PNG and bundled resource match SHA256 c32c17566cb967e0c39831c75cef77d4fd96289c2451e58452afa5a3c3ea4224.

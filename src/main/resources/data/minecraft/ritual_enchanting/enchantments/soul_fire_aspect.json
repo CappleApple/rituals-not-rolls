@@ -1,0 +1,44 @@
+{
+  "enchantment": "minecraft:soul_fire_aspect",
+  "optional": true,
+  "materials": [
+    {
+      "id": "minecraft/soul_soil",
+      "item": "minecraft:soul_soil",
+      "power": 24,
+      "resource_value": 3.0
+    },
+    {
+      "id": "minecraft/soul_campfire",
+      "item": "minecraft:soul_campfire",
+      "power": 36,
+      "resource_value": 4.5
+    },
+    {
+      "id": "minecraft/soul_lantern",
+      "item": "minecraft:soul_lantern",
+      "power": 44,
+      "resource_value": 5.5
+    },
+    {
+      "id": "minecraft/sculk",
+      "item": "minecraft:sculk",
+      "power": 64,
+      "resource_value": 8.0
+    },
+    {
+      "id": "minecraft/echo_shard",
+      "item": "minecraft:echo_shard",
+      "power": 88,
+      "resource_value": 11.0
+    }
+  ],
+  "levels": {
+    "1": 109.7143,
+    "2": 256,
+    "3": 548.5714
+  },
+  "conflict_groups": [],
+  "particle": "minecraft:soul_fire_flame",
+  "particle_color": "#44D2D9"
+}
