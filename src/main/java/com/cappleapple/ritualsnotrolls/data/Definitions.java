@@ -66,11 +66,13 @@ public final class Definitions extends SimpleJsonResourceReloadListener {
     Map<ResourceLocation, RitualDefinition> definitions = new TreeMap<>();
     Set<ResourceLocation> disabled = new TreeSet<>();
     Set<ResourceLocation> seen = new HashSet<>();
-    RitualRules rules = RitualRules.DEFAULT;
+    RitualRules rules = com.cappleapple.ritualsnotrolls.Config.rules();
     for (var e : new TreeMap<>(input).entrySet()) {
       try {
         if (e.getKey().equals(RitualsNotRolls.id("rules"))) {
-          rules = RitualRules.CODEC.parse(JsonOps.INSTANCE, e.getValue()).getOrThrow();
+          RitualsNotRolls.LOGGER.warn(
+              "Ignoring legacy ritual rules.json; move its settings to ritualsnotrolls-server.toml"
+                  + " [rules]");
         } else if (e.getKey().getPath().startsWith("enchantments/")) {
           JsonObject json = e.getValue().getAsJsonObject();
           ResourceLocation id =
@@ -97,6 +99,13 @@ public final class Definitions extends SimpleJsonResourceReloadListener {
       }
     }
     return new Snapshot(definitions, rules, revision, disabled);
+  }
+
+  public static void refreshRules() {
+    var current = SERVER;
+    var rules = com.cappleapple.ritualsnotrolls.Config.rules();
+    SERVER =
+        new Snapshot(current.enchantments(), rules, current.revision() + 1, current.disabled());
   }
 
   private static boolean readBoolean(JsonObject json, String field) {

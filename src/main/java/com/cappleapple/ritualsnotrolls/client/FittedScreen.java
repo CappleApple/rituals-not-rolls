@@ -73,6 +73,21 @@ public abstract class FittedScreen<M extends AbstractContainerMenu>
     return false;
   }
 
+  protected boolean contentDrag(double x, double y, int button, double dx, double dy) {
+    return false;
+  }
+
+  protected void contentRelease(int button) {}
+
+  protected void scissor(GuiGraphics g, int x, int y, int w, int h) {
+    // GuiGraphics scissor coordinates do not inherit the workstation's fit transform.
+    g.enableScissor(
+        (int) Math.ceil((leftPos + x) * fit),
+        (int) Math.ceil((topPos + y) * fit),
+        (int) Math.floor((leftPos + x + w) * fit),
+        (int) Math.floor((topPos + y + h) * fit));
+  }
+
   @Override
   public void render(GuiGraphics g, int x, int y, float partial) {
     g.pose().pushPose();
@@ -91,12 +106,14 @@ public abstract class FittedScreen<M extends AbstractContainerMenu>
 
   @Override
   public boolean mouseReleased(double x, double y, int button) {
+    contentRelease(button);
     return super.mouseReleased(x / fit, y / fit, button);
   }
 
   @Override
   public boolean mouseDragged(double x, double y, int button, double dx, double dy) {
-    return super.mouseDragged(x / fit, y / fit, button, dx / fit, dy / fit);
+    return contentDrag(x / fit, y / fit, button, dx / fit, dy / fit)
+        || super.mouseDragged(x / fit, y / fit, button, dx / fit, dy / fit);
   }
 
   @Override

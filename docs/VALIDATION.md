@@ -1,77 +1,36 @@
-# Testing notes — 1.0
+# Testing notes — 1.1.1
 
-This file records the current release checks for Rituals Not Rolls 1.0 and points to the raw test/client artifacts kept in the repository.
+Checked on 2026-09-12 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. The broader feature and recipe-viewer checks for 1.1 remain in [VALIDATION-1.1.md](VALIDATION-1.1.md).
 
-The 1.0 release was rebuilt on 2026-09-08 with Java 21 for Minecraft 1.21.1 / NeoForge 21.1.244. The stable-version build uses the same gameplay implementation that was tested during the final 1.6.4 development pass; the release version change was metadata-only.
+## Automated checks
 
-## Automated coverage
+The build passed 66 unit tests and 134 required GameTests. The added shelf regression retrieves items from all six slots in all four horizontal orientations and checks each animation origin against Minecraft's own chiseled-bookshelf hit-slot resolver. Filing and retrieval use the same corrected slot-position calculation.
 
-The release test run includes:
+See [build and GameTests](validation/scroll-slot-1.1.1-tests.log) and [unit totals](validation/release-1.1.1-unit-results.json).
 
-- 59 unit tests;
-- 119 required GameTests;
-- ritual timing and sequential/simultaneous chain behavior;
-- material sharing, catalyst payment, XP budgeting, and cancellation;
-- enchantment/subtraction calculations;
-- particle-route and ring geometry math;
-- failure instability/scatter behavior;
-- native pedestal persistence/inventory behavior; and
-- packaging checks that keep development fixtures out of the release jar.
+## Native client checks
 
-The current release logs are kept here:
+The real-client guide fixture checks all eight chapters with fractional mouse-wheel input, continuous movement from screenshot through text, bottom bounds, Home/End, scrollbar dragging and release, chapter reset, screenshot enlargement, and preserved scroll/search state after resizing. The small-GUI screenshot checks clipping under the workstation's fit transform. The item header has no hover tooltip; enchantment description and item-break particle checks remain in this fixture.
 
-- [1.0 build, unit tests and GameTests](validation/release-1.0-tests.log)
-- [1.0 unit-test totals](validation/release-1.0-unit-results.json)
+The library client checks the page's approach to the left slot of a north-facing shelf, then confirms filing, book insertion and animated retrieval. The all-orientation regression above covers the other shelf facings and slots. The dedicated development server and both clients run without recipe viewers installed.
 
-Older validation records are retained under the versioned `VALIDATION-*.md` files for regression history.
+Evidence:
 
-## Client checks
+- [Item header without a tooltip](validation/guide-1.1.1-item-header.png)
+- [Guide client log](validation/scroll-guide-1.1.1-client.log)
+- [Continuously scrolled chapter text](validation/guide-1.1.1-chapter-0-middle.png)
+- [Bottom of the long library chapter](validation/guide-1.1.1-chapter-1-bottom.png)
+- [Scrolled guide at small GUI size](validation/guide-1.1.1-small-gui-scrolled.png)
+- [Library client log](validation/slot-library-1.1.1-client.log)
+- [Page approaching the correct left slot](validation/library-1.1.1-page-at-left-slot.png)
 
-The final development client pass covered the pieces that are difficult to establish from server tests alone:
+These are development-fixture checks. Multiplayer library contention and arbitrary modpack combinations were not tested in this patch.
 
-- multiple enchantment chains forming and completing together;
-- Experience Catalyst streams and the retained XP ring;
-- the shared cutoff where incoming trails stop but already-emitted particles finish their routes;
-- successful and failing chains in the same ritual;
-- pure disenchanting without a success burst;
-- particle instability and failure scatter;
-- target-item release timing; and
-- the expected XP debit for the test fixture.
-
-The optional-mod client pass also covered the native Supplementaries and Iron's Spellbooks pedestal adapters, including material removal timing and failure behavior.
-
-Useful artifacts:
-
-- [Main client log](validation/trail-drain-1.6.4-client.log)
-- [Optional-mod/failure client log](validation/particle-refinement-1.6.4-client.log)
-- [Trails draining into the rings](validation/trail-drain-1.6.4-draining.png)
-- [All trails gathered](validation/trail-drain-1.6.4-gathered.png)
-- [XP ring retained](validation/trail-drain-1.6.4-xp-retained.png)
-- [Noisy trail before failure](validation/particle-refinement-1.6.4-noisy.png)
-- [Failure scatter](validation/particle-refinement-1.6.4-scatter.png)
-
-Those filenames keep the pre-1.0 development version because the client observations were collected before the stable-version rename.
-
-## What to rerun after changes
-
-For normal logic/data changes:
+## Commands
 
 ```powershell
 .\gradlew.bat test build runGameTestServer
+python tools/package_release.py
 ```
 
-For visual/timing changes, also run the appropriate disposable client fixture and inspect at least one complete successful ritual plus a failed or subtraction path.
-
-Changes to optional pedestal integrations should be checked with the corresponding mod present, not only through the generic pedestal path.
-
-## Manual checks still worth doing
-
-Automated coverage is intentionally not treated as a substitute for normal gameplay QA. Before a release that touches the relevant systems, manually check:
-
-- a real survival flow from finding pages through completing an enchantment;
-- multiplayer interaction with a shared library/table;
-- resource-pack replacements for pages, GUI assets, sounds, and enchanted-book models;
-- modpack-specific enchantments/material definitions; and
-- any new third-party pedestal/book integration.
-
-The raw logs/screenshots in `validation/` are debugging records, not a claim that every possible modpack combination has been tested.
+Native client fixtures use the disposable server on localhost port 25585: start `runSmokeServer`, then run `runGuideClient` and `runLibraryClient` separately. They modify their development world and exit after completion.

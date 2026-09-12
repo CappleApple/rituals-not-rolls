@@ -1,9 +1,16 @@
 package com.cappleapple.ritualsnotrolls;
 
+import com.cappleapple.ritualsnotrolls.data.PowerEquation;
+import com.cappleapple.ritualsnotrolls.data.RitualRules;
+import java.util.*;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 public final class Config {
   public static final ModConfigSpec SPEC;
+  public static final ModConfigSpec.DoubleValue CONSUMPTION_MULTIPLIER, XP_BONUS;
+  public static final ModConfigSpec.IntValue XP_LEVELS, DURATION;
+  public static final ModConfigSpec.ConfigValue<String> DUPLICATE_EQUATION, ENCHANTABILITY_EQUATION;
+  public static final ModConfigSpec.ConfigValue<List<? extends String>> CONFLICT_MULTIPLIERS;
   public static final ModConfigSpec.BooleanValue SEQUENTIAL_ANIMATIONS,
       CHAIN_ANIMATIONS,
       ENCHANTABILITY;
@@ -52,9 +59,93 @@ public final class Config {
     ENCHANTABILITY_BASE = b.defineInRange("baseEnchantability", 10.0, 1, 100);
     ENCHANTABILITY_EXPONENT =
         b.comment(
-                "Cost multiplier is (base / max(1, item rating)) raised to this exponent. Books use"
-                    + " base.")
+                "Cost multiplier is (base / effective item rating) raised to this exponent. Books"
+                    + " use base.")
             .defineInRange("enchantabilityExponent", .5, 0, 4);
+    ENCHANTABILITY_EQUATION =
+        b.comment(
+                "Effective item rating above baseEnchantability; lower ratings are unchanged.",
+                "Variables: rating, base. Operators: + - * / ^; functions: sqrt, log (natural),"
+                    + " min, max, pow.",
+                "Result is clamped between base and rating. Use rating to restore the original"
+                    + " curve.")
+            .define(
+                "enchantabilityEquation",
+                PowerEquation.ENCHANTABILITY,
+                value -> PowerEquation.valid(value, "rating"));
+    b.push("rules");
+    CONSUMPTION_MULTIPLIER =
+        b.comment("Power multiplier for a consumed offering before duplicate diminishing returns.")
+            .defineInRange("consumptionMultiplier", 1.5, 1, 100);
+    DUPLICATE_EQUATION =
+        b.comment(
+                "Fraction of power supplied by the nth consumed copy of the same item for one"
+                    + " enchantment.",
+                "n starts at 1. All bookshelf branches count together; applying and subtracting"
+                    + " count separately.",
+                "Copies rank by power, strongest first, with position breaking ties. Reusable"
+                    + " copies do not count.",
+                "Operators: + - * / ^; functions: sqrt, log (natural), min, max, pow. Output is"
+                    + " clamped to 0..1.",
+                "Use 1 for no diminishing returns; 1 / n for a steeper curve. Zero contributes"
+                    + " nothing and is not consumed.")
+            .define(
+                "duplicateConsumptionEquation",
+                PowerEquation.DUPLICATES,
+                value -> PowerEquation.valid(value, "n"));
+    XP_LEVELS = b.defineInRange("xpLevelsPerCatalyst", 10, 1, 1000);
+    XP_BONUS = b.defineInRange("xpBonusPerCatalyst", .1, 0, 100);
+    DURATION =
+        b.comment("Minimum ritual duration; long routes extend it as needed.")
+            .defineInRange("durationTicks", 120, 20, 12000);
+    CONFLICT_MULTIPLIERS =
+        b.comment(
+                "Conflict group=base entries. The nth enchantment in a group costs base^(n-1).",
+                "Unlisted groups use 2. Add custom groups used by your enchantment definitions"
+                    + " here.")
+            .defineListAllowEmpty(
+                "conflictMultipliers",
+                List.of(
+                    "protection=2",
+                    "damage=2",
+                    "boots=2",
+                    "bow=2",
+                    "crossbow=2",
+                    "trident=2",
+                    "mining=2",
+                    "mace=2"),
+                () -> "custom=2",
+                Config::validConflict);
+    b.pop();
     SPEC = b.build();
+  }
+
+  private static boolean validConflict(Object entry) {
+    if (!(entry instanceof String text)) return false;
+    var parts = text.split("=", -1);
+    if (parts.length != 2 || parts[0].isBlank()) return false;
+    try {
+      double value = Double.parseDouble(parts[1].strip());
+      return Double.isFinite(value) && value >= 1 && value <= 100;
+    } catch (NumberFormatException ex) {
+      return false;
+    }
+  }
+
+  public static RitualRules rules() {
+    // Initial resource loading can precede NeoForge's SERVER config loading.
+    if (!SPEC.isLoaded()) return RitualRules.DEFAULT;
+    Map<String, Double> conflicts = new LinkedHashMap<>();
+    for (String entry : CONFLICT_MULTIPLIERS.get()) {
+      var parts = entry.split("=", -1);
+      conflicts.put(parts[0].strip(), Double.parseDouble(parts[1].strip()));
+    }
+    return new RitualRules(
+        CONSUMPTION_MULTIPLIER.get(),
+        XP_LEVELS.get(),
+        XP_BONUS.get(),
+        conflicts,
+        DURATION.get(),
+        DUPLICATE_EQUATION.get());
   }
 }

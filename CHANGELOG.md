@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.1.1 — 2026-09-12
+
+### Changed
+
+- Guide chapters scroll continuously through their screenshot, caption and explanation, with mouse-wheel and scrollbar controls.
+- The filtered library header shows the held item without an explanatory hover tooltip.
+
+### Fixed
+
+- Page and book animations now target the correct left/right chiseled bookshelf slots in every orientation.
+
+## 1.1 — 2026-09-12
+
+### Added
+
+- A guidebook in the enchanting table, with enlargable in-game screenshot examples and chapters explaining current server settings.
+- Held-item filtering when opening the table, with a full-list fallback for non-enchantable items, plus concise enchantment descriptions on hover using Enchantment Descriptions language keys.
+- Client-configurable gold enchantment and red curse names in tooltips, with white descriptions.
+- Configurable equations for consumed duplicate power and high item enchantability.
+- Item-break particles when ritual trails take consumed offerings.
+- Shift-click shelf retrieval and automatic filing for pages and books thrown onto the table, with animated item movement and magical trails.
+- Enchanted-book crafting into a random configured page, retaining other enchantments on a returned book.
+- Optional JEI, EMI and REI Uses-key recipe views for book-to-page conversion and page binding.
+
+### Changed
+
+- Consumption defaults to 1.5× power, with each additional consumed copy contributing less.
+- Configured enchanted books become pages from all loot-table contexts and non-player world drops, including mobs, fishing, trial spawners and vaults.
+- Knowledge books join pages in staying hidden from recipe-viewer item lists.
+- Ritual rules now live in the server config instead of `rules.json`.
+- All multi-level vanilla enchantment definitions reach level X with increasing costs; existing sources, material powers and thresholds are preserved.
+
+### Fixed
+
+- Materials with zero current power no longer show an effective-power label.
+- Table searches survive GUI resizing.
+
 ## 1.0 — 2026-09-08
 
 ### Changed

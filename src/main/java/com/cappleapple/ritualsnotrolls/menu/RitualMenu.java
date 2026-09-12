@@ -14,15 +14,28 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 
-/**
- * Read-only library reference. No target slot, selection, XP allocation, or start action exists.
- */
+/** Library reference and shelf retrieval. Ritual targets are thrown into the world. */
 public final class RitualMenu extends AbstractContainerMenu {
   public final ServerPlayer player;
   public final Inventory inventory;
   public final BlockPos table;
+  private final ItemStack filter;
   public CompoundTag clientState = new CompoundTag();
   private long lastSync = -100;
+  public int actionSequence;
+  private long lastRetrieval = -100;
+
+  public void action(String action, String value) {
+    if (player == null || !stillValid(player) || !action.equals("retrieve")) return;
+    long now = player.level().getGameTime();
+    if (now - lastRetrieval < 4) return;
+    var id = net.minecraft.resources.ResourceLocation.parse(value);
+    var rows = snapshot().getList("knowledge", Tag.TAG_COMPOUND);
+    if (rows.stream().noneMatch(row -> ((CompoundTag) row).getString("id").equals(value))) return;
+    lastRetrieval = now;
+    if (com.cappleapple.ritualsnotrolls.knowledge.KnowledgeTransfers.retrieve(player, table, id))
+      sync();
+  }
 
   public RitualMenu(int id, Inventory inventory, RegistryFriendlyByteBuf buffer) {
     this(
@@ -32,10 +45,23 @@ public final class RitualMenu extends AbstractContainerMenu {
   }
 
   public RitualMenu(int id, Inventory inventory, BlockPos table) {
+    this(id, inventory, table, ItemStack.EMPTY);
+  }
+
+  public RitualMenu(int id, Inventory inventory, BlockPos table, ItemStack filter) {
     super(RitualsNotRolls.RITUAL_MENU.get(), id);
     this.inventory = inventory;
     player = inventory.player instanceof ServerPlayer p ? p : null;
     this.table = table.immutable();
+    boolean acceptsAny =
+        !filter.isEmpty()
+            && inventory
+                .player
+                .registryAccess()
+                .registryOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT)
+                .holders()
+                .anyMatch(enchantment -> RitualMath.applicable(filter, enchantment));
+    this.filter = acceptsAny ? filter.copy() : ItemStack.EMPTY;
   }
 
   @Override
@@ -64,6 +90,17 @@ public final class RitualMenu extends AbstractContainerMenu {
     var catalysts = RitualMath.catalysts(network);
     var rules = Definitions.SERVER.rules();
     CompoundTag state = new CompoundTag();
+    var guide = new CompoundTag();
+    guide.putInt("radius", Config.RADIUS.get());
+    guide.putBoolean("enchantability", Config.ENCHANTABILITY.get());
+    guide.putDouble("base", Config.ENCHANTABILITY_BASE.get());
+    guide.putDouble("exponent", Config.ENCHANTABILITY_EXPONENT.get());
+    guide.putString("equation", Config.ENCHANTABILITY_EQUATION.get());
+    guide.putBoolean("chains", Config.CHAIN_ANIMATIONS.get());
+    guide.putDouble("return_bonus", Config.CHAIN_RETURN_BONUS.get());
+    state.put("guide", guide);
+    state.put("filter", filter.saveOptional(player.registryAccess()));
+    state.putBoolean("filtered", !filter.isEmpty());
     state.putInt("shelves", network.shelves().size());
     state.putInt("pedestals", network.pedestals().size());
     state.putBoolean("sacrifice", catalysts.sacrifice());
@@ -84,6 +121,15 @@ public final class RitualMenu extends AbstractContainerMenu {
             (id, entries) -> {
               var def = Definitions.SERVER.get(id);
               if (def == null) return;
+              if (!filter.isEmpty()) {
+                var enchantment =
+                    player
+                        .registryAccess()
+                        .registryOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT)
+                        .getHolder(id)
+                        .orElse(null);
+                if (enchantment == null || !RitualMath.applicable(filter, enchantment)) return;
+              }
               var valid = entries.stream().filter(e -> def.affinity(e) != null).sorted().toList();
               if (valid.isEmpty()) return;
               var row = new CompoundTag();

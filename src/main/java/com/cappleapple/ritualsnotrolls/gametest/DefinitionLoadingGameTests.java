@@ -105,4 +105,44 @@ public final class DefinitionLoadingGameTests {
         "No unresolved optional items or enchantments without other mods");
     h.succeed();
   }
+
+  @GameTest(template = "empty")
+  public static void configRulesReplaceLegacyJsonAndRefreshServerSnapshot(GameTestHelper h) {
+    var previous = Definitions.SERVER;
+    double multiplier = com.cappleapple.ritualsnotrolls.Config.CONSUMPTION_MULTIPLIER.get();
+    String equation = com.cappleapple.ritualsnotrolls.Config.DUPLICATE_EQUATION.get();
+    try {
+      com.cappleapple.ritualsnotrolls.Config.CONSUMPTION_MULTIPLIER.set(1.75);
+      com.cappleapple.ritualsnotrolls.Config.DUPLICATE_EQUATION.set("1 / n");
+      var legacy = JsonParser.parseString("{\"consumption_multiplier\":99,\"duration_ticks\":999}");
+      var loaded = Definitions.load(Map.of(RitualsNotRolls.id("rules"), legacy), key -> true, 1);
+      h.assertTrue(
+          loaded.rules().consumptionMultiplier() == 1.75
+              && loaded.rules().duplicateFactor(2) == .5
+              && loaded.rules().duration() == 120,
+          "TOML config takes precedence; retired rules.json cannot override it");
+      Definitions.refreshRules();
+      h.assertTrue(
+          Definitions.SERVER.rules().equals(loaded.rules())
+              && Definitions.SERVER.enchantments().equals(previous.enchantments())
+              && Definitions.SERVER.revision() > previous.revision(),
+          "Config refresh updates rules and revision while preserving enchantments");
+      var roundTrip =
+          RitualRules.CODEC
+              .parse(
+                  com.mojang.serialization.JsonOps.INSTANCE,
+                  RitualRules.CODEC
+                      .encodeStart(com.mojang.serialization.JsonOps.INSTANCE, loaded.rules())
+                      .getOrThrow())
+              .getOrThrow();
+      h.assertTrue(
+          roundTrip.equals(loaded.rules()),
+          "Client rule synchronization preserves the custom equation");
+    } finally {
+      com.cappleapple.ritualsnotrolls.Config.CONSUMPTION_MULTIPLIER.set(multiplier);
+      com.cappleapple.ritualsnotrolls.Config.DUPLICATE_EQUATION.set(equation);
+      Definitions.SERVER = previous;
+    }
+    h.succeed();
+  }
 }

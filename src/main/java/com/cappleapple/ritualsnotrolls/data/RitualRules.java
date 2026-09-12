@@ -9,10 +9,30 @@ public record RitualRules(
     int xpLevelsPerCatalyst,
     double xpBonusPerCatalyst,
     Map<String, Double> conflicts,
-    int duration) {
+    int duration,
+    String duplicateConsumptionEquation) {
+  public RitualRules(
+      double consumptionMultiplier,
+      int xpLevelsPerCatalyst,
+      double xpBonusPerCatalyst,
+      Map<String, Double> conflicts,
+      int duration) {
+    this(
+        consumptionMultiplier,
+        xpLevelsPerCatalyst,
+        xpBonusPerCatalyst,
+        conflicts,
+        duration,
+        PowerEquation.DUPLICATES);
+  }
+
+  public double duplicateFactor(int copy) {
+    return PowerEquation.duplicateFactor(duplicateConsumptionEquation, copy);
+  }
+
   public static final RitualRules DEFAULT =
       new RitualRules(
-          2,
+          1.5,
           10,
           .1,
           Map.of(
@@ -38,7 +58,7 @@ public record RitualRules(
           i ->
               i.group(
                       Codec.DOUBLE
-                          .optionalFieldOf("consumption_multiplier", 2.0)
+                          .optionalFieldOf("consumption_multiplier", 1.5)
                           .forGetter(RitualRules::consumptionMultiplier),
                       Codec.INT
                           .optionalFieldOf("xp_levels_per_catalyst", 10)
@@ -51,11 +71,17 @@ public record RitualRules(
                           .forGetter(RitualRules::conflicts),
                       Codec.INT
                           .optionalFieldOf("duration_ticks", 120)
-                          .forGetter(RitualRules::duration))
+                          .forGetter(RitualRules::duration),
+                      Codec.STRING
+                          .optionalFieldOf(
+                              "duplicate_consumption_equation", PowerEquation.DUPLICATES)
+                          .forGetter(RitualRules::duplicateConsumptionEquation))
                   .apply(i, RitualRules::new));
 
   public RitualRules {
     conflicts = Map.copyOf(conflicts);
+    if (!PowerEquation.valid(duplicateConsumptionEquation, "n"))
+      throw new IllegalArgumentException("Invalid duplicate consumption equation");
     if (!Double.isFinite(consumptionMultiplier)
         || consumptionMultiplier < 1
         || xpLevelsPerCatalyst < 1

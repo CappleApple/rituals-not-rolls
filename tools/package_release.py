@@ -41,6 +41,26 @@ with zipfile.ZipFile(jar) as archive:
         assert all(total - a['power'] < total for a in d['materials'])
     by_id = {d['enchantment']: d for d in defaults}
     assert by_id['minecraft:mending']['levels']['1'] == 256
+    assert 'data/ritualsnotrolls/ritual_enchanting/rules.json' not in members
+    assert 'data/ritualsnotrolls/recipe/enchanted_book_page.json' in members
+    hidden = json.loads(archive.read('data/c/tags/item/hidden_from_recipe_viewers.json'))['values']
+    assert set(hidden) == {'ritualsnotrolls:knowledge_page', 'ritualsnotrolls:knowledge_book'}
+    for adapter in ['JeiKnowledgePlugin', 'EmiKnowledgePlugin', 'ReiKnowledgePlugin']:
+        assert 'com/cappleapple/ritualsnotrolls/compat/viewer/' + adapter + '.class' in members
+    assert not any(member.startswith(('mezz/jei/', 'dev/emi/', 'me/shedaniel/rei/')) for member in members), 'Optional viewer classes must not be bundled'
+
+    vanilla = [d for d in active if not d.get('optional', False)]
+    multi = [d for d in vanilla if len(d['levels']) > 1]
+    assert len(multi) == 33
+    assert all(set(d['levels']) == {str(level) for level in range(1, 11)} for d in multi)
+    assert all(set(d['levels']) == {'1'} for d in vanilla if len(d['levels']) == 1)
+    assert all(all(a < b for a, b in zip(d['levels'].values(), list(d['levels'].values())[1:])) for d in vanilla)
+    language = json.loads(archive.read('assets/ritualsnotrolls/lang/en_us.json'))
+    assert all('enchantment.' + d['enchantment'].replace(':', '.') + '.desc' in language for d in vanilla)
+    assert all('ritualsnotrolls.guide.chapter.' + str(i) + '.body' in language for i in range(8))
+    assert all('ritualsnotrolls.guide.chapter.' + str(i) + '.caption' in language for i in range(8))
+    assert all(f'assets/ritualsnotrolls/textures/gui/guide/example_{i}.png' in members for i in range(8))
+
     iron = lambda name: next(a['power'] for a in by_id['minecraft:'+name]['materials'] if a['id'] == 'iron_ingot')
     assert iron('knockback') > iron('sharpness')
     assert 'assets/ritualsnotrolls/textures/item/subtraction_catalyst.png' in members

@@ -3,6 +3,7 @@ package com.cappleapple.ritualsnotrolls.ritual;
 import com.cappleapple.ritualsnotrolls.*;
 import com.cappleapple.ritualsnotrolls.api.RitualEvent;
 import com.cappleapple.ritualsnotrolls.data.Definitions;
+import com.cappleapple.ritualsnotrolls.knowledge.KnowledgeTransfers;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.*;
@@ -108,6 +109,8 @@ public final class RitualEngine {
   }
 
   public static boolean tryStart(ServerLevel level, BlockPos table, ItemEntity entity) {
+    if (KnowledgeTransfers.knowledge(entity.getItem()))
+      return KnowledgeTransfers.tryStart(level, table, entity);
     if (!(entity.getOwner() instanceof ServerPlayer owner)
         || owner.serverLevel() != level
         || owner.isRemoved()
@@ -147,6 +150,7 @@ public final class RitualEngine {
   }
 
   public static void restoreCapturedItem(ItemEntity entity) {
+    KnowledgeTransfers.restore(entity);
     var data = entity.getPersistentData();
     if (!data.getBoolean("ritualsnotrolls_captured")) return;
     RitualConsumption.recover(entity);
@@ -158,6 +162,7 @@ public final class RitualEngine {
   }
 
   public static void clear() {
+    KnowledgeTransfers.clear();
     SESSIONS
         .values()
         .forEach(
@@ -174,6 +179,7 @@ public final class RitualEngine {
   }
 
   public static void unload(ServerLevel level) {
+    KnowledgeTransfers.unload(level);
     var sessions = SESSIONS.remove(level);
     if (sessions != null) sessions.values().forEach(s -> abort(s, "Ritual interrupted"));
     DROPS.remove(level);
@@ -186,7 +192,8 @@ public final class RitualEngine {
     for (var entity : new ArrayList<>(drops.values())) {
       if (!entity.isAlive()
           || entity.tickCount > Config.DROP_CAPTURE_TICKS.get()
-          || entity.getItem().getCount() != 1
+          || (entity.getItem().getCount() != 1 && !KnowledgeTransfers.knowledge(entity.getItem()))
+          || KnowledgeTransfers.active(entity)
           || !(entity.getOwner() instanceof ServerPlayer owner)
           || owner.isRemoved()) {
         drops.remove(entity.getUUID());
@@ -237,6 +244,7 @@ public final class RitualEngine {
   }
 
   public static void tick(ServerLevel level) {
+    KnowledgeTransfers.tick(level);
     tickTails(level);
     detect(level);
     var sessions = SESSIONS.get(level);
@@ -438,21 +446,9 @@ public final class RitualEngine {
     entity.setPickUpDelay(20);
     entity.setDeltaMovement(0, .18, 0);
     if (!receipts.isEmpty()) {
-      for (var receipt : receipts.stream().limit(24).toList()) {
+      for (var receipt : receipts) {
         sound(level, receipt.pos(), "consumption");
-        var burst =
-            com.cappleapple.ritualsnotrolls.pedestal.PedestalGeometry.displayPosition(
-                receipt.pos(), level.getBlockState(receipt.pos()));
-        level.sendParticles(
-            new ItemParticleOption(ParticleTypes.ITEM, receipt.stack()),
-            burst.x,
-            burst.y,
-            burst.z,
-            4,
-            .15,
-            .15,
-            .15,
-            .03);
+        RitualConsumption.breakParticles(level, receipt.pos(), receipt.stack());
       }
     }
     var registry =

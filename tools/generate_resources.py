@@ -84,11 +84,13 @@ lang={'itemGroup.ritualsnotrolls':'Rituals Not Rolls','block.ritualsnotrolls.ped
 lang.update({'subtitles.ritualsnotrolls.'+k:v for k,v in {'capture':'Ritual takes hold','knowledge':'Knowledge awakens','material':'Materials resonate','consumption':'Offering consumed','experience':'Experience channels','complete':'Ritual completes','disenchant':'Enchantment unravels','failure':'Ritual falters'}.items()})
 lang.update({'ritualsnotrolls.migration.pending':'Ancient Book (awaiting ritual data)','ritualsnotrolls.migration.pending_hint':'Original data preserved. Converts when matching ritual data is available on load.'})
 lang.update({'ritualsnotrolls.power': '%s Enchanting Power', 'ritualsnotrolls.potential_power': 'Potential: %s', 'ritualsnotrolls.power_tier.very_low': 'Weakest', 'ritualsnotrolls.power_tier.low': 'Weak', 'ritualsnotrolls.power_tier.medium': 'Average', 'ritualsnotrolls.power_tier.high': 'Strong', 'ritualsnotrolls.power_tier.very_high': 'Strongest'})
+lang.update(json.loads((ROOT/'tools/guide_lang.json').read_text(encoding='utf-8')))
 data(Path('assets/ritualsnotrolls/lang/en_us.json'),lang)
 
-for domain,folder,name,values in [('c','item','hidden_from_recipe_viewers',['ritualsnotrolls:knowledge_page']),('minecraft','item','bookshelf_books',['ritualsnotrolls:knowledge_book','ritualsnotrolls:knowledge_page']),('minecraft','block','mineable/pickaxe',['ritualsnotrolls:pedestal']),('ritualsnotrolls','block','enchanting_pedestals',['ritualsnotrolls:pedestal',{'id':'supplementaries:pedestal','required':False},{'id':'irons_spellbooks:pedestal','required':False}]),('ritualsnotrolls','block','knowledge_bookshelves',['minecraft:chiseled_bookshelf'])]:data(Path(f'data/{domain}/tags/{folder}/{name}.json'),{'replace':False,'values':values})
+for domain,folder,name,values in [('c','item','hidden_from_recipe_viewers',['ritualsnotrolls:knowledge_page','ritualsnotrolls:knowledge_book']),('minecraft','item','bookshelf_books',['ritualsnotrolls:knowledge_book','ritualsnotrolls:knowledge_page']),('minecraft','block','mineable/pickaxe',['ritualsnotrolls:pedestal']),('ritualsnotrolls','block','enchanting_pedestals',['ritualsnotrolls:pedestal',{'id':'supplementaries:pedestal','required':False},{'id':'irons_spellbooks:pedestal','required':False}]),('ritualsnotrolls','block','knowledge_bookshelves',['minecraft:chiseled_bookshelf'])]:data(Path(f'data/{domain}/tags/{folder}/{name}.json'),{'replace':False,'values':values})
 data(Path('data/ritualsnotrolls/loot_table/blocks/pedestal.json'),{'type':'minecraft:block','pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':'ritualsnotrolls:pedestal'}],'conditions':[{'condition':'minecraft:survives_explosion'}]}]})
 data(Path('data/ritualsnotrolls/recipe/knowledge_book.json'),{'type':'ritualsnotrolls:knowledge_book','category':'misc'})
+data(Path('data/ritualsnotrolls/recipe/enchanted_book_page.json'),{'type':'ritualsnotrolls:enchanted_book_page','category':'misc'})
 recipes={
  'subtraction_catalyst':([' R ','GSG',' R '],{'R':'minecraft:redstone','G':'minecraft:gold_nugget','S':'minecraft:fermented_spider_eye'},'ritualsnotrolls:subtraction_catalyst',1),
  'pedestal':(['SSS',' C ','SSS'],{'S':'minecraft:stone_bricks','C':'minecraft:chiseled_stone_bricks'},'ritualsnotrolls:pedestal',2),
@@ -134,15 +136,14 @@ for name,meta in vanilla.items():
     for item,power in zip(items,weights[name]):
         materials.append({'id':item,'item':'minecraft:'+item,'power':power,'resource_value':max(1,round(power/8,2))})
     if name=='sharpness':materials.append({'id':'amethyst_group','tag':'c:gems/amethyst','power':16,'resource_value':2})
-    max_level=7 if name=='unbreaking' else 6 if name=='sharpness' else meta['max_level']+1 if meta['max_level']>1 else 1
-    thresholds=[15,35,75,130,210,320,480]
+    max_level=10 if meta['max_level']>1 else 1
+    thresholds=[15,35,75,130,210,320,480,720,1080,1620]
     total=sum(weights[name])
     levels={str(i+1):round(total*thresholds[i]/thresholds[meta['max_level']-1],4) for i in range(max_level)}
     levels[str(meta['max_level'])]=total
     if name=='mending':levels={'1':256}
     effect,color=effects[name]
     data(Path('data/ritualsnotrolls/ritual_enchanting/enchantments')/(name+'.json'),{'enchantment':'minecraft:'+name,'materials':materials,'levels':levels,'conflict_groups':[group for group,members in groups.items() if name in members],'particle':'minecraft:'+effect,'particle_color':'#'+color})
-data(Path('data/ritualsnotrolls/ritual_enchanting/rules.json'),{'consumption_multiplier':2,'xp_levels_per_catalyst':10,'xp_bonus_per_catalyst':.1,'conflict_multipliers':{g:2 for g in groups},'duration_ticks':120})
 print(f'Generated {len(vanilla)} enchantment definitions with individual powers/effects and authored pixel resources.')
 
 # Keep the optional mod definitions in sync when regenerating all shipped resources.

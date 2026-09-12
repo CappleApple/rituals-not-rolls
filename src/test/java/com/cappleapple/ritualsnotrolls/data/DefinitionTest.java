@@ -59,7 +59,7 @@ class DefinitionTest {
   }
 
   @Test
-  void catalystRulesAreDatapackReplaceable() {
+  void customCatalystRulesControlExperienceBudget() {
     var r = new RitualRules(2, 5, .2, Map.of(), 120);
     assertEquals(1.4, r.xpMultiplier(2), 1e-9);
     assertEquals(160, r.xpCost(2));

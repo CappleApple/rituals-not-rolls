@@ -54,7 +54,10 @@ public final class CommonEvents {
     if (event.getEntity() instanceof net.minecraft.world.entity.item.ItemEntity item
         && !event.getLevel().isClientSide) {
       RitualEngine.restoreCapturedItem(item);
-      if (!event.loadedFromDisk()) RitualEngine.observe(item);
+      if (!event.loadedFromDisk()) {
+        DiscoveryLoot.replaceDrop(item);
+        RitualEngine.observe(item);
+      }
     }
   }
 
@@ -120,7 +123,7 @@ public final class CommonEvents {
     if (be == null) return;
     player.openMenu(
         new SimpleMenuProvider(
-            (id, inv, p) -> new RitualMenu(id, inv, event.getPos()),
+            (id, inv, p) -> new RitualMenu(id, inv, event.getPos(), player.getMainHandItem()),
             Component.translatable("container.ritualsnotrolls.ritual")),
         buf -> buf.writeBlockPos(event.getPos()));
   }
@@ -142,6 +145,11 @@ public final class CommonEvents {
                   .filter(e -> e.getItem().is(Items.ENCHANTING_TABLE))
                   .forEach(e -> e.getItem().enchant(h, level)));
     }
+  }
+
+  @SubscribeEvent
+  public static void starting(ServerAboutToStartEvent event) {
+    Definitions.refreshRules();
   }
 
   @SubscribeEvent

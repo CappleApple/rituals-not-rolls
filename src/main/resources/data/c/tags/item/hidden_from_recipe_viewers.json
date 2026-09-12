@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "ritualsnotrolls:knowledge_page"
+    "ritualsnotrolls:knowledge_page",
+    "ritualsnotrolls:knowledge_book"
   ]
 }

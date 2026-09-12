@@ -39,7 +39,25 @@ public final class RitualConsumption {
     persist(level, target);
     if (removed.getCount() != amount || !ItemStack.isSameItemSameComponents(removed, probe))
       return "A material changed during extraction";
+    breakParticles(level, pos, removed);
     return "";
+  }
+
+  public static void breakParticles(ServerLevel level, BlockPos pos, ItemStack stack) {
+    var point =
+        com.cappleapple.ritualsnotrolls.pedestal.PedestalGeometry.displayPosition(
+            pos, level.getBlockState(pos));
+    level.sendParticles(
+        new net.minecraft.core.particles.ItemParticleOption(
+            net.minecraft.core.particles.ParticleTypes.ITEM, stack.copyWithCount(1)),
+        point.x,
+        point.y,
+        point.z,
+        12,
+        .15,
+        .15,
+        .15,
+        .04);
   }
 
   private void persist(ServerLevel level, ItemEntity target) {

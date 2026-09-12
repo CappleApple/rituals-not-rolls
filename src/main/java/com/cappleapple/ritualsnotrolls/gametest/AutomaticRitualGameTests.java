@@ -163,8 +163,8 @@ public final class AutomaticRitualGameTests {
     var plan = r.plan(target.getItem());
     h.assertTrue(
         plan.selected().get(RitualGameTests.SHARP) == 4
-            && plan.evaluation().lines().getFirst().power() == 145,
-        "Only marked diamond doubles: 60 + 55 + 30 = 145");
+            && plan.evaluation().lines().getFirst().power() == 130,
+        "Only marked diamond is multiplied: 45 + 55 + 30 = 130");
     h.assertTrue(commit(r, target, plan).isEmpty(), "Automatic sacrifice commits");
     h.assertTrue(
         scrap.items.getStackInSlot(0).is(Items.NETHERITE_SCRAP),
@@ -592,8 +592,8 @@ public final class AutomaticRitualGameTests {
     var target = r.drop(new ItemStack(Items.DIAMOND_SWORD));
     var plan = r.plan(target.getItem());
     h.assertTrue(
-        plan.evaluation().lines().getFirst().power() == 90,
-        "Unmarked original adds 30 and marked duplicate adds 60");
+        plan.evaluation().lines().getFirst().power() == 75,
+        "Unmarked original adds 30 and marked duplicate adds 45");
     h.assertTrue(commit(r, target, plan).isEmpty(), "Duplicate selection commits");
     h.assertTrue(
         marked.items.getStackInSlot(0).isEmpty()
@@ -1015,5 +1015,50 @@ public final class AutomaticRitualGameTests {
               !entity.getPersistentData().contains(RitualConsumption.KEY), "Escrow cleared");
           h.succeed();
         });
+  }
+
+  @GameTest(template = "network")
+  public static void tableFilterUsesCapturedHeldItemAndKeepsCompatibleCurses(GameTestHelper h) {
+    var r = room(h);
+    var protection = ResourceLocation.withDefaultNamespace("protection");
+    var vanishing = ResourceLocation.withDefaultNamespace("vanishing_curse");
+    r.shelf.setItem(1, Knowledge.page(protection, "diamond"));
+    r.shelf.setItem(2, Knowledge.page(vanishing, "ender_pearl"));
+    var held = new ItemStack(Items.DIAMOND_SWORD);
+    var menu = new RitualMenu(11, r.player.getInventory(), r.table, held);
+    held.shrink(1);
+    var state = menu.snapshot();
+    var ids =
+        state.getList("knowledge", 10).stream()
+            .map(t -> ((net.minecraft.nbt.CompoundTag) t).getString("id"))
+            .collect(java.util.stream.Collectors.toSet());
+    h.assertTrue(
+        ids.equals(Set.of("minecraft:sharpness", "minecraft:vanishing_curse")),
+        "Sword shows known sword enchantments and its compatible curse, never armor protection");
+    h.assertTrue(
+        state.getBoolean("filtered") && !state.getCompound("filter").isEmpty(),
+        "Filter is captured independently of later hand changes");
+    h.assertTrue(
+        new RitualMenu(12, r.player.getInventory(), r.table)
+                .snapshot()
+                .getList("knowledge", 10)
+                .size()
+            == 3,
+        "Empty hand browses all known enchantments");
+    h.assertTrue(
+        new RitualMenu(13, r.player.getInventory(), r.table, new ItemStack(Items.DIRT))
+                .snapshot()
+                .getList("knowledge", 10)
+                .size()
+            == 3,
+        "Non-enchantable item browses all known enchantments");
+    h.assertTrue(
+        new RitualMenu(14, r.player.getInventory(), r.table, new ItemStack(Items.BOOK))
+                .snapshot()
+                .getList("knowledge", 10)
+                .size()
+            == 3,
+        "Books accept every known enchantment");
+    h.succeed();
   }
 }

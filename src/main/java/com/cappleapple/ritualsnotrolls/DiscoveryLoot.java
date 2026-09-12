@@ -43,23 +43,23 @@ public final class DiscoveryLoot extends LootModifier {
                 && context.getLevel().getBlockEntity(net.minecraft.core.BlockPos.containing(origin))
                     instanceof
                     net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
-    if (chest) {
-      var converted = replaceBooks(loot, context.getRandom());
-      loot.clear();
-      loot.addAll(converted);
-      if (chance > 0
-          && context.getRandom().nextDouble() < chance
-          && !Definitions.SERVER.enchantments().isEmpty()) {
-        var all = new ArrayList<>(Definitions.SERVER.enchantments().values());
-        var definition = all.get(context.getRandom().nextInt(all.size()));
-        loot.add(
-            Knowledge.page(
-                definition.enchantment(),
-                definition
-                    .materials()
-                    .get(context.getRandom().nextInt(definition.materials().size()))
-                    .id()));
-      }
+    var converted = replaceBooks(loot, context.getRandom());
+    loot.clear();
+    loot.addAll(converted);
+    // The optional bonus page remains a chest-only addition; conversion applies to every table.
+    if (chest
+        && chance > 0
+        && context.getRandom().nextDouble() < chance
+        && !Definitions.SERVER.enchantments().isEmpty()) {
+      var all = new ArrayList<>(Definitions.SERVER.enchantments().values());
+      var definition = all.get(context.getRandom().nextInt(all.size()));
+      loot.add(
+          Knowledge.page(
+              definition.enchantment(),
+              definition
+                  .materials()
+                  .get(context.getRandom().nextInt(definition.materials().size()))
+                  .id()));
     }
     return loot;
   }
@@ -100,5 +100,26 @@ public final class DiscoveryLoot extends LootModifier {
   @Override
   public MapCodec<? extends IGlobalLootModifier> codec() {
     return CODEC;
+  }
+
+  /** Catch direct world drops from mods too, while leaving player-thrown ritual targets intact. */
+  public static void replaceDrop(net.minecraft.world.entity.item.ItemEntity entity) {
+    if (!entity.getItem().is(Items.ENCHANTED_BOOK)
+        || entity.getOwner() instanceof net.minecraft.world.entity.player.Player) return;
+    var original = entity.getItem();
+    var converted = replaceBooks(java.util.List.of(original), entity.level().getRandom());
+    if (converted.size() == 1 && converted.getFirst() == original) return;
+    // Preserve pickup delay, age, motion and ownership on every replacement.
+    var saved = entity.saveWithoutId(new net.minecraft.nbt.CompoundTag());
+    saved.remove("UUID");
+    entity.setItem(converted.getFirst());
+    for (int i = 1; i < converted.size(); i++) {
+      var extra =
+          new net.minecraft.world.entity.item.ItemEntity(
+              entity.level(), entity.getX(), entity.getY(), entity.getZ(), converted.get(i));
+      extra.load(saved);
+      extra.setItem(converted.get(i));
+      entity.level().addFreshEntity(extra);
+    }
   }
 }

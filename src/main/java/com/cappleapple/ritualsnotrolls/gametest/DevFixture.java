@@ -34,6 +34,73 @@ public final class DevFixture {
             literal("ritualtest")
                 .requires(s -> s.hasPermission(2))
                 .then(
+                    literal("guideexample")
+                        .then(
+                            argument(
+                                    "chapter",
+                                    com.mojang.brigadier.arguments.IntegerArgumentType.integer(
+                                        0, 7))
+                                .executes(
+                                    c -> {
+                                      guideExample(
+                                          c.getSource().getPlayerOrException(),
+                                          com.mojang.brigadier.arguments.IntegerArgumentType
+                                              .getInteger(c, "chapter"));
+                                      return 1;
+                                    })))
+                .then(
+                    literal("viewers")
+                        .executes(
+                            c -> {
+                              viewers(c.getSource().getPlayerOrException());
+                              return 1;
+                            }))
+                .then(
+                    literal("library")
+                        .executes(
+                            c -> {
+                              library(c.getSource().getPlayerOrException());
+                              return 1;
+                            }))
+                .then(
+                    literal("filepage")
+                        .executes(
+                            c -> {
+                              dropKnowledge(
+                                  c.getSource().getPlayerOrException(),
+                                  Knowledge.page(
+                                      ResourceLocation.withDefaultNamespace("sharpness"),
+                                      "netherite_scrap"));
+                              return 1;
+                            }))
+                .then(
+                    literal("filebook")
+                        .executes(
+                            c -> {
+                              dropKnowledge(
+                                  c.getSource().getPlayerOrException(),
+                                  Knowledge.book(
+                                      new KnowledgeData(
+                                          ResourceLocation.withDefaultNamespace("unbreaking"),
+                                          List.of("diamond"),
+                                          true)));
+                              return 1;
+                            }))
+                .then(
+                    literal("guide")
+                        .executes(
+                            c -> {
+                              guide(c.getSource().getPlayerOrException());
+                              return 1;
+                            }))
+                .then(
+                    literal("consume")
+                        .executes(
+                            c -> {
+                              consume(c.getSource().getPlayerOrException());
+                              return 1;
+                            }))
+                .then(
                     literal("subtract")
                         .executes(
                             c -> {
@@ -242,5 +309,156 @@ public final class DevFixture {
     p.giveExperiencePoints(1395);
     p.connection.teleport(.5, 64, -1.5, 0, 15);
     p.getInventory().setChanged();
+  }
+
+  private static void guide(ServerPlayer player) {
+    setup(player);
+    var pos = TABLE.offset(-2, 0, 0);
+    player.serverLevel().setBlock(pos, Blocks.CHISELED_BOOKSHELF.defaultBlockState(), 3);
+    var shelf = (ChiseledBookShelfBlockEntity) player.serverLevel().getBlockEntity(pos);
+    shelf.setItem(
+        0, Knowledge.page(ResourceLocation.withDefaultNamespace("vanishing_curse"), "ender_pearl"));
+    shelf.setItem(
+        1, Knowledge.page(ResourceLocation.withDefaultNamespace("protection"), "diamond"));
+    player.getInventory().setItem(0, new ItemStack(Items.DIAMOND_SWORD));
+    player.getInventory().setChanged();
+  }
+
+  private static void consume(ServerPlayer player) {
+    setup(player);
+    var level = player.serverLevel();
+    for (var pedestal :
+        com.cappleapple.ritualsnotrolls.ritual.RitualNetwork.scan(level, TABLE, false, true)
+            .pedestals()) level.setBlock(pedestal.pos(), Blocks.AIR.defaultBlockState(), 3);
+    var shelf = (ChiseledBookShelfBlockEntity) level.getBlockEntity(TABLE.offset(2, 0, 0));
+    for (int slot = 0; slot < 6; slot++) shelf.setItem(slot, ItemStack.EMPTY);
+    shelf.setItem(0, Knowledge.page(ResourceLocation.withDefaultNamespace("sharpness"), "diamond"));
+    var pos = TABLE.offset(-2, 0, 0);
+    level.setBlock(pos, RitualsNotRolls.PEDESTAL.get().defaultBlockState(), 3);
+    var pedestal = (PedestalEntity) level.getBlockEntity(pos);
+    pedestal.items.setStackInSlot(0, new ItemStack(Items.DIAMOND));
+    pedestal.items.setStackInSlot(1, new ItemStack(RitualsNotRolls.CONSUMPTION_CATALYST.get()));
+    player.connection.teleport(.5, 64, -4.5, 0, 15);
+    var target =
+        new net.minecraft.world.entity.item.ItemEntity(
+            level, .5, 65, .5, new ItemStack(Items.DIAMOND_SWORD));
+    target.setThrower(player);
+    target.setPickUpDelay(20);
+    level.addFreshEntity(target);
+  }
+
+  private static void viewers(ServerPlayer player) {
+    setup(player);
+    player.getInventory().clearContent();
+    player
+        .getInventory()
+        .setItem(
+            0,
+            com.cappleapple.ritualsnotrolls.ritual.RitualMath.apply(
+                player,
+                new ItemStack(Items.BOOK),
+                Map.of(
+                    ResourceLocation.withDefaultNamespace("sharpness"),
+                    7,
+                    ResourceLocation.withDefaultNamespace("unbreaking"),
+                    3)));
+    player
+        .getInventory()
+        .setItem(1, Knowledge.page(ResourceLocation.withDefaultNamespace("sharpness"), "diamond"));
+    player.getInventory().setChanged();
+    player.inventoryMenu.broadcastChanges();
+  }
+
+  private static void library(ServerPlayer player) {
+    setup(player);
+    var level = player.serverLevel();
+    for (var pedestal :
+        com.cappleapple.ritualsnotrolls.ritual.RitualNetwork.scan(level, TABLE, false, true)
+            .pedestals()) level.setBlock(pedestal.pos(), Blocks.AIR.defaultBlockState(), 3);
+    var shelf = (ChiseledBookShelfBlockEntity) level.getBlockEntity(TABLE.offset(2, 0, 0));
+    for (int slot = 0; slot < 6; slot++) shelf.setItem(slot, ItemStack.EMPTY);
+    shelf.setItem(
+        0,
+        Knowledge.book(
+            new KnowledgeData(
+                ResourceLocation.withDefaultNamespace("sharpness"), List.of("diamond"), true)));
+    level
+        .getEntitiesOfClass(
+            net.minecraft.world.entity.item.ItemEntity.class,
+            new net.minecraft.world.phys.AABB(TABLE).inflate(12))
+        .forEach(net.minecraft.world.entity.Entity::discard);
+    player.getInventory().clearContent();
+    player.getInventory().setChanged();
+    player.inventoryMenu.broadcastChanges();
+    player.connection.teleport(.5, 64, -3.5, 0, 12);
+  }
+
+  private static void dropKnowledge(ServerPlayer player, ItemStack stack) {
+    var entity =
+        new net.minecraft.world.entity.item.ItemEntity(player.serverLevel(), .5, 65.1, .5, stack);
+    entity.setThrower(player);
+    entity.setPickUpDelay(40);
+    player.serverLevel().addFreshEntity(entity);
+  }
+
+  private static void guideExample(ServerPlayer player, int chapter) {
+    library(player);
+    var level = player.serverLevel();
+    level.setBlock(TABLE.offset(2, 0, 0), Blocks.AIR.defaultBlockState(), 3);
+    var shelfPos = TABLE.offset(-3, 0, 1);
+    level.setBlock(shelfPos, Blocks.CHISELED_BOOKSHELF.defaultBlockState(), 3);
+    var shelf = (ChiseledBookShelfBlockEntity) level.getBlockEntity(shelfPos);
+    var sharp = ResourceLocation.withDefaultNamespace("sharpness");
+    shelf.setItem(
+        0,
+        Knowledge.book(
+            new KnowledgeData(sharp, List.of("diamond", "netherite_scrap", "flint"), true)));
+    int[][] positions = {{2, 0}, {3, 2}, {0, 3}};
+    Item[] materials = {Items.DIAMOND, Items.NETHERITE_SCRAP, Items.FLINT};
+    if (chapter == 4) materials = new Item[] {Items.DIAMOND_SWORD, Items.GOLDEN_SWORD, Items.BOOK};
+    for (int i = 0; i < 3; i++) {
+      var pos = TABLE.offset(positions[i][0], 0, positions[i][1]);
+      level.setBlock(pos, RitualsNotRolls.PEDESTAL.get().defaultBlockState(), 3);
+      var pedestal = (PedestalEntity) level.getBlockEntity(pos);
+      pedestal.items.setStackInSlot(0, new ItemStack(materials[i]));
+      if (chapter == 3 || chapter == 7)
+        pedestal.items.setStackInSlot(1, new ItemStack(RitualsNotRolls.CONSUMPTION_CATALYST.get()));
+      if (chapter == 7)
+        pedestal.items.setStackInSlot(2, new ItemStack(RitualsNotRolls.SUBTRACTION_CATALYST.get()));
+    }
+    if (chapter == 6) {
+      var pos = TABLE.offset(-2, 0, -1);
+      level.setBlock(pos, RitualsNotRolls.PEDESTAL.get().defaultBlockState(), 3);
+      ((PedestalEntity) level.getBlockEntity(pos))
+          .items.setStackInSlot(0, new ItemStack(RitualsNotRolls.XP_CATALYST.get()));
+    }
+    if (chapter == 5) {
+      var unbreaking = ResourceLocation.withDefaultNamespace("unbreaking");
+      shelf.setItem(1, Knowledge.book(new KnowledgeData(unbreaking, List.of("diamond"), true)));
+    }
+    player.setGameMode(net.minecraft.world.level.GameType.SPECTATOR);
+    player.connection.teleport(.5, 65.5, -4.5, 0, 18);
+    player.getInventory().clearContent();
+    player.getInventory().setChanged();
+    level
+        .getEntitiesOfClass(
+            net.minecraft.world.entity.item.ItemEntity.class,
+            new net.minecraft.world.phys.AABB(TABLE).inflate(12))
+        .forEach(net.minecraft.world.entity.Entity::discard);
+    if (chapter == 1) {
+      shelf.setItem(0, Knowledge.book(new KnowledgeData(sharp, List.of("diamond"), true)));
+      dropKnowledge(player, Knowledge.page(sharp, "netherite_scrap"));
+    }
+    if (chapter == 3 || chapter >= 5) {
+      var target =
+          chapter == 7
+              ? com.cappleapple.ritualsnotrolls.ritual.RitualMath.apply(
+                  player, new ItemStack(Items.DIAMOND_SWORD), Map.of(sharp, 3))
+              : new ItemStack(Items.DIAMOND_SWORD);
+      var entity = new net.minecraft.world.entity.item.ItemEntity(level, .5, 65.1, .5, target);
+      entity.setThrower(player);
+      entity.setPickUpDelay(40);
+      level.addFreshEntity(entity);
+    }
   }
 }

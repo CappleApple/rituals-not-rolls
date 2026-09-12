@@ -124,6 +124,12 @@ public final class RitualsNotRolls {
           RECIPES.register(
               "knowledge_book",
               () -> new SimpleCraftingRecipeSerializer<>(KnowledgeBookRecipe::new));
+  public static final DeferredHolder<
+          RecipeSerializer<?>, SimpleCraftingRecipeSerializer<EnchantedBookPageRecipe>>
+      PAGE_RECIPE =
+          RECIPES.register(
+              "enchanted_book_page",
+              () -> new SimpleCraftingRecipeSerializer<>(EnchantedBookPageRecipe::new));
   public static final DeferredHolder<AttachmentType<?>, AttachmentType<Integer>> ASSEMBLY =
       ATTACHMENTS.register(
           "arcane_assembly",
@@ -185,7 +191,20 @@ public final class RitualsNotRolls {
                 .build());
     TABS.register(bus);
     container.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
+    container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
     bus.addListener(Networking::register);
+    bus.addListener(
+        (net.neoforged.fml.event.config.ModConfigEvent.Reloading event) -> {
+          if (event.getConfig().getSpec() != Config.SPEC) return;
+          var server = net.neoforged.neoforge.server.ServerLifecycleHooks.getCurrentServer();
+          if (server != null)
+            server.execute(
+                () -> {
+                  Definitions.refreshRules();
+                  for (var player : server.getPlayerList().getPlayers())
+                    Networking.syncDefinitions(player);
+                });
+        });
     bus.addListener(
         (RegisterCapabilitiesEvent event) ->
             event.registerBlockEntity(

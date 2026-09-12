@@ -67,7 +67,11 @@ public final class ChainGameTests {
       player.setPos(Vec3.atCenterOf(table));
       var map = new TreeMap<ResourceLocation, RitualDefinition>();
       for (var definition : definitions) map.put(definition.enchantment(), definition);
-      Definitions.SERVER = new Definitions.Snapshot(map, original.rules(), original.revision() + 1);
+      Definitions.SERVER =
+          new Definitions.Snapshot(
+              map,
+              new RitualRules(2, 10, .1, original.rules().conflicts(), 120, "1"),
+              original.revision() + 1);
       Config.CHAIN_ANIMATIONS.set(true);
     }
 
@@ -282,8 +286,8 @@ public final class ChainGameTests {
             && Knowledge.page(LOOT, "iron_ingot").is(hidden),
         "Component-bearing page variants are hidden by their item tag");
     h.assertTrue(
-        !new ItemStack(RitualsNotRolls.BOOK.get()).is(hidden),
-        "Knowledge books remain available in recipe viewers");
+        new ItemStack(RitualsNotRolls.BOOK.get()).is(hidden),
+        "Knowledge books stay out of the item index too");
     h.succeed();
   }
 
@@ -736,7 +740,8 @@ public final class ChainGameTests {
           "Rating 10 is neutral");
       double gold = RitualMath.enchantabilityMultiplier(new ItemStack(Items.GOLDEN_SWORD));
       h.assertTrue(
-          Math.abs(gold - Math.sqrt(10.0 / 22)) < 1e-8, "High enchantability reduces cost gently");
+          Math.abs(gold - Math.sqrt(1 / (1 + Math.log(2.2)))) < 1e-8,
+          "High enchantability reduces cost gently");
       h.assertTrue(
           RitualMath.enchantabilityMultiplier(new ItemStack(Items.BOW)) > 1
               && RitualMath.enchantabilityMultiplier(new ItemStack(Items.BOOK)) == 1,
@@ -745,7 +750,7 @@ public final class ChainGameTests {
       h.assertTrue(
           Math.abs(
                   RitualMath.enchantabilityMultiplier(new ItemStack(Items.GOLDEN_SWORD))
-                      - 10.0 / 22)
+                      - 1 / (1 + Math.log(2.2)))
               < 1e-8,
           "Exponent is configurable");
       Config.ENCHANTABILITY.set(false);
@@ -782,6 +787,10 @@ public final class ChainGameTests {
       h.assertTrue(
           Math.abs(total - definition.required(maximum)) < 1e-8,
           definition.enchantment() + ": complete distinct set reaches vanilla maximum");
+      h.assertTrue(
+          definition.thresholds().lastKey() == (maximum > 1 ? 10 : 1),
+          definition.enchantment()
+              + ": multi-level vanilla defaults reach X; single-level stays I");
       for (double power : powers.values())
         h.assertTrue(
             total - power < definition.required(maximum),
@@ -791,7 +800,7 @@ public final class ChainGameTests {
   }
 
   @GameTest(template = "network")
-  public static void chestModifierRecognizesContextAndPreservesNonChestBooks(GameTestHelper h) {
+  public static void lootModifierConvertsAllContexts(GameTestHelper h) {
     try (var r = new Room(h, definition(SHARP, Map.of(Items.DIAMOND, 20.0), 10))) {
       var book = RitualMath.apply(r.player, new ItemStack(Items.BOOK), Map.of(SHARP, 2));
       var params =
@@ -803,21 +812,23 @@ public final class ChainGameTests {
       var modifier =
           new DiscoveryLoot(
               new net.minecraft.world.level.storage.loot.predicates.LootItemCondition[0], 0);
-      for (boolean chest : List.of(false, true)) {
+      for (String path :
+          List.of(
+              "chests/simple_dungeon",
+              "gameplay/fishing/treasure",
+              "entities/zombie",
+              "spawners/trial_chamber/reward",
+              "chests/trial_chambers/reward_ominous")) {
         var context =
             new net.minecraft.world.level.storage.loot.LootContext.Builder(params)
-                .withQueriedLootTableId(
-                    id(chest ? "chests/simple_dungeon" : "gameplay/fishing/treasure"))
+                .withQueriedLootTableId(id(path))
                 .create(Optional.empty());
         var output =
             modifier.apply(
                 new it.unimi.dsi.fastutil.objects.ObjectArrayList<>(List.of(book.copy())), context);
         h.assertTrue(
-            output.size() == 1
-                && (chest
-                    ? output.getFirst().is(RitualsNotRolls.PAGE)
-                    : ItemStack.matches(book, output.getFirst())),
-            "Conversion is restricted to chest loot");
+            output.size() == 1 && output.getFirst().is(RitualsNotRolls.PAGE),
+            "Every loot-table context converts configured books: " + path);
       }
       h.getLevel().setBlock(r.table, Blocks.CHEST.defaultBlockState(), 3);
       var context =
@@ -980,6 +991,74 @@ public final class ChainGameTests {
           "Complete spline and failure clock round-trip on wire");
     } finally {
       buffer.release();
+    }
+    h.succeed();
+  }
+
+  @GameTest(template = "network")
+  public static void defaultDuplicateCurveMatchesMenuAndConsumptionAcrossShelves(GameTestHelper h) {
+    try (var r = new Room(h, definition(SHARP, Map.of(Items.DIAMOND, 20.0), 10, 50))) {
+      var data = Definitions.SERVER;
+      Definitions.SERVER =
+          new Definitions.Snapshot(data.enchantments(), RitualRules.DEFAULT, data.revision());
+      Config.CHAIN_ANIMATIONS.set(false);
+      r.books(-5, 0, SHARP);
+      r.books(5, 0, SHARP);
+      var a = r.pedestal(-4, 0, Items.DIAMOND, true, false);
+      var b = r.pedestal(4, 0, Items.DIAMOND, true, false);
+      var target = r.drop(new ItemStack(Items.DIAMOND_SWORD));
+      var plan = r.plan(target.getItem());
+      double expected = 30 * (1 + 1 / Math.sqrt(2));
+      h.assertTrue(
+          plan.chains().size() == 2 && Math.abs(power(plan, SHARP) - expected) < 1e-8,
+          "Two bookshelf branches share one duplicate count: 30 + 30/sqrt(2)");
+      var menu =
+          new com.cappleapple.ritualsnotrolls.menu.RitualMenu(1, r.player.getInventory(), r.table);
+      var row = menu.snapshot().getList("knowledge", 10).getCompound(0);
+      h.assertTrue(
+          Math.abs(row.getDouble("power") - expected) < 1e-8
+              && Math.abs(
+                      row.getList("affinities", 10).getCompound(0).getDouble("effective")
+                          - expected)
+                  < 1e-8,
+          "Menu preview uses exactly the same diminished contributions");
+      h.assertTrue(
+          plan.selected().get(SHARP) == 2 && plan.withdrawals().size() == 2,
+          "Both discounted offerings enable the next level and each costs one item");
+      r.commit(target, plan);
+      h.assertTrue(
+          a.items.getStackInSlot(0).isEmpty()
+              && b.items.getStackInSlot(0).isEmpty()
+              && !a.items.getStackInSlot(1).isEmpty()
+              && !b.items.getStackInSlot(1).isEmpty(),
+          "Materials spent once; catalysts retained");
+    }
+    h.succeed();
+  }
+
+  @GameTest(template = "network")
+  public static void duplicateCurvesAreConfigurableAndZeroCopiesAreNotSpent(GameTestHelper h) {
+    try (var r = new Room(h, definition(SHARP, Map.of(Items.DIAMOND, 20.0), 10, 40))) {
+      var data = Definitions.SERVER;
+      Config.CHAIN_ANIMATIONS.set(false);
+      r.books(0, -5, SHARP);
+      r.pedestal(-4, 1, Items.DIAMOND, true, false);
+      r.pedestal(4, 1, Items.DIAMOND, true, false);
+      for (String equation : List.of("1", "1 / n", "max(0, 2 - n)")) {
+        Definitions.SERVER =
+            new Definitions.Snapshot(
+                data.enchantments(),
+                new RitualRules(1.5, 10, .1, Map.of(), 120, equation),
+                data.revision());
+        var plan = r.plan(new ItemStack(Items.DIAMOND_SWORD));
+        double expected = equation.equals("1") ? 60 : equation.equals("1 / n") ? 45 : 30;
+        h.assertTrue(
+            Math.abs(power(plan, SHARP) - expected) < 1e-8,
+            "Custom equation changes real power: " + equation);
+        h.assertTrue(
+            plan.withdrawals().size() == (expected == 30 ? 1 : 2),
+            "Zero-power duplicate is not reserved or consumed");
+      }
     }
     h.succeed();
   }

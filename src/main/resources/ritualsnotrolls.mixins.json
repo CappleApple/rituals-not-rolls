@@ -20,6 +20,7 @@
   "client": [
     "ParticleEngineAccessor",
     "RitualSoundPitchMixin",
-    "ForeignPedestalRendererMixin"
+    "ForeignPedestalRendererMixin",
+    "EmiRecipeLookupMixin"
   ]
 }

@@ -59,6 +59,14 @@ public final class RitualMath {
         ItemEnchantments.EMPTY);
   }
 
+  public static boolean applicable(
+      ItemStack target, net.minecraft.core.Holder<Enchantment> enchantment) {
+    return target.is(Items.BOOK)
+        || target.is(Items.ENCHANTED_BOOK)
+        || target.supportsEnchantment(enchantment)
+        || enchantments(target).getLevel(enchantment) > 0;
+  }
+
   public static Map<ResourceLocation, Double> conflicts(
       ItemStack target, Map<ResourceLocation, Integer> selected, Definitions.Snapshot data) {
     Map<String, Integer> counts = new HashMap<>();
@@ -148,7 +156,11 @@ public final class RitualMath {
   public static double enchantabilityMultiplier(ItemStack target) {
     if (!Config.ENCHANTABILITY.get() || target.is(Items.BOOK) || target.is(Items.ENCHANTED_BOOK))
       return 1;
-    int rating = Math.max(1, target.getItem().getEnchantmentValue(target));
+    double rating =
+        PowerEquation.effectiveEnchantability(
+            Config.ENCHANTABILITY_EQUATION.get(),
+            target.getItem().getEnchantmentValue(target),
+            Config.ENCHANTABILITY_BASE.get());
     return Math.pow(
         Config.ENCHANTABILITY_BASE.get() / rating, Config.ENCHANTABILITY_EXPONENT.get());
   }
@@ -200,9 +212,35 @@ public final class RitualMath {
             .put(chain.enchantment(), p.subtraction() ? -amount : amount);
       }
     }
+    // Count consumed copies across every bookshelf branch of this enchantment. Rank the
+    // strongest contributions first so scan order cannot change the available power.
+    record Duplicate(ResourceLocation enchantment, ResourceLocation item, boolean subtraction) {}
+    Map<Duplicate, List<BlockPos>> duplicates = new LinkedHashMap<>();
+    for (var p : network.pedestals()) {
+      if (!p.catalyst() || !powers.containsKey(p.pos())) continue;
+      for (var id : powers.get(p.pos()).keySet())
+        duplicates
+            .computeIfAbsent(
+                new Duplicate(id, itemId(p.stack()), p.subtraction()), k -> new ArrayList<>())
+            .add(p.pos());
+    }
+    duplicates.forEach(
+        (key, positions) -> {
+          positions.sort(
+              Comparator.<BlockPos>comparingDouble(
+                      pos -> -Math.abs(powers.get(pos).get(key.enchantment())))
+                  .thenComparingLong(BlockPos::asLong));
+          for (int i = 0; i < positions.size(); i++) {
+            var values = powers.get(positions.get(i));
+            double amount =
+                values.get(key.enchantment()) * Definitions.SERVER.rules().duplicateFactor(i + 1);
+            if (amount == 0) values.remove(key.enchantment());
+            else values.put(key.enchantment(), amount);
+          }
+        });
     List<RitualPower.Material> result = new ArrayList<>();
     for (var p : network.pedestals())
-      if (powers.containsKey(p.pos()))
+      if (powers.containsKey(p.pos()) && !powers.get(p.pos()).isEmpty())
         result.add(
             new RitualPower.Material(
                 p.pos(), itemId(p.stack()), p.subtraction(), Map.copyOf(powers.get(p.pos()))));
@@ -246,10 +284,7 @@ public final class RitualMath {
         continue;
       }
       int current = enchantments(target).getLevel(holder);
-      if (current == 0
-          && !(target.is(Items.BOOK)
-              || target.is(Items.ENCHANTED_BOOK)
-              || target.supportsEnchantment(holder))) {
+      if (!applicable(target, holder)) {
         reason = "Unsupported enchantment";
         continue;
       }

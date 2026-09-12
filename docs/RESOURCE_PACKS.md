@@ -46,7 +46,7 @@ A mouse click does not leave an unhovered navigation button highlighted. Keyboar
 { "gui": { "scaling": { "type": "nine_slice", "width": 24, "height": 24, "border": 3 } } }
 ```
 
-Legacy sprites remain available to packs but are not controls in the read-only table UI. `examples/resourcepack` is an installable selected-enchantment-frame override with matching metadata, plus a complete editable sounds.json.
+Legacy sprites remain available to packs but are not controls in the table library UI. `examples/resourcepack` is an installable selected-enchantment-frame override with matching metadata, plus a complete editable sounds.json.
 
 ## Particles
 
@@ -107,6 +107,34 @@ Insufficient positive-power chains begin calmly and destabilize near ring format
 
 Page power text uses `ritualsnotrolls.power` (`%s Enchanting Power`) and the five `ritualsnotrolls.power_tier.*` translations (`very_low`, `low`, `medium`, `high`, `very_high`). The default labels are Weakest, Weak, Average, Strong, and Strongest; existing translation keys remain stable. Tooltip width is calculated from the translated tier phrase.
 
-Knowledge pages use the common `c:hidden_from_recipe_viewers` item tag to hide all page variants from JEI and EMI item lists.
+Knowledge pages and books use the common `c:hidden_from_recipe_viewers` item tag. The optional JEI, EMI and REI adapters hide these variants from item lists while providing recipes through the Uses key.
 
 The enchanting-table reference uses the same tier translation keys without the Enchanting Power suffix for potential, base, and effective strength. All compare against the strongest affinity in that enchantment’s complete loaded definition, including undiscovered affinities. Effective strength includes current contributions and modifiers; negative values retain a minus sign. Zero falls in Weakest, and amounts above the reference maximum stay Strongest. Numeric power multipliers are hidden; XP costs and counts remain visible.
+
+## Enchantment descriptions and guide text
+
+Descriptions use the same language keys as [Enchantment Descriptions for Minecraft 1.21.1](https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/blob/1.21.1/common/src/main/java/net/darkhax/enchdesc/common/impl/EnchdescMod.java): `enchantment.<namespace>.<path>.desc`. No dependency on that mod is required.
+
+For example, put this in `assets/ritualsnotrolls/lang/en_us.json` inside a resource pack:
+
+```json
+{
+  "enchantment.minecraft.sharpness.desc": "Adds melee damage to each hit."
+}
+```
+
+For another enchantment, substitute its registered namespace and path. A slash in the path stays a slash. Keys belong to Minecraft's shared language map; the resource pack's asset namespace need not match the enchantment namespace. Mods can add the same keys to their own language files. Select the resource pack and use F3+T to reload. The [example resource pack](../examples/resourcepack) includes this editable entry.
+
+Lookup follows Enchantment Descriptions' order: `.desc`, `.description`, then `.info`. Each suffix checks its general entry before its level-specific entry, such as `enchantment.minecraft.sharpness.desc.1`. If none exist for the registry ID, the same suffixes are tried after the enchantment's custom name translation key. Table rows describe enchantments generally and use level I when only level-specific text exists.
+
+All 42 vanilla enchantments have short descriptions under these standard keys in `assets/ritualsnotrolls/lang/en_us.json`. Resource packs can replace them and supply modded descriptions. Missing descriptions display an unavailable message. Keep descriptions to one short sentence when possible; supplied text wraps in the tooltip without being truncated.
+
+Guide titles and bodies use `ritualsnotrolls.guide.chapter.0.title` / `.body` through chapter `7` in the same language file. Preserve the `%s` placeholders when translating bodies; they receive live server settings. Text wraps within one continuously scrolling chapter.
+
+Descriptions are white. The player chooses enchantment and curse name colors in `config/ritualsnotrolls-client.toml`; see [CONFIGURATION.md](CONFIGURATION.md).
+
+## Guide screenshot examples
+
+Each guide chapter starts with a real in-game screenshot and caption. Click the image to enlarge it; Back or Escape returns to the chapter. Scroll down with the mouse wheel or drag the scrollbar to reach the mechanics text. Arrow keys, Page Up/Down and Home/End also scroll the chapter.
+
+Replace `assets/ritualsnotrolls/textures/gui/guide/example_0.png` through `example_7.png` for the eight chapters in order. The bundled images are 960 x 540 PNG screenshots captured from the development scenes without a HUD. Keep the 16:9 aspect ratio. Captions use `ritualsnotrolls.guide.chapter.<0-7>.caption` in the language file and should fit three lines at 206 GUI pixels. Screenshots are examples; the adjoining text uses the connected server's current settings.
