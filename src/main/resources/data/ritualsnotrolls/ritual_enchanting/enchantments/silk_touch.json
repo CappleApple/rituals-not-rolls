@@ -38,6 +38,6 @@
   "conflict_groups": [
     "mining"
   ],
-  "particle": "minecraft:enchant",
+  "particle": "minecraft:end_rod",
   "particle_color": "#E2DAF2"
 }

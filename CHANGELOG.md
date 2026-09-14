@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 — 2026-09-13
+
+### Changed
+
+- Replaced rune particles in all bundled enchantment presets with colored end-rod sparks for visibility. Book placement and retrieval keep their existing particles.
+
 ## 1.1.1 — 2026-09-12
 
 ### Changed

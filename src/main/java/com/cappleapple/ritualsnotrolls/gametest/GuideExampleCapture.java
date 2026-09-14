@@ -14,7 +14,10 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 /** Captures real game frames for the guide's bundled screenshot examples. */
 @EventBusSubscriber(modid = RitualsNotRolls.ID, value = Dist.CLIENT)
 public final class GuideExampleCapture {
-  private static int ticks, stage, wait, chapter, fragmentAt, originalFov;
+  private static final int ONLY_CHAPTER =
+      Integer.getInteger("ritualsnotrolls.captureGuideChapter", -1);
+  private static int ticks, stage, wait, fragmentAt, originalFov;
+  private static int chapter = ONLY_CHAPTER < 0 ? 0 : ONLY_CHAPTER;
 
   private static void next(int n) {
     stage = n;
@@ -30,6 +33,42 @@ public final class GuideExampleCapture {
             .flatMap(v -> ((Collection<?>) v).stream())
             .filter(p -> p instanceof net.minecraft.client.particle.BreakingItemParticle)
             .count();
+  }
+
+  private static void verifyChainSprites() throws Exception {
+    var field = net.minecraft.client.particle.ParticleEngine.class.getDeclaredField("particles");
+    field.setAccessible(true);
+    var particles = (Map<?, ?>) field.get(Minecraft.getInstance().particleEngine);
+    Set<String> observed = new TreeSet<>();
+    for (var bucket : particles.values()) {
+      for (var particle : (Collection<?>) bucket) {
+        if (!particle.getClass().getName().endsWith("RitualParticleProvider$Flying")) continue;
+        var visualField = particle.getClass().getDeclaredField("visual");
+        var optionsField = particle.getClass().getDeclaredField("options");
+        visualField.setAccessible(true);
+        optionsField.setAccessible(true);
+        var visual = visualField.get(particle);
+        var options =
+            (com.cappleapple.ritualsnotrolls.ritual.RitualParticleOptions)
+                optionsField.get(particle);
+        if (!options.effect().toString().equals("minecraft:end_rod")
+            || !(visual instanceof net.minecraft.client.particle.EndRodParticle))
+          throw new IllegalStateException(
+              "Unexpected chain sprite: "
+                  + options.effect()
+                  + " / "
+                  + visual.getClass().getSimpleName());
+        observed.add(
+            options.effect()
+                + " #"
+                + String.format("%06X", options.rgb())
+                + " / "
+                + visual.getClass().getSimpleName());
+      }
+    }
+    if (!observed.contains("minecraft:end_rod #AFCFFF / EndRodParticle"))
+      throw new IllegalStateException("Sharpness sparks must be visible: " + observed);
+    RitualsNotRolls.LOGGER.info("GUIDE_CHAIN_SPRITES_VERIFIED: {}", observed);
   }
 
   @SubscribeEvent
@@ -64,6 +103,7 @@ public final class GuideExampleCapture {
         int delay = chapter == 1 ? 16 : chapter >= 5 ? 75 : 22;
         if (chapter == 3 && fragments() > 0 && fragmentAt == 0) fragmentAt = wait;
         if (wait >= delay && (chapter != 3 || fragmentAt > 0 && wait >= fragmentAt + 2)) {
+          if (chapter == 5) verifyChainSprites();
           mc.getToasts().clear();
           Screenshot.grab(
               mc.gameDirectory,
@@ -74,7 +114,7 @@ public final class GuideExampleCapture {
           next(3);
         }
       } else if (stage == 3 && wait > 180) {
-        if (++chapter < 8) next(1);
+        if (++chapter < 8 && ONLY_CHAPTER < 0) next(1);
         else {
           mc.options.hideGui = false;
           mc.options.fov().set(originalFov);

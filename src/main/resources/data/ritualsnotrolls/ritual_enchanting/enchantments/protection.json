@@ -47,6 +47,6 @@
   "conflict_groups": [
     "protection"
   ],
-  "particle": "minecraft:enchant",
+  "particle": "minecraft:end_rod",
   "particle_color": "#94BCD6"
 }

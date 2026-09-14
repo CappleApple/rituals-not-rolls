@@ -1,36 +1,19 @@
-# Testing notes — 1.1.1
+# Testing notes - 1.1.2
 
-Checked on 2026-09-12 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. The broader feature and recipe-viewer checks for 1.1 remain in [VALIDATION-1.1.md](VALIDATION-1.1.md).
+Checked on 2026-09-13 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. Earlier checks remain in [VALIDATION-1.1.1.md](VALIDATION-1.1.1.md).
 
-## Automated checks
+## Data and automated checks
 
-The build passed 66 unit tests and 134 required GameTests. The added shelf regression retrieves items from all six slots in all four horizontal orientations and checks each animation origin against Minecraft's own chiseled-bookshelf hit-slot resolver. Filing and retrieval use the same corrected slot-position calculation.
+All 70 bundled definition/exclusion files were compared with 1.1.1. Exactly 13 particle IDs changed from `minecraft:enchant` to `minecraft:end_rod`: ten vanilla presets and the optional `critical_strike:chance`, `gouge:grip` and `notenoughtrials:equity` presets. All colors, materials, powers, thresholds and other fields were preserved.
 
-See [build and GameTests](validation/scroll-slot-1.1.1-tests.log) and [unit totals](validation/release-1.1.1-unit-results.json).
+None of the 68 active presets uses rune particles. Both generators and the example datapack use the replacements. Packaging rejects bundled rune presets. Production Java is unchanged, including the book placement and retrieval particle effects.
 
-## Native client checks
+The build passed 66 unit tests and all 134 required GameTests. The existing mixed-enchantment effect test now expects Sharpness sparks and its original tint.
 
-The real-client guide fixture checks all eight chapters with fractional mouse-wheel input, continuous movement from screenshot through text, bottom bounds, Home/End, scrollbar dragging and release, chapter reset, screenshot enlargement, and preserved scroll/search state after resizing. The small-GUI screenshot checks clipping under the workstation's fit transform. The item header has no hover tooltip; enchantment description and item-break particle checks remain in this fixture.
+Evidence: [build and GameTests](validation/visible-presets-1.1.2-tests.log), [unit totals](validation/release-1.1.2-unit-results.json), [preset audit](validation/visible-presets-1.1.2-audit.json).
 
-The library client checks the page's approach to the left slot of a north-facing shelf, then confirms filing, book insertion and animated retrieval. The all-orientation regression above covers the other shelf facings and slots. The dedicated development server and both clients run without recipe viewers installed.
+## Native client observation
 
-Evidence:
+The screenshot fixture ran the chain scene in a real Minecraft client connected to a dedicated development server. An older example datapack in the disposable test world was disabled because it overrode Sharpness with the previous rune preset. [The client log](validation/visible-presets-1.1.2-client.log) records the captures and verifies that the visible Sharpness chain uses the native `EndRodParticle` renderer. [The chain screenshot](validation/visible-presets-1.1.2-chains.png) shows the updated effects in an active ritual.
 
-- [Item header without a tooltip](validation/guide-1.1.1-item-header.png)
-- [Guide client log](validation/scroll-guide-1.1.1-client.log)
-- [Continuously scrolled chapter text](validation/guide-1.1.1-chapter-0-middle.png)
-- [Bottom of the long library chapter](validation/guide-1.1.1-chapter-1-bottom.png)
-- [Scrolled guide at small GUI size](validation/guide-1.1.1-small-gui-scrolled.png)
-- [Library client log](validation/slot-library-1.1.1-client.log)
-- [Page approaching the correct left slot](validation/library-1.1.1-page-at-left-slot.png)
-
-These are development-fixture checks. Multiplayer library contention and arbitrary modpack combinations were not tested in this patch.
-
-## Commands
-
-```powershell
-.\gradlew.bat test build runGameTestServer
-python tools/package_release.py
-```
-
-Native client fixtures use the disposable server on localhost port 25585: start `runSmokeServer`, then run `runGuideClient` and `runLibraryClient` separately. They modify their development world and exit after completion.
+The screenshot is a visual check of the base-game fixture. Optional-mod presets were checked through their packaged definitions; this patch did not rerun those mods in a client.

@@ -28,6 +28,7 @@ with zipfile.ZipFile(jar) as archive:
     active = [d for d in defaults if d.get('enabled', True)]
     disabled = {d['enchantment'] for d in defaults if not d.get('enabled', True)}
     assert len(active) == 68
+    assert all(d.get('particle') != 'minecraft:enchant' for d in active), 'Bundled enchantment presets must not use rune particles'
     assert disabled == {'ritualsnotrolls:arcane_assembly', 'notenoughtrials:storm_front_marker'}
     assert len({(d['particle'], d['particle_color']) for d in active}) == 68
     optional = [d for d in active if d.get('optional', False)]

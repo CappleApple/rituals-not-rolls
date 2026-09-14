@@ -113,17 +113,17 @@ if not vanilla:raise SystemExit('Minecraft enchantment data missing from develop
 weights={'sharpness': [7, 8, 30, 55, 44, 53], 'smite': [24, 12, 28, 42, 68], 'bane_of_arthropods': [26, 48, 12, 20, 34], 'protection': [22, 10, 40, 64, 36], 'fire_protection': [36, 18, 20, 12, 50], 'blast_protection': [22, 38, 48, 62, 90], 'projectile_protection': [14, 18, 28, 52, 46], 'feather_falling': [30, 62, 40, 54, 72], 'respiration': [12, 28, 48, 60, 90], 'aqua_affinity': [34, 42, 54, 82], 'thorns': [20, 10, 38, 52, 76], 'depth_strider': [24, 32, 12, 40, 72], 'frost_walker': [10, 24, 42, 72, 20], 'binding_curse': [18, 48, 30, 40, 64], 'soul_speed': [22, 34, 58, 78, 115], 'swift_sneak': [14, 85, 32, 42, 56], 'knockback': [42, 38, 24, 58, 76], 'fire_aspect': [22, 40, 28, 52, 46], 'looting': [40, 12, 56, 36, 108, 28], 'sweeping_edge': [10, 18, 34, 28, 66], 'efficiency': [24, 20, 44, 70, 32], 'silk_touch': [24, 46, 30, 38, 54], 'unbreaking': [24, 48, 45, 65, 100], 'fortune': [26, 38, 62, 36, 80], 'power': [12, 22, 16, 42, 54], 'punch': [46, 42, 64, 84, 20], 'flame': [28, 58, 46, 34], 'infinity': [36, 64, 22, 128, 92], 'luck_of_the_sea': [18, 34, 64, 110, 46], 'lure': [18, 26, 38, 56, 44], 'loyalty': [42, 28, 16, 72, 54], 'impaling': [40, 22, 12, 62], 'riptide': [32, 104, 48, 80], 'channeling': [26, 34, 68, 52], 'multishot': [20, 44, 28, 72], 'quick_charge': [38, 22, 18, 62, 40], 'piercing': [24, 12, 52, 82], 'mending': [96, 48, 24, 16, 72], 'vanishing_curse': [32, 46, 70, 96], 'density': [32, 50, 58, 110, 84], 'breach': [18, 36, 58, 96, 88], 'wind_burst': [22, 68, 92, 120, 138]}
 # Every default has a distinct effect/color pair; colors are explicit and remain pack-editable.
 effects={
- 'sharpness':('enchant','AFCFFF'),'smite':('end_rod','FFE89C'),'bane_of_arthropods':('spore_blossom_air','B5E86B'),
- 'protection':('enchant','94BCD6'),'fire_protection':('flame','FFC078'),'blast_protection':('poof','C4B4B0'),
- 'projectile_protection':('crit','B8CCD1'),'feather_falling':('end_rod','FFF5DC'),'respiration':('enchant','53C9E8'),
- 'aqua_affinity':('end_rod','27C7C2'),'thorns':('crit','BD73C4'),'depth_strider':('enchant','348DAA'),
- 'frost_walker':('snowflake','C9F7FF'),'binding_curse':('enchant','CE5E84'),'soul_speed':('soul_fire_flame','56F6E3'),
+ 'sharpness':('end_rod','AFCFFF'),'smite':('end_rod','FFE89C'),'bane_of_arthropods':('spore_blossom_air','B5E86B'),
+ 'protection':('end_rod','94BCD6'),'fire_protection':('flame','FFC078'),'blast_protection':('poof','C4B4B0'),
+ 'projectile_protection':('crit','B8CCD1'),'feather_falling':('end_rod','FFF5DC'),'respiration':('end_rod','53C9E8'),
+ 'aqua_affinity':('end_rod','27C7C2'),'thorns':('crit','BD73C4'),'depth_strider':('end_rod','348DAA'),
+ 'frost_walker':('snowflake','C9F7FF'),'binding_curse':('end_rod','CE5E84'),'soul_speed':('soul_fire_flame','56F6E3'),
  'swift_sneak':('sculk_soul','247E91'),'knockback':('crit','EDBE6F'),'fire_aspect':('flame','FF7A22'),
- 'looting':('enchant','EDD65C'),'sweeping_edge':('end_rod','DAE5FF'),'efficiency':('electric_spark','E36A54'),
- 'silk_touch':('enchant','E2DAF2'),'unbreaking':('end_rod','8FE4FF'),'fortune':('enchant','68D99E'),
+ 'looting':('end_rod','EDD65C'),'sweeping_edge':('end_rod','DAE5FF'),'efficiency':('electric_spark','E36A54'),
+ 'silk_touch':('end_rod','E2DAF2'),'unbreaking':('end_rod','8FE4FF'),'fortune':('end_rod','68D99E'),
  'power':('crit','EFA58D'),'punch':('poof','D6C0A0'),'flame':('flame','FFD340'),
- 'infinity':('reverse_portal','C782FA'),'luck_of_the_sea':('enchant','50DFB9'),'lure':('end_rod','75AFDC'),
- 'loyalty':('enchant','A592E8'),'impaling':('crit','67CED3'),'riptide':('cloud','A8E8EF'),
+ 'infinity':('reverse_portal','C782FA'),'luck_of_the_sea':('end_rod','50DFB9'),'lure':('end_rod','75AFDC'),
+ 'loyalty':('end_rod','A592E8'),'impaling':('crit','67CED3'),'riptide':('cloud','A8E8EF'),
  'channeling':('electric_spark','F7F5A0'),'multishot':('crit','C898E7'),'quick_charge':('electric_spark','F2A358'),
  'piercing':('crit','BDCFEA'),'mending':('happy_villager','72F08C'),'vanishing_curse':('reverse_portal','925BBB'),
  'density':('poof','8C99B5'),'breach':('crit','F08E63'),'wind_burst':('cloud','D9FFE6')

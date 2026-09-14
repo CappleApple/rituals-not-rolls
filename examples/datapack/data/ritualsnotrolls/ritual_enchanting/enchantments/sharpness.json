@@ -59,6 +59,6 @@
   "conflict_groups": [
     "damage"
   ],
-  "particle": "minecraft:enchant",
+  "particle": "minecraft:end_rod",
   "particle_color": "#AFCFFF"
 }

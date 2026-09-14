@@ -1,0 +1,86 @@
+{
+  "compared_to": "3e10ea16f425061b51c3670f1cca5fa5e1b9fd14",
+  "bundled_files": 70,
+  "active_presets": 68,
+  "other_fields_unchanged": true,
+  "changes": [
+    {
+      "enchantment": "critical_strike:chance",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#FFCE67"
+    },
+    {
+      "enchantment": "gouge:grip",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#C99356"
+    },
+    {
+      "enchantment": "notenoughtrials:equity",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#E4B987"
+    },
+    {
+      "enchantment": "minecraft:binding_curse",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#CE5E84"
+    },
+    {
+      "enchantment": "minecraft:depth_strider",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#348DAA"
+    },
+    {
+      "enchantment": "minecraft:fortune",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#68D99E"
+    },
+    {
+      "enchantment": "minecraft:looting",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#EDD65C"
+    },
+    {
+      "enchantment": "minecraft:loyalty",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#A592E8"
+    },
+    {
+      "enchantment": "minecraft:luck_of_the_sea",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#50DFB9"
+    },
+    {
+      "enchantment": "minecraft:protection",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#94BCD6"
+    },
+    {
+      "enchantment": "minecraft:respiration",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#53C9E8"
+    },
+    {
+      "enchantment": "minecraft:sharpness",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#AFCFFF"
+    },
+    {
+      "enchantment": "minecraft:silk_touch",
+      "before": "minecraft:enchant",
+      "after": "minecraft:end_rod",
+      "color": "#E2DAF2"
+    }
+  ]
+}

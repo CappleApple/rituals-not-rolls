@@ -44,6 +44,6 @@
   "conflict_groups": [
     "critical_strike:critical"
   ],
-  "particle": "minecraft:enchant",
+  "particle": "minecraft:end_rod",
   "particle_color": "#FFCE67"
 }
