@@ -51,8 +51,8 @@ public final class GuideExampleCapture {
         var options =
             (com.cappleapple.ritualsnotrolls.ritual.RitualParticleOptions)
                 optionsField.get(particle);
-        if (!options.effect().toString().equals("minecraft:end_rod")
-            || !(visual instanceof net.minecraft.client.particle.EndRodParticle))
+        if (!Set.of("minecraft:sweep_attack", "minecraft:wax_on")
+            .contains(options.effect().toString()))
           throw new IllegalStateException(
               "Unexpected chain sprite: "
                   + options.effect()
@@ -66,8 +66,8 @@ public final class GuideExampleCapture {
                 + visual.getClass().getSimpleName());
       }
     }
-    if (!observed.contains("minecraft:end_rod #AFCFFF / EndRodParticle"))
-      throw new IllegalStateException("Sharpness sparks must be visible: " + observed);
+    if (observed.stream().noneMatch(s -> s.startsWith("minecraft:sweep_attack #AFCFFF / ")))
+      throw new IllegalStateException("Sharpness slashes must be visible: " + observed);
     RitualsNotRolls.LOGGER.info("GUIDE_CHAIN_SPRITES_VERIFIED: {}", observed);
   }
 

@@ -38,6 +38,6 @@
   "conflict_groups": [
     "mining"
   ],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:item_cobweb",
   "particle_color": "#E2DAF2"
 }

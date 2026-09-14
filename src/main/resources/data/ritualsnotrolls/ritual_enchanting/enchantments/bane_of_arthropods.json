@@ -47,6 +47,6 @@
   "conflict_groups": [
     "damage"
   ],
-  "particle": "minecraft:spore_blossom_air",
-  "particle_color": "#B5E86B"
+  "particle": "minecraft:infested",
+  "particle_color": "#DFFFAC"
 }

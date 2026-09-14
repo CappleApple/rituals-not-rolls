@@ -492,17 +492,17 @@ public final class AutomaticRitualGameTests {
             .filter(p -> p.enchantment().equals(RitualGameTests.SHARP))
             .allMatch(
                 p ->
-                    p.particle().effect().toString().equals("minecraft:end_rod")
+                    p.particle().effect().toString().equals("minecraft:sweep_attack")
                         && p.particle().rgb() == 0xAFCFFF),
-        "Sharpness retains its sparks and tint");
+        "Sharpness retains its blade slashes and tint");
     h.assertTrue(
         paths.stream()
             .filter(p -> p.enchantment().equals(RitualGameTests.UNBREAKING))
             .allMatch(
                 p ->
-                    p.particle().effect().toString().equals("minecraft:end_rod")
+                    p.particle().effect().toString().equals("minecraft:wax_on")
                         && p.particle().rgb() == 0x8FE4FF),
-        "Unbreaking retains its sparks and tint");
+        "Unbreaking retains its coating sparks and tint");
     h.succeed();
   }
 

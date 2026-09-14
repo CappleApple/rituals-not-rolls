@@ -45,6 +45,6 @@
     "10": 11016.0
   },
   "conflict_groups": [],
-  "particle": "minecraft:crit",
+  "particle": "minecraft:small_gust",
   "particle_color": "#EDBE6F"
 }

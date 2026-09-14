@@ -47,6 +47,6 @@
   "conflict_groups": [
     "protection"
   ],
-  "particle": "minecraft:crit",
+  "particle": "minecraft:sonic_boom",
   "particle_color": "#B8CCD1"
 }

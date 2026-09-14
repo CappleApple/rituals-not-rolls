@@ -40,6 +40,6 @@
     "4": 312.0
   },
   "conflict_groups": [],
-  "particle": "minecraft:crit",
+  "particle": "minecraft:poof",
   "particle_color": "#E6AA87"
 }

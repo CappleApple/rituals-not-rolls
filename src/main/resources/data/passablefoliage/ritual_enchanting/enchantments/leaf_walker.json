@@ -37,6 +37,6 @@
     "1": 192
   },
   "conflict_groups": [],
-  "particle": "minecraft:spore_blossom_air",
-  "particle_color": "#63AE79"
+  "particle": "minecraft:cherry_leaves",
+  "particle_color": "#FFFFFF"
 }

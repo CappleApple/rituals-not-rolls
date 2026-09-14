@@ -47,6 +47,6 @@
   "conflict_groups": [
     "mace"
   ],
-  "particle": "minecraft:crit",
-  "particle_color": "#F08E63"
+  "particle": "minecraft:sonic_boom",
+  "particle_color": "#D6FFF4"
 }

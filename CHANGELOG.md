@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.3 — 2026-09-13
+
+### Changed
+
+- Gave vanilla and supported mod enchantments a broader set of themed particles, including blade slashes, pressure rings, web fragments, bubbles, leaves and healing hearts.
+- Kept enchanting particles bright in dim libraries, sized large native effects for ritual trails, and stabilized leaf animations during long rituals.
+
 ## 1.1.2 — 2026-09-13
 
 ### Changed

@@ -1,19 +1,23 @@
-# Testing notes - 1.1.2
+# Testing notes - 1.1.3
 
-Checked on 2026-09-13 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. Earlier checks remain in [VALIDATION-1.1.1.md](VALIDATION-1.1.1.md).
+Checked on 2026-09-13 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. Earlier evidence remains in [VALIDATION-1.1.2.md](VALIDATION-1.1.2.md).
 
 ## Data and automated checks
 
-All 70 bundled definition/exclusion files were compared with 1.1.1. Exactly 13 particle IDs changed from `minecraft:enchant` to `minecraft:end_rod`: ten vanilla presets and the optional `critical_strike:chance`, `gouge:grip` and `notenoughtrials:equity` presets. All colors, materials, powers, thresholds and other fields were preserved.
+The 68 active presets now use 40 native particle types and 31 distinct sprite sets. Reuse is limited to four presets per particle ID. The [theme catalog](PARTICLES.md) explains each choice, including optional mod enchantments.
 
-None of the 68 active presets uses rune particles. Both generators and the example datapack use the replacements. Packaging rejects bundled rune presets. Production Java is unchanged, including the book placement and retrieval particle effects.
+All 70 bundled definition/exclusion files were compared with 1.1.2. Only particle IDs and tints changed. Materials, source items, powers, thresholds, conflicts and exclusions were preserved. Both generators and the example datapack match the shipped definitions. No preset uses `minecraft:enchant`.
 
-The build passed 66 unit tests and all 134 required GameTests. The existing mixed-enchantment effect test now expects Sharpness sparks and its original tint.
+The build passed 66 unit tests and all 134 required GameTests. The mixed-enchantment test checks Sharpness blade slashes and Unbreaking coating sparks independently. Book placement/retrieval code is unchanged; the renderer preserves the prior rune path, including fallback runes.
 
-Evidence: [build and GameTests](validation/visible-presets-1.1.2-tests.log), [unit totals](validation/release-1.1.2-unit-results.json), [preset audit](validation/visible-presets-1.1.2-audit.json).
+Evidence: [build and GameTests](validation/themed-presets-1.1.3-tests.log), [unit totals](validation/release-1.1.3-unit-results.json), [preset audit](validation/themed-presets-1.1.3-audit.json).
 
-## Native client observation
+## Native client checks
 
-The screenshot fixture ran the chain scene in a real Minecraft client connected to a dedicated development server. An older example datapack in the disposable test world was disabled because it overrode Sharpness with the previous rune preset. [The client log](validation/visible-presets-1.1.2-client.log) records the captures and verifies that the visible Sharpness chain uses the native `EndRodParticle` renderer. [The chain screenshot](validation/visible-presets-1.1.2-chains.png) shows the updated effects in an active ritual.
+`runParticlePaletteClient`, connected to a dedicated development server, reads all 68 bundled presets, including optional definitions whose owning mods are absent. Each configured effect must resolve to its native provider and produce finite, nondegenerate quads at orbit ages through 550 ticks and completion-burst ages through 28 ticks. Visibility checks allow the vault particle's native first-quarter fade-in and require visible interior samples. The check covers the long cherry-leaf countdown that otherwise produces nonfinite motion.
 
-The screenshot is a visual check of the base-game fixture. Optional-mod presets were checked through their packaged definitions; this patch did not rerun those mods in a client.
+The [native client log](validation/themed-presets-1.1.3-palette.log) records all 68 passing probes and six labeled screenshots. These verify the optional presets' native visuals; the optional mods' gameplay mechanics were not rerun for this cosmetic patch.
+
+Screenshots: [1](validation/themed-presets-1.1.3-palette-1.png), [2](validation/themed-presets-1.1.3-palette-2.png), [3](validation/themed-presets-1.1.3-palette-3.png), [4](validation/themed-presets-1.1.3-palette-4.png), [5](validation/themed-presets-1.1.3-palette-5.png), [6](validation/themed-presets-1.1.3-palette-6.png).
+
+The guide's active-ritual screenshots were recaptured with the updated effects; see the [guide capture log](validation/themed-presets-1.1.3-guide.log).

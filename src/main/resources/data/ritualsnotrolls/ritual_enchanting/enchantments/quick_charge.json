@@ -45,6 +45,6 @@
     "10": 3888.0
   },
   "conflict_groups": [],
-  "particle": "minecraft:electric_spark",
-  "particle_color": "#F2A358"
+  "particle": "minecraft:sculk_charge_pop",
+  "particle_color": "#C1FFF0"
 }

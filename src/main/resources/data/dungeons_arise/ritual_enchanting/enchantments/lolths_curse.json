@@ -37,6 +37,6 @@
     "1": 240
   },
   "conflict_groups": [],
-  "particle": "minecraft:witch",
-  "particle_color": "#9D43A5"
+  "particle": "minecraft:infested",
+  "particle_color": "#E9B9FF"
 }

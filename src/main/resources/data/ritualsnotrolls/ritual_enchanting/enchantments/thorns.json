@@ -45,6 +45,6 @@
     "10": 4233.6
   },
   "conflict_groups": [],
-  "particle": "minecraft:crit",
-  "particle_color": "#BD73C4"
+  "particle": "minecraft:enchanted_hit",
+  "particle_color": "#DAA0E4"
 }

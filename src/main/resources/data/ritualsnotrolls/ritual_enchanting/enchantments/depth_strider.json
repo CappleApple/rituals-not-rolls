@@ -47,6 +47,6 @@
   "conflict_groups": [
     "boots"
   ],
-  "particle": "minecraft:end_rod",
-  "particle_color": "#348DAA"
+  "particle": "minecraft:splash",
+  "particle_color": "#9CDFF5"
 }

@@ -16,6 +16,7 @@ neoForge {
         powerTooltipClient { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.powerTooltipSmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }
         viewerClient { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.viewerSmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }
         libraryClient { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.librarySmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }
+        particlePaletteClient { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.particlePalette', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1600', '--height', '900' }
         guideExamplesClient { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.captureGuideExamples', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '960', '--height', '540' }
         guideClient { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.guideSmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }
         clientSmoke { client(); gameDirectory = file('run-client'); systemProperty 'ritualsnotrolls.clientActionSmoke', 'true'; programArguments.addAll '--username', 'RitualTester', '--width', '1280', '--height', '720' }

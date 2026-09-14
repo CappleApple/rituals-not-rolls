@@ -47,6 +47,6 @@
   "conflict_groups": [
     "protection"
   ],
-  "particle": "minecraft:flame",
+  "particle": "minecraft:small_flame",
   "particle_color": "#FFC078"
 }

@@ -45,6 +45,6 @@
     "10": 9504.0
   },
   "conflict_groups": [],
-  "particle": "minecraft:cloud",
+  "particle": "minecraft:gust",
   "particle_color": "#D9FFE6"
 }

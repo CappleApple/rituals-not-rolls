@@ -47,6 +47,6 @@
   "conflict_groups": [
     "mace"
   ],
-  "particle": "minecraft:poof",
+  "particle": "minecraft:dust_plume",
   "particle_color": "#8C99B5"
 }

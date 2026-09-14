@@ -39,6 +39,6 @@
   "conflict_groups": [
     "crossbow"
   ],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:bubble_pop",
   "particle_color": "#ABE2ED"
 }

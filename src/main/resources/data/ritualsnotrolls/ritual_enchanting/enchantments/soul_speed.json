@@ -45,6 +45,6 @@
     "10": 6631.2
   },
   "conflict_groups": [],
-  "particle": "minecraft:soul_fire_flame",
-  "particle_color": "#56F6E3"
+  "particle": "minecraft:soul",
+  "particle_color": "#B6FFF6"
 }

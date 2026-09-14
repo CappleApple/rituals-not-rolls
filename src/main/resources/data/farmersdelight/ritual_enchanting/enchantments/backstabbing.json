@@ -40,6 +40,6 @@
     "4": 277.3333
   },
   "conflict_groups": [],
-  "particle": "minecraft:crit",
+  "particle": "minecraft:sweep_attack",
   "particle_color": "#AD7958"
 }

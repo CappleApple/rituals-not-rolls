@@ -37,6 +37,6 @@
     "1": 192
   },
   "conflict_groups": [],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:small_flame",
   "particle_color": "#E4B987"
 }

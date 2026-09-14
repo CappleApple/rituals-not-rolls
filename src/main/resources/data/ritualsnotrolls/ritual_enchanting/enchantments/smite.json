@@ -47,6 +47,6 @@
   "conflict_groups": [
     "damage"
   ],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:instant_effect",
   "particle_color": "#FFE89C"
 }

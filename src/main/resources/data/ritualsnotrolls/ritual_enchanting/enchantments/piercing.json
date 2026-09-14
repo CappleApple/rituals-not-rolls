@@ -41,6 +41,6 @@
   "conflict_groups": [
     "crossbow"
   ],
-  "particle": "minecraft:crit",
+  "particle": "minecraft:enchanted_hit",
   "particle_color": "#BDCFEA"
 }

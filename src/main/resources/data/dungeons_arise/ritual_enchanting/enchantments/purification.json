@@ -40,6 +40,6 @@
     "4": 416.0
   },
   "conflict_groups": [],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:instant_effect",
   "particle_color": "#F6F0C7"
 }

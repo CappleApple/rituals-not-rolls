@@ -38,6 +38,6 @@
   "conflict_groups": [
     "bow"
   ],
-  "particle": "minecraft:happy_villager",
-  "particle_color": "#72F08C"
+  "particle": "minecraft:heart",
+  "particle_color": "#FFFFFF"
 }

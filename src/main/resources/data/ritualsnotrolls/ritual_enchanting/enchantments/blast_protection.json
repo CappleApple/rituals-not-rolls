@@ -47,6 +47,6 @@
   "conflict_groups": [
     "protection"
   ],
-  "particle": "minecraft:poof",
+  "particle": "minecraft:explosion",
   "particle_color": "#C4B4B0"
 }

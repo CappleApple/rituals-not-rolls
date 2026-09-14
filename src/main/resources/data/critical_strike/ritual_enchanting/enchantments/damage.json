@@ -45,5 +45,5 @@
     "critical_strike:critical"
   ],
   "particle": "minecraft:crit",
-  "particle_color": "#D95478"
+  "particle_color": "#FF8996"
 }

@@ -19,6 +19,7 @@
   },
   "client": [
     "ParticleEngineAccessor",
+    "ParticleAccessor",
     "RitualSoundPitchMixin",
     "ForeignPedestalRendererMixin",
     "EmiRecipeLookupMixin"

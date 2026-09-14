@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import hashlib
+from collections import Counter
 import json
 import re
 import shutil
@@ -29,6 +30,9 @@ with zipfile.ZipFile(jar) as archive:
     disabled = {d['enchantment'] for d in defaults if not d.get('enabled', True)}
     assert len(active) == 68
     assert all(d.get('particle') != 'minecraft:enchant' for d in active), 'Bundled enchantment presets must not use rune particles'
+    effect_counts = Counter(d['particle'] for d in active)
+    assert len(effect_counts) >= 35, 'Bundled presets must retain a broad particle palette'
+    assert max(effect_counts.values()) <= 4, 'Avoid overusing one effect in bundled presets'
     assert disabled == {'ritualsnotrolls:arcane_assembly', 'notenoughtrials:storm_front_marker'}
     assert len({(d['particle'], d['particle_color']) for d in active}) == 68
     optional = [d for d in active if d.get('optional', False)]

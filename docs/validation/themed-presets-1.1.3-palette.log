@@ -1,0 +1,151 @@
+Reusing configuration cache.
+> Task :writeParticlePaletteClientLegacyClasspath UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :prepareParticlePaletteClientRun UP-TO-DATE
+
+> Task :runParticlePaletteClient
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[19:36:13] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.244, --assetIndex, 17, --assetsDir, C:\\Users\\astra\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.244, --fml.neoFormVersion, 20240808.144430, --username, RitualTester, --width, 1600, --height, 900]
+[19:36:13] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.12+7-LTS-205
+[19:36:13] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
+[19:36:13] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[19:36:13] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[19:36:13] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[19:36:13] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/astra/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23138!/ Service=ModLauncher Env=CLIENT
+[19:36:13] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 5070 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 616.92, NVIDIA Corporation
+[19:36:14] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[19:36:14] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.244 (neoforge)
+		Rituals Not Rolls 1.1.3 (ritualsnotrolls)
+[19:36:15] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[19:36:15] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.244, --gameDir, ., --assetsDir, C:\Users\astra\.gradle\caches\neoformruntime\assets, --assetIndex, 17, --username, RitualTester, --width, 1600, --height, 900]
+[19:36:15] [main/WARN] [mixin/]: Error loading class: dev/emi/emi/registry/EmiRecipes$Manager (java.lang.ClassNotFoundException: dev.emi.emi.registry.EmiRecipes$Manager)
+[19:36:17] [pool-7-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[19:36:17] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 919 milliseconds
+[19:36:23] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:36:23] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:36:23] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[19:36:23] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[19:36:23] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[19:36:23] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23189!/assets/.mcassetsroot' uses unexpected schema
+[19:36:23] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23189!/data/.mcassetsroot' uses unexpected schema
+[19:36:23] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[19:36:23] [Render thread/INFO] [minecraft/Minecraft]: Setting user: RitualTester
+[19:36:23] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[19:36:24] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.244, for MC 1.21.1
+[19:36:25] [Render thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[19:36:25] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/ritualsnotrolls, mod/neoforge
+[19:36:25] [Worker-Main-4/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[19:36:26] [Worker-Main-8/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[19:36:27] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[19:36:27] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[19:36:27] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on SteelSeries Sonar - Gaming (SteelSeries Sonar Virtual Audio Device)
+[19:36:27] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[19:36:27] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[19:36:27] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[19:36:27] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+[19:36:29] [Render thread/INFO] [minecraft/ConnectScreen]: Connecting to 127.0.0.1, 25585
+[19:36:32] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 65 advancements
+[19:36:32] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_LOADED: 68 presets / 40 distinct effects
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: aggrofix:aggrobaiting | minecraft:trial_spawner_detection | #E9AC64 | TrialSpawnerDetectionParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: aggrofix:aggronizing | minecraft:angry_villager | #DB4C3F | HeartParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: botanypots:idle_hands | minecraft:witch | #89BE62 | SpellParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: combat_roll:acrobat | minecraft:cloud | #F2D5A2 | PlayerCloudParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: combat_roll:longfooted | minecraft:small_gust | #B9E996 | GustParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: combat_roll:multi_roll | minecraft:gust | #BFA5F6 | GustParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: create:capacity | minecraft:campfire_cosy_smoke | #CDA477 | CampfireSmokeParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: create:potato_recovery | minecraft:composter | #D7CB79 | SuspendedTownParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: critical_strike:chance | minecraft:enchanted_hit | #FFCE67 | CritParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: critical_strike:damage | minecraft:crit | #FF8996 | CritParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: dungeons_arise:discharge | minecraft:electric_spark | #7AD8F1 | GlowParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: dungeons_arise:ensnaring | minecraft:item_cobweb | #96B877 | BreakingItemParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: dungeons_arise:lolths_curse | minecraft:infested | #E9B9FF | SpellParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: dungeons_arise:purification | minecraft:instant_effect | #F6F0C7 | SpellParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: dungeons_arise:voltaic_shot | minecraft:firework | #A4AEFF | SparkParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: farmersdelight:backstabbing | minecraft:sweep_attack | #AD7958 | AttackSweepParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: gouge:grip | minecraft:scrape | #C99356 | GlowParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: gouge:momentum | minecraft:poof | #E6AA87 | ExplodeParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:aqua_affinity | minecraft:nautilus | #8FF1EB | FlyTowardsPositionParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:bane_of_arthropods | minecraft:infested | #DFFFAC | SpellParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:binding_curse | minecraft:raid_omen | #CE5E84 | SpellParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:blast_protection | minecraft:explosion | #C4B4B0 | HugeExplosionParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:breach | minecraft:sonic_boom | #D6FFF4 | SonicBoomParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:channeling | minecraft:electric_spark | #F7F5A0 | GlowParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:density | minecraft:dust_plume | #8C99B5 | DustPlumeParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:depth_strider | minecraft:splash | #9CDFF5 | SplashParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:efficiency | minecraft:scrape | #E36A54 | GlowParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:feather_falling | minecraft:cloud | #FFF5DC | PlayerCloudParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:fire_aspect | minecraft:flame | #FF7A22 | FlameParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:fire_protection | minecraft:small_flame | #FFC078 | FlameParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:flame | minecraft:flame | #FFD340 | FlameParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:fortune | minecraft:firework | #68D99E | SparkParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:frost_walker | minecraft:snowflake | #C9F7FF | SnowflakeParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:impaling | minecraft:splash | #8CE6F5 | SplashParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:infinity | minecraft:reverse_portal | #C782FA | ReversePortalParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:knockback | minecraft:small_gust | #EDBE6F | GustParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:looting | minecraft:vault_connection | #FFF5C9 | FlyTowardsPositionParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:loyalty | minecraft:portal | #A592E8 | PortalParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:luck_of_the_sea | minecraft:happy_villager | #50DFB9 | SuspendedTownParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:lure | minecraft:bubble_pop | #75AFDC | BubblePopParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:mending | minecraft:heart | #FFFFFF | HeartParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:multishot | minecraft:firework | #C898E7 | SparkParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:piercing | minecraft:enchanted_hit | #BDCFEA | CritParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:power | minecraft:crit | #EFA58D | CritParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:projectile_protection | minecraft:sonic_boom | #B8CCD1 | SonicBoomParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:protection | minecraft:totem_of_undying | #94BCD6 | TotemParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:punch | minecraft:poof | #D6C0A0 | ExplodeParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:quick_charge | minecraft:sculk_charge_pop | #C1FFF0 | SculkChargePopParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:respiration | minecraft:bubble_pop | #53C9E8 | BubblePopParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:riptide | minecraft:gust | #A8E8EF | GustParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:sharpness | minecraft:sweep_attack | #AFCFFF | AttackSweepParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:silk_touch | minecraft:item_cobweb | #E2DAF2 | BreakingItemParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:smite | minecraft:instant_effect | #FFE89C | SpellParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:soul_fire_aspect | minecraft:soul_fire_flame | #44D2D9 | FlameParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:soul_flame | minecraft:soul | #D3FCFF | SoulParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:soul_speed | minecraft:soul | #B6FFF6 | SoulParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:sweeping_edge | minecraft:sweep_attack | #DAE5FF | AttackSweepParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:swift_sneak | minecraft:sculk_soul | #BEFFF5 | SoulParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:thorns | minecraft:enchanted_hit | #DAA0E4 | CritParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:unbreaking | minecraft:wax_on | #8FE4FF | GlowParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:vanishing_curse | minecraft:reverse_portal | #925BBB | ReversePortalParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: minecraft:wind_burst | minecraft:gust | #D9FFE6 | GustParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: notenoughtrials:daredevil | minecraft:explosion | #ED9866 | HugeExplosionParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: notenoughtrials:equity | minecraft:small_flame | #E4B987 | FlameParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: notenoughtrials:storm_front | minecraft:gust | #87BECF | GustParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: passablefoliage:leaf_walker | minecraft:cherry_leaves | #FFFFFF | CherryParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: supplementaries:stasis | minecraft:bubble_pop | #ABE2ED | BubblePopParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PRESET_PASS: veinmining:vein_mining | minecraft:dust_plume | #86B4AA | DustPlumeParticle | orbit_ages=0,1,8,24,48,80,110,240,400,550 burst_ages=0,1,8,16,24,28
+[19:36:34] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_ALL_PROBES_PASS: 68 presets
+[19:36:38] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_CAPTURED: 1 presets 1-12
+[19:36:49] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_CAPTURED: 2 presets 13-24
+[19:37:00] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_CAPTURED: 3 presets 25-36
+[19:37:10] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_CAPTURED: 4 presets 37-48
+[19:37:21] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_CAPTURED: 5 presets 49-60
+[19:37:32] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_CAPTURED: 6 presets 61-68
+[19:37:38] [Render thread/INFO] [co.ca.ri.RitualsNotRolls/]: PARTICLE_PALETTE_PASS: all 68 presets; 6 screenshots; native sprites and finite visible quads through orbit age 550 and burst age 28
+[19:37:38] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+
+BUILD SUCCESSFUL in 1m 34s
+7 actionable tasks: 1 executed, 6 up-to-date
+Configuration cache entry reused.

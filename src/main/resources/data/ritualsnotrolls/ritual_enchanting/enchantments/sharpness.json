@@ -59,6 +59,6 @@
   "conflict_groups": [
     "damage"
   ],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:sweep_attack",
   "particle_color": "#AFCFFF"
 }

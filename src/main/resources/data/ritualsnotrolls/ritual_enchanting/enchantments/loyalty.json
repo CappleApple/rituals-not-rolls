@@ -47,6 +47,6 @@
   "conflict_groups": [
     "trident"
   ],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:portal",
   "particle_color": "#A592E8"
 }

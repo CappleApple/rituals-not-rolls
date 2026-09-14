@@ -48,6 +48,6 @@
     "6": 335.2381
   },
   "conflict_groups": [],
-  "particle": "minecraft:happy_villager",
+  "particle": "minecraft:trial_spawner_detection",
   "particle_color": "#E9AC64"
 }

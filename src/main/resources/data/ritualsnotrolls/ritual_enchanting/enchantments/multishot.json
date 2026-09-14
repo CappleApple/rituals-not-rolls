@@ -32,6 +32,6 @@
   "conflict_groups": [
     "crossbow"
   ],
-  "particle": "minecraft:crit",
+  "particle": "minecraft:firework",
   "particle_color": "#C898E7"
 }

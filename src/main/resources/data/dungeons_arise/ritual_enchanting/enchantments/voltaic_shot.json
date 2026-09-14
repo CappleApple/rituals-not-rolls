@@ -37,6 +37,6 @@
     "1": 240
   },
   "conflict_groups": [],
-  "particle": "minecraft:electric_spark",
+  "particle": "minecraft:firework",
   "particle_color": "#A4AEFF"
 }

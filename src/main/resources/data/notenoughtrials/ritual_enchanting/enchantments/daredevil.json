@@ -37,6 +37,6 @@
     "1": 384
   },
   "conflict_groups": [],
-  "particle": "minecraft:gust",
+  "particle": "minecraft:explosion",
   "particle_color": "#ED9866"
 }

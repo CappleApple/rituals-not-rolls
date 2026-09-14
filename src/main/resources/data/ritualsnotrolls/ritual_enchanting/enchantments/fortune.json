@@ -47,6 +47,6 @@
   "conflict_groups": [
     "mining"
   ],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:firework",
   "particle_color": "#68D99E"
 }

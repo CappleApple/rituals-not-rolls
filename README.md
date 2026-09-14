@@ -76,6 +76,8 @@ Exact XP/power behavior is configurable in the [server settings](docs/CONFIGURAT
 
 A ritual keeps the real target item suspended above the table while particles travel from the library through the contributing pedestals and form rings around it.
 
+The bundled [particle themes](docs/PARTICLES.md) use blade slashes, pressure rings, web fragments, bubbles, leaves and other native effects suited to each enchantment.
+
 Successful enchantments finish in a shared completion pulse. Failed chains destabilize and scatter without consuming their offerings, while successful chains in the same ritual can still finish normally. Subtraction reverses the flow for the affected enchantment.
 
 The visual timing, colors/effects, sequential-vs-simultaneous chain starts, and several route settings are configurable. Resource packs can replace the page/book/GUI assets and sounds; see [docs/RESOURCE_PACKS.md](docs/RESOURCE_PACKS.md).

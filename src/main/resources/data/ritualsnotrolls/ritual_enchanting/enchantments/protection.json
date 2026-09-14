@@ -47,6 +47,6 @@
   "conflict_groups": [
     "protection"
   ],
-  "particle": "minecraft:end_rod",
+  "particle": "minecraft:totem_of_undying",
   "particle_color": "#94BCD6"
 }

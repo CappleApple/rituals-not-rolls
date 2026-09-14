@@ -51,6 +51,6 @@
     "10": 6048.0
   },
   "conflict_groups": [],
-  "particle": "minecraft:end_rod",
-  "particle_color": "#EDD65C"
+  "particle": "minecraft:vault_connection",
+  "particle_color": "#FFF5C9"
 }

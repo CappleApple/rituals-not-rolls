@@ -37,6 +37,6 @@
     "1": 256
   },
   "conflict_groups": [],
-  "particle": "minecraft:electric_spark",
+  "particle": "minecraft:dust_plume",
   "particle_color": "#86B4AA"
 }

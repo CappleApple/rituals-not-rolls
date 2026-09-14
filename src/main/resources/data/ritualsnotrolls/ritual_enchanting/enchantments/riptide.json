@@ -41,6 +41,6 @@
   "conflict_groups": [
     "trident"
   ],
-  "particle": "minecraft:cloud",
+  "particle": "minecraft:gust",
   "particle_color": "#A8E8EF"
 }

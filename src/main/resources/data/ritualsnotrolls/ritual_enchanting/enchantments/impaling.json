@@ -39,6 +39,6 @@
     "10": 1049.1429
   },
   "conflict_groups": [],
-  "particle": "minecraft:crit",
-  "particle_color": "#67CED3"
+  "particle": "minecraft:splash",
+  "particle_color": "#8CE6F5"
 }

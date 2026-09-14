@@ -40,6 +40,6 @@
     "4": 416.0
   },
   "conflict_groups": [],
-  "particle": "minecraft:reverse_portal",
+  "particle": "minecraft:gust",
   "particle_color": "#BFA5F6"
 }

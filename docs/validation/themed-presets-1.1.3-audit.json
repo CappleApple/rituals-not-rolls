@@ -1,0 +1,409 @@
+{
+  "base": "9ceb8d797e5ff515baf573c186a28bebb8b5da79",
+  "active_presets": 68,
+  "particle_types": 40,
+  "distinct_sprite_sets": 31,
+  "maximum_presets_per_type": 4,
+  "balance_fields_unchanged": true,
+  "changes": [
+    {
+      "enchantment": "aggrofix:aggrobaiting",
+      "before": "minecraft:happy_villager",
+      "after": "minecraft:trial_spawner_detection",
+      "before_color": "#E9AC64",
+      "after_color": "#E9AC64"
+    },
+    {
+      "enchantment": "aggrofix:aggronizing",
+      "before": "minecraft:crit",
+      "after": "minecraft:angry_villager",
+      "before_color": "#DB4C3F",
+      "after_color": "#DB4C3F"
+    },
+    {
+      "enchantment": "botanypots:idle_hands",
+      "before": "minecraft:happy_villager",
+      "after": "minecraft:witch",
+      "before_color": "#89BE62",
+      "after_color": "#89BE62"
+    },
+    {
+      "enchantment": "combat_roll:longfooted",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:small_gust",
+      "before_color": "#B9E996",
+      "after_color": "#B9E996"
+    },
+    {
+      "enchantment": "combat_roll:multi_roll",
+      "before": "minecraft:reverse_portal",
+      "after": "minecraft:gust",
+      "before_color": "#BFA5F6",
+      "after_color": "#BFA5F6"
+    },
+    {
+      "enchantment": "create:capacity",
+      "before": "minecraft:cloud",
+      "after": "minecraft:campfire_cosy_smoke",
+      "before_color": "#CDA477",
+      "after_color": "#CDA477"
+    },
+    {
+      "enchantment": "create:potato_recovery",
+      "before": "minecraft:happy_villager",
+      "after": "minecraft:composter",
+      "before_color": "#D7CB79",
+      "after_color": "#D7CB79"
+    },
+    {
+      "enchantment": "critical_strike:chance",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:enchanted_hit",
+      "before_color": "#FFCE67",
+      "after_color": "#FFCE67"
+    },
+    {
+      "enchantment": "critical_strike:damage",
+      "before": "minecraft:crit",
+      "after": "minecraft:crit",
+      "before_color": "#D95478",
+      "after_color": "#FF8996"
+    },
+    {
+      "enchantment": "dungeons_arise:ensnaring",
+      "before": "minecraft:spore_blossom_air",
+      "after": "minecraft:item_cobweb",
+      "before_color": "#96B877",
+      "after_color": "#96B877"
+    },
+    {
+      "enchantment": "dungeons_arise:lolths_curse",
+      "before": "minecraft:witch",
+      "after": "minecraft:infested",
+      "before_color": "#9D43A5",
+      "after_color": "#E9B9FF"
+    },
+    {
+      "enchantment": "dungeons_arise:purification",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:instant_effect",
+      "before_color": "#F6F0C7",
+      "after_color": "#F6F0C7"
+    },
+    {
+      "enchantment": "dungeons_arise:voltaic_shot",
+      "before": "minecraft:electric_spark",
+      "after": "minecraft:firework",
+      "before_color": "#A4AEFF",
+      "after_color": "#A4AEFF"
+    },
+    {
+      "enchantment": "farmersdelight:backstabbing",
+      "before": "minecraft:crit",
+      "after": "minecraft:sweep_attack",
+      "before_color": "#AD7958",
+      "after_color": "#AD7958"
+    },
+    {
+      "enchantment": "gouge:grip",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:scrape",
+      "before_color": "#C99356",
+      "after_color": "#C99356"
+    },
+    {
+      "enchantment": "gouge:momentum",
+      "before": "minecraft:crit",
+      "after": "minecraft:poof",
+      "before_color": "#E6AA87",
+      "after_color": "#E6AA87"
+    },
+    {
+      "enchantment": "minecraft:soul_flame",
+      "before": "minecraft:soul",
+      "after": "minecraft:soul",
+      "before_color": "#7EECF2",
+      "after_color": "#D3FCFF"
+    },
+    {
+      "enchantment": "notenoughtrials:daredevil",
+      "before": "minecraft:gust",
+      "after": "minecraft:explosion",
+      "before_color": "#ED9866",
+      "after_color": "#ED9866"
+    },
+    {
+      "enchantment": "notenoughtrials:equity",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:small_flame",
+      "before_color": "#E4B987",
+      "after_color": "#E4B987"
+    },
+    {
+      "enchantment": "notenoughtrials:storm_front",
+      "before": "minecraft:cloud",
+      "after": "minecraft:gust",
+      "before_color": "#87BECF",
+      "after_color": "#87BECF"
+    },
+    {
+      "enchantment": "passablefoliage:leaf_walker",
+      "before": "minecraft:spore_blossom_air",
+      "after": "minecraft:cherry_leaves",
+      "before_color": "#63AE79",
+      "after_color": "#FFFFFF"
+    },
+    {
+      "enchantment": "minecraft:aqua_affinity",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:nautilus",
+      "before_color": "#27C7C2",
+      "after_color": "#8FF1EB"
+    },
+    {
+      "enchantment": "minecraft:bane_of_arthropods",
+      "before": "minecraft:spore_blossom_air",
+      "after": "minecraft:infested",
+      "before_color": "#B5E86B",
+      "after_color": "#DFFFAC"
+    },
+    {
+      "enchantment": "minecraft:binding_curse",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:raid_omen",
+      "before_color": "#CE5E84",
+      "after_color": "#CE5E84"
+    },
+    {
+      "enchantment": "minecraft:blast_protection",
+      "before": "minecraft:poof",
+      "after": "minecraft:explosion",
+      "before_color": "#C4B4B0",
+      "after_color": "#C4B4B0"
+    },
+    {
+      "enchantment": "minecraft:breach",
+      "before": "minecraft:crit",
+      "after": "minecraft:sonic_boom",
+      "before_color": "#F08E63",
+      "after_color": "#D6FFF4"
+    },
+    {
+      "enchantment": "minecraft:density",
+      "before": "minecraft:poof",
+      "after": "minecraft:dust_plume",
+      "before_color": "#8C99B5",
+      "after_color": "#8C99B5"
+    },
+    {
+      "enchantment": "minecraft:depth_strider",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:splash",
+      "before_color": "#348DAA",
+      "after_color": "#9CDFF5"
+    },
+    {
+      "enchantment": "minecraft:efficiency",
+      "before": "minecraft:electric_spark",
+      "after": "minecraft:scrape",
+      "before_color": "#E36A54",
+      "after_color": "#E36A54"
+    },
+    {
+      "enchantment": "minecraft:feather_falling",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:cloud",
+      "before_color": "#FFF5DC",
+      "after_color": "#FFF5DC"
+    },
+    {
+      "enchantment": "minecraft:fire_protection",
+      "before": "minecraft:flame",
+      "after": "minecraft:small_flame",
+      "before_color": "#FFC078",
+      "after_color": "#FFC078"
+    },
+    {
+      "enchantment": "minecraft:fortune",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:firework",
+      "before_color": "#68D99E",
+      "after_color": "#68D99E"
+    },
+    {
+      "enchantment": "minecraft:impaling",
+      "before": "minecraft:crit",
+      "after": "minecraft:splash",
+      "before_color": "#67CED3",
+      "after_color": "#8CE6F5"
+    },
+    {
+      "enchantment": "minecraft:knockback",
+      "before": "minecraft:crit",
+      "after": "minecraft:small_gust",
+      "before_color": "#EDBE6F",
+      "after_color": "#EDBE6F"
+    },
+    {
+      "enchantment": "minecraft:looting",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:vault_connection",
+      "before_color": "#EDD65C",
+      "after_color": "#FFF5C9"
+    },
+    {
+      "enchantment": "minecraft:loyalty",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:portal",
+      "before_color": "#A592E8",
+      "after_color": "#A592E8"
+    },
+    {
+      "enchantment": "minecraft:luck_of_the_sea",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:happy_villager",
+      "before_color": "#50DFB9",
+      "after_color": "#50DFB9"
+    },
+    {
+      "enchantment": "minecraft:lure",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:bubble_pop",
+      "before_color": "#75AFDC",
+      "after_color": "#75AFDC"
+    },
+    {
+      "enchantment": "minecraft:mending",
+      "before": "minecraft:happy_villager",
+      "after": "minecraft:heart",
+      "before_color": "#72F08C",
+      "after_color": "#FFFFFF"
+    },
+    {
+      "enchantment": "minecraft:multishot",
+      "before": "minecraft:crit",
+      "after": "minecraft:firework",
+      "before_color": "#C898E7",
+      "after_color": "#C898E7"
+    },
+    {
+      "enchantment": "minecraft:piercing",
+      "before": "minecraft:crit",
+      "after": "minecraft:enchanted_hit",
+      "before_color": "#BDCFEA",
+      "after_color": "#BDCFEA"
+    },
+    {
+      "enchantment": "minecraft:projectile_protection",
+      "before": "minecraft:crit",
+      "after": "minecraft:sonic_boom",
+      "before_color": "#B8CCD1",
+      "after_color": "#B8CCD1"
+    },
+    {
+      "enchantment": "minecraft:protection",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:totem_of_undying",
+      "before_color": "#94BCD6",
+      "after_color": "#94BCD6"
+    },
+    {
+      "enchantment": "minecraft:quick_charge",
+      "before": "minecraft:electric_spark",
+      "after": "minecraft:sculk_charge_pop",
+      "before_color": "#F2A358",
+      "after_color": "#C1FFF0"
+    },
+    {
+      "enchantment": "minecraft:respiration",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:bubble_pop",
+      "before_color": "#53C9E8",
+      "after_color": "#53C9E8"
+    },
+    {
+      "enchantment": "minecraft:riptide",
+      "before": "minecraft:cloud",
+      "after": "minecraft:gust",
+      "before_color": "#A8E8EF",
+      "after_color": "#A8E8EF"
+    },
+    {
+      "enchantment": "minecraft:sharpness",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:sweep_attack",
+      "before_color": "#AFCFFF",
+      "after_color": "#AFCFFF"
+    },
+    {
+      "enchantment": "minecraft:silk_touch",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:item_cobweb",
+      "before_color": "#E2DAF2",
+      "after_color": "#E2DAF2"
+    },
+    {
+      "enchantment": "minecraft:smite",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:instant_effect",
+      "before_color": "#FFE89C",
+      "after_color": "#FFE89C"
+    },
+    {
+      "enchantment": "minecraft:soul_speed",
+      "before": "minecraft:soul_fire_flame",
+      "after": "minecraft:soul",
+      "before_color": "#56F6E3",
+      "after_color": "#B6FFF6"
+    },
+    {
+      "enchantment": "minecraft:sweeping_edge",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:sweep_attack",
+      "before_color": "#DAE5FF",
+      "after_color": "#DAE5FF"
+    },
+    {
+      "enchantment": "minecraft:swift_sneak",
+      "before": "minecraft:sculk_soul",
+      "after": "minecraft:sculk_soul",
+      "before_color": "#247E91",
+      "after_color": "#BEFFF5"
+    },
+    {
+      "enchantment": "minecraft:thorns",
+      "before": "minecraft:crit",
+      "after": "minecraft:enchanted_hit",
+      "before_color": "#BD73C4",
+      "after_color": "#DAA0E4"
+    },
+    {
+      "enchantment": "minecraft:unbreaking",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:wax_on",
+      "before_color": "#8FE4FF",
+      "after_color": "#8FE4FF"
+    },
+    {
+      "enchantment": "minecraft:wind_burst",
+      "before": "minecraft:cloud",
+      "after": "minecraft:gust",
+      "before_color": "#D9FFE6",
+      "after_color": "#D9FFE6"
+    },
+    {
+      "enchantment": "supplementaries:stasis",
+      "before": "minecraft:end_rod",
+      "after": "minecraft:bubble_pop",
+      "before_color": "#ABE2ED",
+      "after_color": "#ABE2ED"
+    },
+    {
+      "enchantment": "veinmining:vein_mining",
+      "before": "minecraft:electric_spark",
+      "after": "minecraft:dust_plume",
+      "before_color": "#86B4AA",
+      "after_color": "#86B4AA"
+    }
+  ]
+}
