@@ -1,0 +1,30 @@
+{
+  "version": "1.2.1",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.244",
+  "unitTests": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "baselineGameTests": 135,
+  "bundledGameTests": 5,
+  "jar": "ritualsnotrolls-1.2.1.jar",
+  "jarSha256": "9d5cd973c5afbd758e6ffb33a567a0f002bc8171e1deaba3ba4872a61e8a08bd",
+  "optionalRuntime": [
+    {
+      "jar": "bundlednotsiloed-1.4.5.jar",
+      "sha256": "ffead6015483e89ee597629c9f13fda0951adc0d9efe57e76165e735e6a43c68"
+    },
+    {
+      "jar": "panelsnotscreens-1.1.7.jar",
+      "sha256": "b2242dd5912022290d40486b76c656f06697722b9e5202a76564b78d8c442a37"
+    },
+    {
+      "jar": "stacksnotslots-1.0.jar",
+      "sha256": "ffc4b17989aa5a74f27acd24a7828154992cea37f48f696fb619227a903e676c"
+    }
+  ],
+  "clientObservation": false
+}

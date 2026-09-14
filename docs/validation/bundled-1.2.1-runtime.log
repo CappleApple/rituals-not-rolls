@@ -1,0 +1,115 @@
+Calculating task graph as configuration cache cannot be reused because cached version information for dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:{require [1.6.0,2.0); prefer 1.6.0} has expired.
+> Task :writeBundledGameTestServerLegacyClasspath UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :prepareBundledGameTestServerRun UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+
+C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\src\main\java\com\cappleapple\ritualsnotrolls\gametest\ChainGameTests.java:985: warning: [deprecation] RegistryFriendlyByteBuf(ByteBuf,RegistryAccess) in RegistryFriendlyByteBuf has been deprecated
+        new net.minecraft.network.RegistryFriendlyByteBuf(
+        ^
+1 warning
+> Task :classes
+
+> Task :runBundledGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[00:46:18] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.244, --fml.neoFormVersion, 20240808.144430]
+[00:46:18] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[00:46:18] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[00:46:18] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[00:46:18] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/astra/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[00:46:19] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[00:46:19] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Bundled Not Siloed 1.4.5 (bundlednotsiloed)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.244 (neoforge)
+		Panels Not Screens 1.1.7 (panelsnotscreens)
+		Rituals Not Rolls 1.2.1 (ritualsnotrolls)
+		Sable Companion 1.6.0 (sablecompanion)
+		Stacks Not Slots 1.0 (stacksnotslots)
+[00:46:19] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[00:46:19] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[00:46:20] [main/WARN] [mixin/]: Error loading class: net/p3pp3rf1y/sophisticatedbackpacks/common/gui/BackpackContext$Item (java.lang.ClassNotFoundException: net.p3pp3rf1y.sophisticatedbackpacks.common.gui.BackpackContext$Item)
+[00:46:20] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[00:46:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[00:46:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[00:46:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[00:46:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[00:46:24] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[00:46:24] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.244, for MC 1.21.1
+[00:46:25] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?] {}
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:160) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.244.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.244.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.244.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.244.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[00:46:25] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[00:46:25] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[00:46:25] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[00:46:25] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [ritualsnotrolls_bundled]
+[00:46:26] [main/INFO] [minecraft/RecipeManager]: Loaded 1297 recipes
+[00:46:26] [main/INFO] [minecraft/AdvancementTree]: Loaded 1400 advancements
+[00:46:26] [main/INFO] [co.ca.ri.RitualsNotRolls/]: Loaded 42 ritual enchantment definitions, 2 explicitly disabled, revision 1
+[00:46:26] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[00:46:26] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[00:46:27] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 111 ms
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[00:46:27] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[00:46:27] [Server thread/INFO] [co.ca.bu.BundledNotSiloed/]: Loaded 14 default category presets from C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-bundled-gametest\config\bundlednotsiloed\default_categories.json
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: 5 tests are now running at position 6120870, -59, -12467490!
+[00:46:27] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'bundled_knowledge:0' (5 tests)...
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: [     ]
+[00:46:27] [Server thread/INFO] [co.ca.ri.RitualsNotRolls/]: Bundled knowledge fixture: ENTITY=com.cappleapple.bundlednotsiloed.compat.DynamicItemHandler slots=82, ENTITY_AUTOMATION=com.cappleapple.bundlednotsiloed.compat.DynamicItemHandler slots=82
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: [++++ ]
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: [+++++]
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: ========= 5 GAME TESTS COMPLETE IN 384.6 ms ======================
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: All 5 required tests passed :)
+[00:46:27] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[00:46:27] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[00:46:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[00:46:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[00:46:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[00:46:28] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[00:46:28] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[00:46:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[00:46:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[00:46:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[00:46:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[00:46:28] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 13s
+7 actionable tasks: 2 executed, 5 up-to-date
+Configuration cache entry stored.

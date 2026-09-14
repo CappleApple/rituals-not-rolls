@@ -28,6 +28,8 @@ Knowledge belongs to the physical library around the enchanting table, not to th
 
 Knowledge books can collect compatible pages and show the materials known for each enchantment. Pages describe their affinity as **Weakest, Weak, Average, Strong,** or **Strongest** rather than exposing the raw balance number.
 
+Use **Gather pages** inside a Knowledge Book to collect new matching discoveries from your inventory, including Bundled Not Siloed storage. Double-clicking while carrying a book on the cursor also gathers from the open container. Each new discovery consumes one page; duplicate discoveries and pages for other enchantments stay loose.
+
 Auto-Add can absorb newly acquired matching pages into a carried book, while manual inventory rearrangement leaves pages loose. Book entries can also be torn back out.
 
 Shift-click an enchantment in the table to summon its Knowledge Book from a shelf. If there is only loose-page knowledge, each click retrieves one page. The item flies above the table and drops. Throw a page onto the table to file it into a matching shelf book that lacks that discovery. Throw a Knowledge Book onto the table to file it into a random open chiseled bookshelf slot. Duplicates and items with no destination stay loose. Each transfer moves the real item along a short arc with magical particles.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 — 2026-09-14
+
+### Fixed
+
+- Knowledge Book gathering now pulls matching pages from Bundled Not Siloed storage and other inventories exposed through NeoForge item handlers.
+
 ## 1.2 — 2026-09-13
 
 ### Added

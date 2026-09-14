@@ -1,40 +1,39 @@
-# Testing notes - 1.2
+# Testing notes - 1.2.1
 
-Checked on 2026-09-13 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. Earlier particle and client evidence remains in [VALIDATION-1.1.3.md](VALIDATION-1.1.3.md).
+Checked on 2026-09-14 with Java 21, Minecraft 1.21.1 and NeoForge 21.1.244. Previous Sable and Create Aeronautics evidence remains in [VALIDATION-1.2.md](VALIDATION-1.2.md).
 
 ## Automated checks
 
-The normal build passes 69 unit tests and all 134 required GameTests without Sable installed. The new particle tests round-trip ordinary and sub-level simple flights, spline routes and bursts through both JSON and network codecs, including the exact local origin, immutable table anchor and sub-level UUID.
+The normal build passes 69 unit tests and all 135 required GameTests without Bundled Not Siloed installed. The new regression test verifies that gathering respects a denied player slot, still reaches unrelated pages through the inventory capability, and calls an allowed output slot's `onTake` exactly once.
 
 ```powershell
-.\gradlew.bat test build runGameTestServer
+.\gradlew.bat test build runGameTestServer --offline --console=plain
 ```
 
-Evidence: [build and GameTests](validation/sable-1.2-baseline.log), [unit totals and JAR audit](validation/sable-1.2-artifact.json).
+Evidence: [build and GameTests](validation/bundled-1.2.1-baseline.log), [unit totals and artifact hashes](validation/bundled-1.2.1-artifact.json).
 
-## Sable and Create Aeronautics
+## Bundled Not Siloed
 
-Four integration GameTests pass in both environments:
+All five integration GameTests pass with Bundled Not Siloed 1.4.5, Stacks Not Slots 1.0 and Panels Not Screens 1.1.7. They exercise the real storage backend and NeoForge capability providers on a dedicated GameTest server:
 
-| Runtime | Result |
-| --- | --- |
-| Sable 2.0.5 | 4/4 passed |
-| Sable 2.0.5, Create 6.0.10, Create Aeronautics bundled 1.3.2 | 4/4 passed |
+- Capability enumeration, simulated extraction and committed extraction from logical slot 80.
+- The book's Gather pages action across visible and stowed pages, preserving duplicates and pages for other enchantments.
+- A scrolled inventory view without consuming the displayed page twice.
+- Singleton pages whose removal shrinks the handler's reported slot count during gathering.
+- Cursor double-click gathering from both a chest and stowed player storage.
 
-The tests assemble a real table, filled chiseled bookshelf and pedestal through Sable's assembly API. They move and rotate the resulting native physics body throughout the test. Coverage includes plot inventory preservation, table discovery from world-space dropped items, menu reach including vertical distance, capture and cancellation, a complete enchantment with consumed offerings, book retrieval, page merging, whole-book filing, and exactly-once refunds after the source plot is removed.
+The tests also check repeated gathering, the bound book's object identity, menu validity, backend revision and consistency, and the book state sent to the client. Both `ENTITY` and `ENTITY_AUTOMATION` resolved Bundled Not Siloed's `DynamicItemHandler` with 82 slots in the capability fixture. Provider masking was not reproduced in this runtime.
 
-The Aeronautics run includes its bundled Simulated and Offroad modules. These tests exercise an assembled Sable setup while Aeronautics is loaded; they do not operate a pilot seat or test vehicle controls.
-
-Evidence: [Sable runtime](validation/sable-1.2-runtime.log), [Create Aeronautics runtime](validation/aeronautics-1.2-runtime.log).
-
-To reproduce with Sable alone, supply a locally obtained Sable JAR using `-PsableTestJar=<absolute-jar-path>` to `runSableGameTestServer`. For the combined run, place the three mod JARs listed above in `output/sable-test-mods`, then run:
+Place the three mod JARs listed above in `output/bundled-test-mods`, then run:
 
 ```powershell
-.\gradlew.bat runSableGameTestServer -PsableTestMods=output/sable-test-mods
+.\gradlew.bat runBundledGameTestServer -PbundledTestMods=output/bundled-test-mods --offline --console=plain
 ```
 
-The optional runtime properties do not bundle these mods into the release. The dedicated fixture runs in `run-sable-gametest`, uses the `ritualsnotrolls_sable` test namespace, and is excluded from the release JAR together with its structure template. The final JAR includes Sable Companion 1.6.0 and its license.
+Evidence: [Bundled Not Siloed runtime](validation/bundled-1.2.1-runtime.log).
+
+The fixture runs in `run-bundled-gametest` under the `ritualsnotrolls_bundled` namespace. Fixture classes and templates are excluded from the release JAR. The optional runtime property does not bundle any of these inventory mods. Production gathering uses only NeoForge's inventory API.
 
 ## Client validation limits
 
-Particle serialization and shared flight geometry have automated coverage. This change has not received an in-game visual or audio check on a moving vessel. The older screenshots and native particle checks above document the existing appearance only.
+The integration tests verify server inventory changes and the outgoing book state. This change has not received an in-game client check.

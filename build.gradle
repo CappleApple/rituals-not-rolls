@@ -25,6 +25,11 @@ neoForge {
         pedestalCompatServer { server(); gameDirectory = file('run-pedestal-compat'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.pedestalCompatFixture', 'true' }
         definitionCompatServer { server(); gameDirectory = file('run-compat'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.definitionCompatFixture', 'true' }
         migrationServer { server(); gameDirectory = file('run-migration'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.migrationFixture', 'true' }
+        bundledGameTestServer {
+            type = 'gameTestServer'
+            gameDirectory = file('run-bundled-gametest')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'ritualsnotrolls_bundled'
+        }
         sableGameTestServer {
             type = 'gameTestServer'
             gameDirectory = file('run-sable-gametest')
@@ -50,6 +55,7 @@ repositories {
     maven { url = 'https://maven.architectury.dev' }
 }
 dependencies {
+    if (project.hasProperty('bundledTestMods')) runtimeOnly fileTree(dir: project.property('bundledTestMods'), include: '*.jar')
     if (project.hasProperty('sableTestJar')) runtimeOnly files(project.property('sableTestJar'))
     if (project.hasProperty('sableTestMods')) runtimeOnly fileTree(dir: project.property('sableTestMods'), include: '*.jar')
     jarJar(implementation('dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:[1.6.0,2.0)')) {
@@ -76,7 +82,7 @@ dependencies {
 tasks.named('test', Test) { useJUnitPlatform() }
 tasks.named('jar', Jar) {
     from('THIRD_PARTY_LICENSES') { into 'META-INF/licenses' }
-    exclude 'com/cappleapple/ritualsnotrolls/gametest/**', 'data/ritualsnotrolls_sable/**'
+    exclude 'com/cappleapple/ritualsnotrolls/gametest/**', 'data/ritualsnotrolls_sable/**', 'data/ritualsnotrolls_bundled/**'
     exclude 'data/ritualsnotrolls/structure/empty.nbt', 'data/ritualsnotrolls/structure/network.nbt'
 }
 def resourceVersion = project.version.toString()

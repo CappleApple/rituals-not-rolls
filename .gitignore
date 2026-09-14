@@ -19,3 +19,4 @@ run-refinement-server/
 __pycache__/
 
 run-sable-gametest/
+run-bundled-gametest/

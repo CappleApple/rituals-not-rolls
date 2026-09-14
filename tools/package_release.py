@@ -23,6 +23,8 @@ with zipfile.ZipFile(jar) as archive:
     members = archive.namelist()
     assert not any("/gametest/" in member for member in members), "Development classes in artifact"
     assert not any(member.startswith("data/ritualsnotrolls_sable/") for member in members), "Sable test template in artifact"
+    assert not any(member.startswith("data/ritualsnotrolls_bundled/") for member in members), "Bundled test template in artifact"
+    assert not any(member.startswith(("com/cappleapple/bundlednotsiloed/", "com/cappleapple/stacksnotslots/", "com/cappleapple/panelsnotscreens/")) for member in members), "Optional inventory mods in artifact"
     bundled = json.loads(archive.read("META-INF/jarjar/metadata.json"))["jars"]
     assert len(bundled) == 1 and bundled[0]["identifier"]["group"] == "dev.ryanhcode.sable-companion"
     assert bundled[0]["version"]["artifactVersion"] == "1.6.0"

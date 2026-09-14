@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.capabilities.Capabilities;
 
 public final class Knowledge {
   private Knowledge() {}
@@ -90,8 +91,14 @@ public final class Knowledge {
   public static int gather(Player player, AbstractContainerMenu menu, ItemStack book) {
     if (player.level().isClientSide || !book.is(RitualsNotRolls.BOOK)) return 0;
     int n = 0;
+    List<ItemStack> protectedPages = new ArrayList<>();
     for (var slot : menu.slots) {
-      if (slot.mayPickup(player) && accepts(book, slot.getItem(), false)) {
+      if (!slot.mayPickup(player)) {
+        if (slot.container == player.getInventory() && accepts(book, slot.getItem(), false))
+          protectedPages.add(slot.getItem().copy());
+        continue;
+      }
+      if (accepts(book, slot.getItem(), false)) {
         // Respect specialized output slots and their onTake bookkeeping.
         ItemStack taken = slot.safeTake(1, 1, player);
         if (!taken.isEmpty()) {
@@ -100,6 +107,25 @@ public final class Knowledge {
         }
       }
     }
+    // The automation capability can expose storage beyond the visible player slots. NeoForge's
+    // default ENTITY provider may otherwise mask a mod's expanded player inventory.
+    var inventory = player.getCapability(Capabilities.ItemHandler.ENTITY_AUTOMATION, null);
+    if (inventory == null) inventory = player.getCapability(Capabilities.ItemHandler.ENTITY);
+    if (inventory != null) {
+      // Re-read the slot count: extracting the last stack can shrink a dynamic handler.
+      for (int slot = 0; slot < inventory.getSlots(); slot++) {
+        ItemStack candidate = inventory.getStackInSlot(slot);
+        if (!accepts(book, candidate, false)) continue;
+        // Capability indices need not match menu indices. Preserve visible pickup restrictions
+        // conservatively for matching pages instead of bypassing them through another view.
+        if (protectedPages.stream().anyMatch(p -> ItemStack.isSameItemSameComponents(p, candidate)))
+          continue;
+        ItemStack taken = inventory.extractItem(slot, 1, false);
+        if (add(book, taken, false)) n++;
+        if (!taken.isEmpty()) returnLoose(player, taken);
+      }
+    }
+    if (n > 0) player.getInventory().setChanged();
     menu.broadcastChanges();
     return n;
   }

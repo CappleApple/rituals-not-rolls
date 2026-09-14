@@ -55,6 +55,10 @@ NeoForge 1.21.1 has block/entity/item capabilities and `ItemEntityPickupEvent`, 
 
 There is no player inventory polling task or every-tick inventory scan. `Knowledge.absorb` is also a public integration entry point for alternate acquisition systems. Direct `setItem` writes deliberately do not auto-add: that method alone cannot distinguish intentional rearrangement, load, synchronization, and acquisition. Mods bypassing both vanilla add/menu paths and NeoForge item handlers should call the explicit integration method when they know the insertion context.
 
+Manual gathering checks menu slots through `Slot.safeTake`, then scans the player's NeoForge item handler using `getSlots()` and `extractItem(slot, 1, false)`. It queries `Capabilities.ItemHandler.ENTITY_AUTOMATION` with a null side first and falls back to `ENTITY`: NeoForge's built-in player provider on `ENTITY` can mask expanded inventories. This reaches Bundled Not Siloed storage without a mod-specific adapter or dependency.
+
+Handler stacks are inspected without mutation; only extracted pages are consumed. If a visible player slot denies pickup, matching page stacks are also skipped in the handler pass because menu and capability indices need not correspond. The slot count is reread during iteration because dynamic handlers can shrink after extraction. Book changes call `Inventory.setChanged()` so the owning inventory can synchronize them.
+
 ## Transactions and multiplayer
 
 Menus are server-authoritative and validate container ID, sequence number, reachability, and bound book identity. Replaying a packet cannot tear the same entry twice. Both screens have no inventory slots. The table accepts a sequenced `retrieve` action for an enchantment in its current filtered library; it never accepts client-supplied inventory positions or stacks. Book actions bind to the same physical stack while its UI is open.
