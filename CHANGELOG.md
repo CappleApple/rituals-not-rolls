@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.3 — 2026-09-14
+
+### Added
+
+- Throw a page and leather onto the enchanting table to bind its first Knowledge Book. Three leather gather around the page, the book forms, and it flies into an open chiseled bookshelf slot. Duplicate pages and surplus leather stay loose.
+- Added the Knowledge Binder, with a card browser, automatic inventory collection and a duplicate filter enabled by default. Capacity defaults to 1,024 pages.
+- Dropped binders file pages and bind missing library books in batches of up to 16 pages every 20 ticks by default. Capacity and processing rate are configurable.
+- Added in-game guide instructions for binding, bulk filing and Knowledge Binders.
+
+### Changed
+
+- Thrown pages file into existing books concurrently, and books for different enchantments can bind at the same time.
+
+### Fixed
+
+- Thrown pages stay untouched when any book in the library already contains that discovery, even if another matching book lacks it.
+
 ## 1.2.1 — 2026-09-14
 
 ### Fixed

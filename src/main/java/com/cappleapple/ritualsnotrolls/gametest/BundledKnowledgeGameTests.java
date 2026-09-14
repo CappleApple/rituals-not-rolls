@@ -1,6 +1,7 @@
 package com.cappleapple.ritualsnotrolls.gametest;
 
 import com.cappleapple.ritualsnotrolls.RitualsNotRolls;
+import com.cappleapple.ritualsnotrolls.knowledge.BinderStorage;
 import com.cappleapple.ritualsnotrolls.knowledge.Knowledge;
 import com.cappleapple.ritualsnotrolls.knowledge.KnowledgeData;
 import com.cappleapple.ritualsnotrolls.menu.BookMenu;
@@ -50,6 +51,12 @@ public final class BundledKnowledgeGameTests {
         test("book_button_gathers_stowed_pages", BundledKnowledgeGameTests::bookButton),
         test("scrolled_inventory_gathers_each_page_once", BundledKnowledgeGameTests::scrolled),
         test("singleton_pages_shrink_handler_during_gather", BundledKnowledgeGameTests::shrinking),
+        test("visible_binder_collects_stowed_pages", BundledKnowledgeGameTests::visibleBinder),
+        test(
+            "stowed_binder_collects_without_visible_binder",
+            BundledKnowledgeGameTests::stowedBinder),
+        test(
+            "stowed_binder_survives_shrinking_handler", BundledKnowledgeGameTests::shrinkingBinder),
         test(
             "cursor_double_click_gathers_chest_and_stowed_pages",
             BundledKnowledgeGameTests::cursor));
@@ -233,6 +240,77 @@ public final class BundledKnowledgeGameTests {
 
   private static ItemStack book(String... entries) {
     return Knowledge.book(new KnowledgeData(RitualGameTests.SHARP, List.of(entries), false));
+  }
+
+  private static void visibleBinder(GameTestHelper h) {
+    var f = new Fixture(h);
+    f.put(0, new ItemStack(RitualsNotRolls.BINDER_ITEM.get()));
+    f.put(80, page("diamond", 2));
+    f.put(81, page("flint", 1));
+    f.put(82, page("diamond", 3));
+    f.put(83, Knowledge.page(RitualGameTests.UNBREAKING, "diamond"));
+    ItemStack bound = f.player.getInventory().getItem(0);
+    h.assertTrue(
+        BinderStorage.collect(f.player) == 3,
+        "Visible binder collects every new stowed knowledge identity");
+    h.assertTrue(
+        f.player.getInventory().getItem(0) == bound,
+        "Collection preserves the live binder identity");
+    h.assertTrue(
+        BinderStorage.data(bound).total() == 3,
+        "All collected pages are stored in the actual binder");
+    f.count(80, 1, "Only one first diamond page is collected");
+    f.count(81, 0, "Singleton new page is collected");
+    f.count(82, 3, "Duplicate page stack is preserved");
+    h.assertTrue(
+        BinderStorage.collect(f.player) == 0, "A second scan leaves all duplicate pages loose");
+    f.valid();
+    h.succeed();
+  }
+
+  private static void stowedBinder(GameTestHelper h) {
+    var f = new Fixture(h);
+    f.put(80, new ItemStack(RitualsNotRolls.BINDER_ITEM.get()));
+    f.put(1, page("diamond", 4));
+    f.put(140, page("flint", 3));
+    h.assertTrue(
+        BinderStorage.collect(f.player) == 2,
+        "A stowed binder collects visible and hidden pages without any visible binder");
+    var handler = f.player.getCapability(Capabilities.ItemHandler.ENTITY_AUTOMATION, null);
+    h.assertTrue(
+        handler != null && BinderStorage.data(handler.getStackInSlot(80)).total() == 2,
+        "Updated binder is committed to the authoritative hidden slot");
+    f.count(1, 3, "Visible page duplicate count is preserved");
+    f.count(140, 2, "Hidden page duplicate count is preserved");
+    long revision = f.revision();
+    h.assertTrue(
+        BinderStorage.collect(f.player) == 0 && f.revision() == revision,
+        "No-op scans do not extract and reinsert the stowed binder");
+    f.valid();
+    h.succeed();
+  }
+
+  private static void shrinkingBinder(GameTestHelper h) {
+    var f = new Fixture(h);
+    f.put(79, page("diamond", 1));
+    f.put(80, new ItemStack(RitualsNotRolls.BINDER_ITEM.get()));
+    h.assertTrue(
+        BinderStorage.collect(f.player) == 1, "Stowed binder consumes the last singleton page");
+    var handler = f.player.getCapability(Capabilities.ItemHandler.ENTITY_AUTOMATION, null);
+    h.assertTrue(handler != null, "Expanded inventory remains available");
+    int binders = 0;
+    for (int slot = 0; slot < handler.getSlots(); slot++) {
+      ItemStack stack = handler.getStackInSlot(slot);
+      if (stack.is(RitualsNotRolls.BINDER_ITEM)) {
+        binders++;
+        h.assertTrue(
+            BinderStorage.data(stack).total() == 1,
+            "Binder restored after slot-count shrink retains the collected page");
+      }
+    }
+    h.assertTrue(binders == 1, "Shrinking and reinsertion retain exactly one binder");
+    f.valid();
+    h.succeed();
   }
 
   private static ItemStack page(String entry, int count) {

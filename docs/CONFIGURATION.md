@@ -83,6 +83,24 @@ The existing top-level spatial and presentation options remain:
 
 Config reloads refresh the server rule snapshot and synchronize it to connected clients. An active ritual is invalidated by the new revision, and reserved offerings are refunded. The guide displays current server settings. If config file watching is disabled, restart the server after editing. Datapack `/reload` also picks up the currently loaded config values; it does not itself reread TOML files.
 
+## Knowledge binders
+
+These settings belong in the existing `[rules]` table:
+
+```toml
+[rules]
+binderPageCapacity = 1024
+binderPagesPerSecond = 16
+```
+
+`binderPageCapacity` counts all stored pages, including duplicate copies. Its range is 1–1,048,576. Reducing the limit preserves existing contents and stops further collection until the binder has room again.
+
+`binderPagesPerSecond` limits each dropped binder to 1–1,024 page checks every 20 server ticks. The default is 16. Unusable or duplicate entries also count toward the check budget. Successful page transfers run concurrently; pages without a destination stay in the binder. Loose pages thrown separately are not subject to this binder budget.
+
+Each binder remembers its own **Auto-collect** and **Skip duplicates** toggles, both enabled by default. Auto-collect checks the player's inventory once every 20 ticks. With the filter enabled, it takes at most one page for each enchantment/material discovery already absent from that binder; it does not compare against the nearby library. Disable the filter to store extra copies. Collection pauses while the binder screen is open.
+
+Throwing a binder onto the table applies the same library rules as throwing its pages: existing discoveries remain stored, new discoveries enter matching books, and missing books require three nearby leather from the same throwing player and an empty chiseled bookshelf slot. Turning the collection filter off never allows duplicate discoveries to be added to library books.
+
 ## Client tooltip colors
 
 ```toml
@@ -96,6 +114,6 @@ All 42 vanilla enchantments have concise descriptions under the standard `enchan
 
 ## Library transfers
 
-Shelf retrieval and filing use `ritualRadius` and loaded chunks only. Shift-click retrieval prefers a Knowledge Book, then takes one loose page. A thrown page chooses the nearest matching book that lacks its entry. A thrown Knowledge Book chooses randomly among empty, unreserved chiseled bookshelf slots. Filing a stack of pages consumes one page and leaves its remaining copies loose. Filing ignores a book's inventory Auto-Add setting because throwing onto the table is an explicit action.
+Shelf retrieval and filing use `ritualRadius` and loaded chunks only. Shift-click retrieval prefers a Knowledge Book, then takes one loose page. A thrown page chooses the nearest matching book that lacks its entry, unless any book already contains that discovery. If no matching book exists, one page and three nearby leather dropped by the same player can bind a new book into an empty, unreserved chiseled bookshelf slot. Leather can come from several stacks; duplicate pages and surplus leather remain loose. Binding uses the existing dropped-item capture window and table capture area. A thrown Knowledge Book chooses randomly among empty, unreserved chiseled bookshelf slots. Filing a stack of identical pages consumes one copy; the duplicates stay loose. Many different pages can travel at once, including pages heading to the same book. A first-book binding reserves its enchantment so other pages wait for that book instead of creating duplicates. Filing ignores a book's inventory Auto-Add setting because throwing onto the table is an explicit action.
 
-Transfers take roughly one to two and a half seconds, depending on distance. The real dropped item follows an arc with enchantment and end-rod particles. Shelf destinations are reserved during flight and checked again at arrival. A removed table, changed destination, or interrupted transfer releases the item without spending it. Saved in-flight entities recover their gravity when loaded. Retrieved pages stay loose on pickup instead of immediately auto-adding to a carried book.
+Regular flights take roughly one to two and a half seconds, depending on distance. Binding a new book adds two seconds before its shelf flight. The real dropped item follows an arc with enchantment and end-rod particles. Empty destinations are reserved for whole books; page transfers reserve discoveries and can share a matching book. Destinations are checked again at arrival. A removed table, changed destination, or interrupted transfer releases the item without spending it. Saved in-flight entities recover their gravity when loaded. Retrieved pages stay loose on pickup instead of immediately auto-adding to a carried book.

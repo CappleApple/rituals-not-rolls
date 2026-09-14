@@ -20,6 +20,7 @@ public final class ClientEvents {
   @SubscribeEvent
   public static void screens(RegisterMenuScreensEvent event) {
     event.register(RitualsNotRolls.BOOK_MENU.get(), BookScreen::new);
+    event.register(RitualsNotRolls.BINDER_MENU.get(), BinderScreen::new);
     event.register(RitualsNotRolls.RITUAL_MENU.get(), RitualScreen::new);
   }
 

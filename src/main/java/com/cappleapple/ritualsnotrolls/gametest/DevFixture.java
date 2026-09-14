@@ -63,6 +63,13 @@ public final class DevFixture {
                               return 1;
                             }))
                 .then(
+                    literal("bindbook")
+                        .executes(
+                            c -> {
+                              bindBook(c.getSource().getPlayerOrException());
+                              return 1;
+                            }))
+                .then(
                     literal("filepage")
                         .executes(
                             c -> {
@@ -391,6 +398,19 @@ public final class DevFixture {
     player.getInventory().setChanged();
     player.inventoryMenu.broadcastChanges();
     player.connection.teleport(.5, 64, -3.5, 0, 12);
+  }
+
+  private static void bindBook(ServerPlayer player) {
+    library(player);
+    var shelf =
+        (ChiseledBookShelfBlockEntity) player.serverLevel().getBlockEntity(TABLE.offset(2, 0, 0));
+    for (int slot = 0; slot < shelf.getContainerSize(); slot++)
+      shelf.setItem(slot, ItemStack.EMPTY);
+    player.connection.teleport(.8, 64, -4.5, -7, 12);
+    var page = Knowledge.page(ResourceLocation.withDefaultNamespace("sharpness"), "diamond");
+    page.setCount(3);
+    dropKnowledge(player, page);
+    dropKnowledge(player, new ItemStack(Items.LEATHER, 10));
   }
 
   private static void dropKnowledge(ServerPlayer player, ItemStack stack) {

@@ -44,6 +44,7 @@ public final class SableRitualGameTests {
         test("assembled_network_and_capture", SableRitualGameTests::networkAndCapture),
         test("moving_ritual_completes", SableRitualGameTests::movingRitualCompletes),
         test("moving_library_transfers", SableRitualGameTests::movingLibraryTransfers),
+        test("moving_book_binding", SableRitualGameTests::movingBookBinding),
         test("removed_plot_refunds_offerings", SableRitualGameTests::removedPlotRefunds));
   }
 
@@ -209,6 +210,98 @@ public final class SableRitualGameTests {
                             r.succeed();
                           });
                     });
+              });
+        });
+  }
+
+  private static void movingBookBinding(GameTestHelper h) {
+    var r = new Vessel(h);
+    r.after(
+        5,
+        () -> {
+          r.shelf().clearContent();
+          RitualNetwork.invalidate(h.getLevel());
+          var page = r.drop(RitualGameTests.page("diamond"));
+          var leather = r.drop(new ItemStack(Items.LEATHER, 6));
+          var start = r.world(Vec3.atCenterOf(r.table));
+          h.assertTrue(
+              KnowledgeTransfers.tryStart(h.getLevel(), r.table, page),
+              "Dropped page and leather start binding on a rotated moving table");
+          var claimedLeather =
+              r.items().stream()
+                  .filter(e -> e.getItem().is(Items.LEATHER) && KnowledgeTransfers.active(e))
+                  .toList();
+          r.ownedItems.addAll(claimedLeather);
+          h.assertTrue(
+              claimedLeather.stream().mapToInt(e -> e.getItem().getCount()).sum() == 3,
+              "Binding claims exactly three of the six dropped leather");
+          h.assertTrue(
+              page.getItem().is(RitualsNotRolls.PAGE)
+                  && java.util.stream.IntStream.range(0, r.shelf().getContainerSize())
+                      .allMatch(slot -> r.shelf().getItem(slot).isEmpty()),
+              "Page stays real and shelf stays empty during binding");
+          r.after(
+              15,
+              () -> {
+                r.shift.add(4, 1, -3);
+                r.updatePose();
+                KnowledgeTransfers.tick(h.getLevel());
+                h.assertTrue(
+                    page.isAlive()
+                        && page.getItem().is(RitualsNotRolls.PAGE)
+                        && KnowledgeTransfers.active(page)
+                        && RitualSpace.toLocal(h.getLevel(), r.table, page.position())
+                                .distanceToSqr(Vec3.atCenterOf(r.table))
+                            < 9,
+                    "Binding page follows the translated and rotated table before completion");
+                h.assertTrue(
+                    claimedLeather.stream()
+                        .allMatch(
+                            e ->
+                                e.isAlive()
+                                    && KnowledgeTransfers.active(e)
+                                    && RitualSpace.toLocal(h.getLevel(), r.table, e.position())
+                                            .distanceToSqr(Vec3.atCenterOf(r.table))
+                                        < 9),
+                    "All three claimed leather follow the moving table during binding");
+              });
+          r.after(
+              100,
+              () -> {
+                var books =
+                    java.util.stream.IntStream.range(0, r.shelf().getContainerSize())
+                        .mapToObj(slot -> r.shelf().getItem(slot))
+                        .filter(stack -> stack.is(RitualsNotRolls.BOOK))
+                        .toList();
+                h.assertTrue(
+                    books.size() == 1
+                        && Knowledge.data(books.getFirst())
+                            .enchantment()
+                            .equals(RitualGameTests.SHARP)
+                        && Knowledge.data(books.getFirst()).entries().equals(List.of("diamond")),
+                    "Moving library receives exactly one book containing the thrown page");
+                var drops =
+                    h.getLevel()
+                        .getEntitiesOfClass(
+                            ItemEntity.class,
+                            new AABB(start, r.world(Vec3.atCenterOf(r.table))).inflate(24));
+                h.assertTrue(
+                    drops.stream()
+                            .filter(e -> e.getItem().is(Items.LEATHER))
+                            .mapToInt(e -> e.getItem().getCount())
+                            .sum()
+                        == 3,
+                    "Exactly three surplus leather remain as real world-space drops");
+                h.assertTrue(
+                    drops.stream().noneMatch(e -> e.getItem().is(RitualsNotRolls.PAGE))
+                        && !page.isAlive()
+                        && claimedLeather.stream().noneMatch(ItemEntity::isAlive),
+                    "Binding consumes one page and three leather without leaving duplicates");
+                drops.stream()
+                    .filter(e -> e.getItem().is(Items.LEATHER))
+                    .forEach(ItemEntity::discard);
+                leather.discard();
+                r.succeed();
               });
         });
   }

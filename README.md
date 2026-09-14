@@ -32,7 +32,23 @@ Use **Gather pages** inside a Knowledge Book to collect new matching discoveries
 
 Auto-Add can absorb newly acquired matching pages into a carried book, while manual inventory rearrangement leaves pages loose. Book entries can also be torn back out.
 
-Shift-click an enchantment in the table to summon its Knowledge Book from a shelf. If there is only loose-page knowledge, each click retrieves one page. The item flies above the table and drops. Throw a page onto the table to file it into a matching shelf book that lacks that discovery. Throw a Knowledge Book onto the table to file it into a random open chiseled bookshelf slot. Duplicates and items with no destination stay loose. Each transfer moves the real item along a short arc with magical particles.
+Shift-click an enchantment in the table to summon its Knowledge Book from a shelf. If there is only loose-page knowledge, each click retrieves one page. The item flies above the table and drops.
+
+Throw a page onto the table to file it into a matching shelf book. If any book already knows that discovery, the page stays loose.
+
+If the library has no book for that enchantment, throw leather onto the table too: it takes exactly three leather and one page, binds a book above the table, then sends it into a random open chiseled bookshelf slot. Duplicate pages and surplus leather stay loose. An existing matching book never costs leather. Binding needs an empty shelf slot and at least three nearby leather dropped by the same player.
+
+You can also throw a complete Knowledge Book onto the table to file it into an open slot. Each transfer moves the real item along a short arc with magical particles.
+
+You can throw many pages at once. Filing into existing books and binding books for different enchantments run concurrently. Pages for an enchantment whose first book is still being bound wait for that book; duplicate discoveries are never consumed.
+
+### Knowledge Binder
+
+Craft a **Knowledge Binder** from four leather, four paper and one string. It collects loose Knowledge Pages from your inventory, including storage exposed through NeoForge item handlers such as Bundled Not Siloed. Its default capacity is **1,024 pages**, counting duplicate copies.
+
+Right-click to open a card binder with twelve cards across two leaves. Use the arrows or mouse wheel to turn pages. Click a card to take one page; Shift-click to take up to 64. **Auto-collect** and **Skip duplicates** are enabled on new binders. The duplicate filter keeps one page per enchantment and material discovery in that binder. Turn it off to collect extra copies.
+
+Throw the binder onto an enchanting table to file its contents into the library. It checks up to **16 pages every 20 ticks** by default, while their transfers run concurrently. Throw leather alongside it to bind missing books, at three leather per new book. Pages already known by a library book, and pages with no available destination, remain in the binder. The binder drops back down when processing and its library transfers finish. Both capacity and processing rate are [server settings](docs/CONFIGURATION.md#knowledge-binders).
 
 Enchanted books from loot tables and non-player world drops become one random affinity page per configured enchantment, including mob drops, fishing, trial spawners and vaults. Unconfigured enchantments remain on the book. Player-thrown enchanted books remain available as ritual targets.
 

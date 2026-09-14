@@ -1,0 +1,127 @@
+Calculating task graph as configuration cache cannot be reused because file 'build.gradle' has changed.
+> Task :writeSableGameTestServerLegacyClasspath UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareSableGameTestServerRun UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :runSableGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[09:04:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.244, --fml.neoFormVersion, 20240808.144430]
+[09:04:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[09:04:44] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[09:04:44] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[09:04:44] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/astra/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[09:04:44] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: C:\Users\astra\.gradle\caches\modules-2\files-2.1\dev.ryanhcode.sable-companion\sable-companion-common-1.21.1\1.6.0\370be7db705926176e05c0215ed676150c45daae\sable-companion-common-1.21.1-1.6.0.jar
+[09:04:44] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 12 dependencies adding them to mods collection
+[09:04:44] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Create 6.0.10 (create)
+		Create Aeronautics 1.3.2 (aeronautics)
+		Create Aeronautics 1.3.2 (aeronautics_bundled)
+		Create Offroad 1.3.2 (offroad)
+		Create Simulated 1.3.2 (simulated)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.244 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Rituals Not Rolls 1.3 (ritualsnotrolls)
+		Sable 2.0.5 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.3.2 (veil)
+[09:04:45] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[09:04:45] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[09:04:45] [main/WARN] [mixin/]: Reference map 'simulated.refmap.json' for simulated.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:04:45] [main/WARN] [mixin/]: Reference map 'aeronautics.refmap.json' for aeronautics.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:04:45] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:04:45] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[09:04:45] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[09:04:45] [main/WARN] [mixin/]: Reference map 'offroad.refmap.json' for offroad.mixins.json could not be read. If this is a development environment you can ignore this message
+[09:04:46] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[09:04:46] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[09:04:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:04:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:04:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:04:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[09:04:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[09:04:52] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[09:04:52] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.244, for MC 1.21.1
+[09:04:52] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[09:04:53] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[09:04:54] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[09:04:54] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[09:04:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[09:04:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[09:04:54] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[09:04:54] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[09:04:54] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [ritualsnotrolls_sable]
+[09:04:55] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[09:04:55] [main/INFO] [minecraft/RecipeManager]: Loaded 2949 recipes
+[09:04:56] [main/INFO] [minecraft/AdvancementTree]: Loaded 2645 advancements
+[09:04:56] [main/INFO] [co.ca.ri.RitualsNotRolls/]: Loaded 44 ritual enchantment definitions, 2 explicitly disabled, revision 1
+[09:04:56] [Server thread/WARN] [ne.ne.fm.co.ConfigTracker/CONFIG]: Configuration file C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-sable-gametest\config\ritualsnotrolls-server.toml is not correct. Correcting
+[09:04:56] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[09:04:56] [Server thread/INFO] [de.ry.sa.Sable/]: Using game directory relative Sable Rapier native directory C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\run-sable-gametest\.sable\natives
+[2026-09-14T14:04:56.767290100Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[09:04:56] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-09-14T14:04:56.980888300Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[09:04:57] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-09-14T14:04:57.015193900Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[09:04:57] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[09:04:57] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[09:04:57] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 98 ms
+[09:04:57] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[09:04:57] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[09:04:57] [Server thread/INFO] [minecraft/GameTestServer]: 5 tests are now running at position -6100962, -59, 3940044!
+[09:04:57] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'sable_rituals:0' (5 tests)...
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [     ]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+____]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+___+]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+___+]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+___+]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+___+]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+__++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+__++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+__++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:58] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+_+++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: [+++++]
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: ========= 5 GAME TESTS COMPLETE IN 1.800 s ======================
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: All 5 required tests passed :)
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09:04:59] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09:04:59] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09:04:59] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[09:04:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[09:04:59] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+BUILD SUCCESSFUL in 17s
+7 actionable tasks: 1 executed, 6 up-to-date
+Configuration cache entry stored.

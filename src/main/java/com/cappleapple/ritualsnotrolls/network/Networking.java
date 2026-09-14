@@ -94,7 +94,7 @@ public final class Networking {
   private static final Map<String, StringBuilder> PARTS = new HashMap<>();
 
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("8");
+    var registrar = event.registrar("9");
     registrar.playToClient(
         PedestalModifiers.TYPE,
         PedestalModifiers.CODEC,
@@ -120,6 +120,10 @@ public final class Networking {
                 && p.sequence == menu.actionSequence + 1) {
               menu.actionSequence = p.sequence;
               menu.action(p.action, p.value);
+            } else if (player.containerMenu instanceof BinderMenu menu
+                && p.sequence == menu.actionSequence + 1) {
+              menu.actionSequence = p.sequence;
+              menu.action(p.action, p.value);
             } else if (player.containerMenu instanceof RitualMenu menu
                 && p.sequence == menu.actionSequence + 1) {
               menu.actionSequence = p.sequence;
@@ -136,6 +140,8 @@ public final class Networking {
         (p, context) -> {
           if (context.player().containerMenu instanceof RitualMenu menu
               && menu.containerId == p.menu) menu.clientState = p.state;
+          if (context.player().containerMenu instanceof BinderMenu menu
+              && menu.containerId == p.menu) menu.applyState(p.state);
           if (context.player().containerMenu instanceof BookMenu menu && menu.containerId == p.menu)
             menu.clientBook =
                 net.minecraft.world.item.ItemStack.parseOptional(

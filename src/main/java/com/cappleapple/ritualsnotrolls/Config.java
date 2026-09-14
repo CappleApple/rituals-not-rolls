@@ -9,6 +9,7 @@ public final class Config {
   public static final ModConfigSpec SPEC;
   public static final ModConfigSpec.DoubleValue CONSUMPTION_MULTIPLIER, XP_BONUS;
   public static final ModConfigSpec.IntValue XP_LEVELS, DURATION;
+  public static final ModConfigSpec.IntValue BINDER_PAGE_CAPACITY, BINDER_PAGES_PER_SECOND;
   public static final ModConfigSpec.ConfigValue<String> DUPLICATE_EQUATION, ENCHANTABILITY_EQUATION;
   public static final ModConfigSpec.ConfigValue<List<? extends String>> CONFLICT_MULTIPLIERS;
   public static final ModConfigSpec.BooleanValue SEQUENTIAL_ANIMATIONS,
@@ -74,6 +75,16 @@ public final class Config {
                 PowerEquation.ENCHANTABILITY,
                 value -> PowerEquation.valid(value, "rating"));
     b.push("rules");
+    BINDER_PAGE_CAPACITY =
+        b.comment(
+                "Maximum pages stored in each Knowledge Binder. Lowering this keeps existing pages"
+                    + " but blocks insertion until below the new limit.")
+            .defineInRange("binderPageCapacity", 1024, 1, 1_048_576);
+    BINDER_PAGES_PER_SECOND =
+        b.comment(
+                "Maximum pages processed from each thrown Knowledge Binder per 20 ticks at an"
+                    + " enchanting table.")
+            .defineInRange("binderPagesPerSecond", 16, 1, 1024);
     CONSUMPTION_MULTIPLIER =
         b.comment("Power multiplier for a consumed offering before duplicate diminishing returns.")
             .defineInRange("consumptionMultiplier", 1.5, 1, 100);

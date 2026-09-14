@@ -92,6 +92,7 @@ data(Path('data/ritualsnotrolls/loot_table/blocks/pedestal.json'),{'type':'minec
 data(Path('data/ritualsnotrolls/recipe/knowledge_book.json'),{'type':'ritualsnotrolls:knowledge_book','category':'misc'})
 data(Path('data/ritualsnotrolls/recipe/enchanted_book_page.json'),{'type':'ritualsnotrolls:enchanted_book_page','category':'misc'})
 recipes={
+ 'knowledge_binder':(['LPL','PSP','LPL'],{'L':'minecraft:leather','P':'minecraft:paper','S':'minecraft:string'},'ritualsnotrolls:knowledge_binder',1),
  'subtraction_catalyst':([' R ','GSG',' R '],{'R':'minecraft:redstone','G':'minecraft:gold_nugget','S':'minecraft:fermented_spider_eye'},'ritualsnotrolls:subtraction_catalyst',1),
  'pedestal':(['SSS',' C ','SSS'],{'S':'minecraft:stone_bricks','C':'minecraft:chiseled_stone_bricks'},'ritualsnotrolls:pedestal',2),
  'consumption_catalyst':([' R ','GAG',' R '],{'R':'minecraft:redstone','G':'minecraft:gold_nugget','A':'minecraft:amethyst_shard'},'ritualsnotrolls:consumption_catalyst',1),

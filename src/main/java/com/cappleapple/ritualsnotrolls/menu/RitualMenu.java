@@ -97,6 +97,10 @@ public final class RitualMenu extends AbstractContainerMenu {
     CompoundTag state = new CompoundTag();
     var guide = new CompoundTag();
     guide.putInt("radius", Config.RADIUS.get());
+    guide.putInt(
+        "binder_capacity", com.cappleapple.ritualsnotrolls.knowledge.BinderStorage.capacity());
+    guide.putInt(
+        "binder_rate", com.cappleapple.ritualsnotrolls.knowledge.BinderStorage.pagesPerSecond());
     guide.putBoolean("enchantability", Config.ENCHANTABILITY.get());
     guide.putDouble("base", Config.ENCHANTABILITY_BASE.get());
     guide.putDouble("exponent", Config.ENCHANTABILITY_EXPONENT.get());

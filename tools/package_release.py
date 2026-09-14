@@ -56,6 +56,12 @@ with zipfile.ZipFile(jar) as archive:
     assert by_id['minecraft:mending']['levels']['1'] == 256
     assert 'data/ritualsnotrolls/ritual_enchanting/rules.json' not in members
     assert 'data/ritualsnotrolls/recipe/enchanted_book_page.json' in members
+    for component in ['knowledge/BinderData', 'knowledge/BinderItem', 'knowledge/BinderStorage', 'knowledge/BinderTransfers', 'menu/BinderMenu', 'client/BinderScreen']:
+        assert 'com/cappleapple/ritualsnotrolls/' + component + '.class' in members
+    assert 'assets/ritualsnotrolls/models/item/knowledge_binder.json' in members
+    binder_recipe = json.loads(archive.read('data/ritualsnotrolls/recipe/knowledge_binder.json'))
+    assert binder_recipe['pattern'] == ['LPL', 'PSP', 'LPL']
+    assert binder_recipe['result']['id'] == 'ritualsnotrolls:knowledge_binder'
     hidden = json.loads(archive.read('data/c/tags/item/hidden_from_recipe_viewers.json'))['values']
     assert set(hidden) == {'ritualsnotrolls:knowledge_page', 'ritualsnotrolls:knowledge_book'}
     for adapter in ['JeiKnowledgePlugin', 'EmiKnowledgePlugin', 'ReiKnowledgePlugin']:
@@ -71,6 +77,9 @@ with zipfile.ZipFile(jar) as archive:
     language = json.loads(archive.read('assets/ritualsnotrolls/lang/en_us.json'))
     assert all('enchantment.' + d['enchantment'].replace(':', '.') + '.desc' in language for d in vanilla)
     assert all('ritualsnotrolls.guide.chapter.' + str(i) + '.body' in language for i in range(8))
+    guide = json.loads((ROOT / 'tools/guide_lang.json').read_text(encoding='utf-8'))
+    assert language['ritualsnotrolls.guide.chapter.1.body'] == guide['ritualsnotrolls.guide.chapter.1.body']
+    assert language['ritualsnotrolls.guide.chapter.1.body'].count('%s') == 2
     assert all('ritualsnotrolls.guide.chapter.' + str(i) + '.caption' in language for i in range(8))
     assert all(f'assets/ritualsnotrolls/textures/gui/guide/example_{i}.png' in members for i in range(8))
 

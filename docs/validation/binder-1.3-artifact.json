@@ -1,0 +1,21 @@
+{
+  "version": "1.3",
+  "checked": "2026-09-14",
+  "unit_tests": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gametests": {
+    "baseline": 168,
+    "bundled_not_siloed": 8,
+    "sable_create_aeronautics": 5
+  },
+  "client_checks": [
+    "binder",
+    "binding",
+    "guide"
+  ],
+  "jar_sha256": "18166d02b253a357182d06ec027813866ccbc846462294830df449b9eddc13e5"
+}

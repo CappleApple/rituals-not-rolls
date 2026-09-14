@@ -90,6 +90,12 @@ public final class RitualsNotRolls {
                       .networkSynchronized(
                           net.minecraft.network.codec.ByteBufCodecs.fromCodec(
                               KnowledgeData.CODEC)));
+  public static final DeferredHolder<DataComponentType<?>, DataComponentType<BinderData>>
+      BINDER_DATA =
+          COMPONENTS.registerComponentType(
+              "binder", b -> b.persistent(BinderData.CODEC).networkSynchronized(BinderData.STREAM));
+  public static final DeferredItem<BinderItem> BINDER_ITEM =
+      ITEMS.register("knowledge_binder", BinderItem::new);
   public static final DeferredItem<KnowledgeItem> PAGE =
       ITEMS.register("knowledge_page", () -> new KnowledgeItem(false));
   public static final DeferredItem<KnowledgeItem> BOOK =
@@ -114,6 +120,8 @@ public final class RitualsNotRolls {
           BLOCK_ENTITIES.register(
               "pedestal",
               () -> BlockEntityType.Builder.of(PedestalEntity::new, PEDESTAL.get()).build(null));
+  public static final DeferredHolder<MenuType<?>, MenuType<BinderMenu>> BINDER_MENU =
+      MENUS.register("knowledge_binder", () -> IMenuTypeExtension.create(BinderMenu::new));
   public static final DeferredHolder<MenuType<?>, MenuType<BookMenu>> BOOK_MENU =
       MENUS.register("knowledge_book", () -> IMenuTypeExtension.create(BookMenu::new));
   public static final DeferredHolder<MenuType<?>, MenuType<RitualMenu>> RITUAL_MENU =
@@ -177,6 +185,7 @@ public final class RitualsNotRolls {
                 .displayItems(
                     (parameters, output) -> {
                       output.accept(PEDESTAL_ITEM);
+                      output.accept(BINDER_ITEM);
                       output.accept(CONSUMPTION_CATALYST);
                       output.accept(SUBTRACTION_CATALYST);
                       output.accept(XP_CATALYST);
@@ -210,5 +219,6 @@ public final class RitualsNotRolls {
             event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK, PEDESTAL_ENTITY.get(), (be, side) -> be.items));
     NeoForge.EVENT_BUS.register(CommonEvents.class);
+    NeoForge.EVENT_BUS.addListener(BinderStorage::onPlayerTick);
   }
 }

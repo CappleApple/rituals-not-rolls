@@ -18,6 +18,8 @@ public final class RitualGuide {
     Object[] values =
         switch (chapter) {
           case 0 -> new Object[] {settings.getInt("radius")};
+          case 1 ->
+              new Object[] {settings.getInt("binder_capacity"), settings.getInt("binder_rate")};
           case 3 ->
               new Object[] {
                 BookScreen.format(rules.consumptionMultiplier()),
