@@ -1,5 +1,6 @@
 package com.cappleapple.ritualsnotrolls.client;
 
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import com.cappleapple.ritualsnotrolls.mixin.ParticleAccessor;
 import com.cappleapple.ritualsnotrolls.mixin.ParticleEngineAccessor;
 import com.cappleapple.ritualsnotrolls.ritual.*;
@@ -26,6 +27,7 @@ public final class RitualParticleProvider implements ParticleProvider<RitualPart
       double dx,
       double dy,
       double dz) {
+    if (missingSpace(level, options)) return null;
     var type = BuiltInRegistries.PARTICLE_TYPE.getOptional(options.effect()).orElse(null);
     int rgb = options.rgb();
     float r = rgb < 0 ? 1 : ((rgb >> 16) & 255) / 255f,
@@ -55,6 +57,12 @@ public final class RitualParticleProvider implements ParticleProvider<RitualPart
             effect.getType() != ParticleTypes.ENCHANT);
   }
 
+  private static boolean missingSpace(ClientLevel level, RitualParticleOptions options) {
+    if (options.spaceAnchor().isEmpty()) return false;
+    var current = RitualSpace.frameId(level, options.spaceAnchor().get());
+    return current == null || options.spaceId().filter(id -> !id.equals(current)).isPresent();
+  }
+
   private static final class Flying extends Particle {
     private final Particle visual;
     private final Vec3 start;
@@ -76,10 +84,26 @@ public final class RitualParticleProvider implements ParticleProvider<RitualPart
         float blue,
         boolean fullBright) {
       super(level, start.x, start.y, start.z);
-      this.start = start;
       this.visual = visual;
       this.options = options;
       flight = options.flight().orElseThrow();
+      // The source is captured locally because the vessel can move while its packet is in flight.
+      this.start =
+          options.spaceAnchor().isEmpty()
+              ? start
+              : options
+                  .spaceOrigin()
+                  .orElseGet(
+                      () ->
+                          flight.burst()
+                              ? flight.destination()
+                              : flight
+                                  .route()
+                                  .map(RitualSpline.Curve::start)
+                                  .orElseGet(
+                                      () ->
+                                          RitualSpace.toLocal(
+                                              level, options.spaceAnchor().get(), start)));
       // Spread packets emitted together over the two-tick interval, along one shared curve.
       travelLead = flight.burst() ? 0 : random.nextDouble() * 2;
       this.red = red;
@@ -130,11 +154,22 @@ public final class RitualParticleProvider implements ParticleProvider<RitualPart
       };
     }
 
-    private Vec3 position(float partial) {
+    private Vec3 position(float partial, boolean rendering) {
       var source = flight.sourceEntity() < 0 ? null : level.getEntity(flight.sourceEntity());
       Vec3 origin =
           source == null ? start : source.getPosition(partial).add(0, source.getBbHeight() * .6, 0);
-      return RitualFlight.position(origin, flight, age + partial, travelLead);
+      var anchor = options.spaceAnchor();
+      if (source != null && anchor.isPresent())
+        origin =
+            rendering
+                ? RitualSpace.toRenderLocal(level, anchor.get(), origin)
+                : RitualSpace.toLocal(level, anchor.get(), origin);
+      Vec3 local = RitualFlight.position(origin, flight, age + partial, travelLead);
+      return anchor.isEmpty()
+          ? local
+          : rendering
+              ? RitualSpace.toRenderWorld(level, anchor.get(), local)
+              : RitualSpace.toWorld(level, anchor.get(), local);
     }
 
     @Override
@@ -142,11 +177,11 @@ public final class RitualParticleProvider implements ParticleProvider<RitualPart
       xo = x;
       yo = y;
       zo = z;
-      if (++age >= lifetime) {
+      if (++age >= lifetime || missingSpace(level, options)) {
         remove();
         return;
       }
-      var p = position(0);
+      var p = position(0, false);
       if (constrainedVisual) visual.setPos(p.x, p.y, p.z);
       if (leafVisual) {
         visual.setLifetime(300 - (int) (300L * (age - 1) / (lifetime + 2L)));
@@ -158,7 +193,11 @@ public final class RitualParticleProvider implements ParticleProvider<RitualPart
 
     @Override
     public void render(VertexConsumer buffer, Camera camera, float partial) {
-      var p = position(partial);
+      if (missingSpace(level, options)) {
+        remove();
+        return;
+      }
+      var p = position(partial, true);
       visual.setPos(p.x, p.y, p.z);
       if (options.rgb() >= 0) visual.setColor(red, green, blue);
       // Native sprite/shape/age animation, positioned at the exact smoothly interpolated curve.

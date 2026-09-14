@@ -1,6 +1,7 @@
 package com.cappleapple.ritualsnotrolls.menu;
 
 import com.cappleapple.ritualsnotrolls.*;
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import com.cappleapple.ritualsnotrolls.data.Definitions;
 import com.cappleapple.ritualsnotrolls.network.Networking;
 import com.cappleapple.ritualsnotrolls.ritual.*;
@@ -19,6 +20,7 @@ public final class RitualMenu extends AbstractContainerMenu {
   public final ServerPlayer player;
   public final Inventory inventory;
   public final BlockPos table;
+  private final UUID frame;
   private final ItemStack filter;
   public CompoundTag clientState = new CompoundTag();
   private long lastSync = -100;
@@ -53,6 +55,7 @@ public final class RitualMenu extends AbstractContainerMenu {
     this.inventory = inventory;
     player = inventory.player instanceof ServerPlayer p ? p : null;
     this.table = table.immutable();
+    frame = RitualSpace.frameId(inventory.player.level(), table);
     boolean acceptsAny =
         !filter.isEmpty()
             && inventory
@@ -67,8 +70,10 @@ public final class RitualMenu extends AbstractContainerMenu {
   @Override
   public boolean stillValid(Player p) {
     return !p.isRemoved()
+        && RitualSpace.loaded(p.level(), table)
+        && Objects.equals(frame, RitualSpace.frameId(p.level(), table))
         && p.level().getBlockState(table).is(Blocks.ENCHANTING_TABLE)
-        && p.distanceToSqr(table.getX() + .5, table.getY() + .5, table.getZ() + .5) <= 64;
+        && p.distanceToSqr(RitualSpace.worldCenter(p.level(), table)) <= 64;
   }
 
   @Override
@@ -174,7 +179,7 @@ public final class RitualMenu extends AbstractContainerMenu {
   }
 
   public void sync() {
-    if (player == null) return;
+    if (player == null || !stillValid(player)) return;
     lastSync = player.level().getGameTime();
     Networking.sendState(player, containerId, snapshot());
   }

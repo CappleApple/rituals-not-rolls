@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2 — 2026-09-13
+
+### Added
+
+- Sable and Create Aeronautics support for enchanting setups assembled onto a sub-level. Table capture, menus, library transfers, and ritual particles follow the vessel as it moves and rotates.
+
 ## 1.1.3 — 2026-09-13
 
 ### Changed

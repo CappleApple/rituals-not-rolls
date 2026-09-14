@@ -1,6 +1,7 @@
 package com.cappleapple.ritualsnotrolls.ritual;
 
 import com.cappleapple.ritualsnotrolls.RitualsNotRolls;
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import com.cappleapple.ritualsnotrolls.data.Definitions;
 import com.cappleapple.ritualsnotrolls.pedestal.PedestalGeometry;
 import java.util.*;
@@ -491,24 +492,46 @@ public final class RitualEffects {
       RitualAnimation.Schedule schedule,
       ServerPlayer owner,
       int age) {
-    for (var emission :
-        emissions(
-            paths,
-            schedule,
-            owner.position().add(0, owner.getBbHeight() * .6, 0),
-            owner.getId(),
-            age)) {
-      var from = emission.from();
-      level.sendParticles(emission.particle(), from.x, from.y, from.z, 1, 0, 0, 0, 0);
-    }
+    emit(level, null, paths, schedule, owner, age);
+  }
+
+  public static void emit(
+      ServerLevel level,
+      BlockPos table,
+      List<Path> paths,
+      RitualAnimation.Schedule schedule,
+      ServerPlayer owner,
+      int age) {
+    Vec3 playerOrigin = owner.position().add(0, owner.getBbHeight() * .6, 0);
+    if (table != null) playerOrigin = RitualSpace.toLocal(level, table, playerOrigin);
+    for (var emission : emissions(paths, schedule, playerOrigin, owner.getId(), age))
+      send(level, table, emission);
   }
 
   public static void emitTail(
       ServerLevel level, List<Path> paths, RitualAnimation.Schedule schedule, int age) {
-    for (var emission : tailEmissions(paths, schedule, age)) {
-      var from = emission.from();
-      level.sendParticles(emission.particle(), from.x, from.y, from.z, 1, 0, 0, 0, 0);
+    emitTail(level, null, paths, schedule, age);
+  }
+
+  public static void emitTail(
+      ServerLevel level,
+      BlockPos table,
+      List<Path> paths,
+      RitualAnimation.Schedule schedule,
+      int age) {
+    for (var emission : tailEmissions(paths, schedule, age)) send(level, table, emission);
+  }
+
+  private static void send(ServerLevel level, BlockPos table, Emission emission) {
+    Vec3 from = emission.from();
+    var particle = emission.particle();
+    var spaceId = table == null ? null : RitualSpace.frameId(level, table);
+    if (spaceId != null) {
+      from = RitualSpace.toWorld(level, table, from);
+      particle = particle.inSpace(table, emission.from(), spaceId);
     }
+    // Packet coordinates must be world positions for particle recipients and Sable's native hooks.
+    level.sendParticles(particle, from.x, from.y, from.z, 1, 0, 0, 0, 0);
   }
 
   /** A success burst celebrates additions/upgrades, never a removal-only ritual. */
@@ -565,7 +588,12 @@ public final class RitualEffects {
       Map<ResourceLocation, Integer> selected,
       int experienceCatalysts) {
     complete(
-        level, Vec3.atLowerCornerOf(table).add(.5, 1.7, .5), before, selected, experienceCatalysts);
+        level,
+        table,
+        Vec3.atLowerCornerOf(table).add(.5, 1.7, .5),
+        before,
+        selected,
+        experienceCatalysts);
   }
 
   public static void complete(
@@ -574,7 +602,17 @@ public final class RitualEffects {
       ItemStack before,
       Map<ResourceLocation, Integer> selected,
       int experienceCatalysts) {
+    complete(level, null, center, before, selected, experienceCatalysts);
+  }
+
+  public static void complete(
+      ServerLevel level,
+      BlockPos table,
+      Vec3 center,
+      ItemStack before,
+      Map<ResourceLocation, Integer> selected,
+      int experienceCatalysts) {
     for (var particle : completionParticles(center, before, selected, experienceCatalysts))
-      level.sendParticles(particle, center.x, center.y, center.z, 1, 0, 0, 0, 0);
+      send(level, table, new Emission(center, particle));
   }
 }

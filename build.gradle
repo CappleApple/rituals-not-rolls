@@ -25,6 +25,11 @@ neoForge {
         pedestalCompatServer { server(); gameDirectory = file('run-pedestal-compat'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.pedestalCompatFixture', 'true' }
         definitionCompatServer { server(); gameDirectory = file('run-compat'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.definitionCompatFixture', 'true' }
         migrationServer { server(); gameDirectory = file('run-migration'); programArgument '--nogui'; systemProperty 'ritualsnotrolls.migrationFixture', 'true' }
+        sableGameTestServer {
+            type = 'gameTestServer'
+            gameDirectory = file('run-sable-gametest')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'ritualsnotrolls_sable'
+        }
         gameTestServer {
             type = 'gameTestServer'
             gameDirectory = file('run-gametest')
@@ -35,12 +40,21 @@ neoForge {
     unitTest { enable(); testedMod = mods.ritualsnotrolls }
 }
 repositories {
+    exclusiveContent {
+        forRepository { maven { url = 'https://maven.ryanhcode.dev/releases' } }
+        filter { includeGroup 'dev.ryanhcode.sable-companion' }
+    }
     maven { url = 'https://maven.blamejared.com' }
     maven { url = 'https://maven.terraformersmc.com/releases' }
     maven { url = 'https://maven.shedaniel.me' }
     maven { url = 'https://maven.architectury.dev' }
 }
 dependencies {
+    if (project.hasProperty('sableTestJar')) runtimeOnly files(project.property('sableTestJar'))
+    if (project.hasProperty('sableTestMods')) runtimeOnly fileTree(dir: project.property('sableTestMods'), include: '*.jar')
+    jarJar(implementation('dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:[1.6.0,2.0)')) {
+        version { prefer '1.6.0' }
+    }
     compileOnly 'mezz.jei:jei-1.21.1-common-api:19.21.0.247'
     compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.21.0.247'
     compileOnly 'dev.emi:emi-neoforge:1.1.24+1.21.1:api'
@@ -60,7 +74,11 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 tasks.named('test', Test) { useJUnitPlatform() }
-tasks.named('jar', Jar) { exclude 'com/cappleapple/ritualsnotrolls/gametest/**'; exclude 'data/ritualsnotrolls/structure/empty.nbt', 'data/ritualsnotrolls/structure/network.nbt' }
+tasks.named('jar', Jar) {
+    from('THIRD_PARTY_LICENSES') { into 'META-INF/licenses' }
+    exclude 'com/cappleapple/ritualsnotrolls/gametest/**', 'data/ritualsnotrolls_sable/**'
+    exclude 'data/ritualsnotrolls/structure/empty.nbt', 'data/ritualsnotrolls/structure/network.nbt'
+}
 def resourceVersion = project.version.toString()
 tasks.named('processResources', ProcessResources) {
     inputs.property 'version', project.version

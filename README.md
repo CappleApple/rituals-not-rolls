@@ -109,6 +109,8 @@ The mod is designed to be pack-driven. Useful references:
 
 Built-in compatibility includes native handling for Supplementaries and Iron's Spells 'n Spellbooks pedestals. Other shelves/pedestals can be exposed through tags and adapters.
 
+Sable and Create Aeronautics sub-levels can carry a complete enchanting setup. Assemble the table, library and pedestals onto the same sub-level; rituals and book transfers follow its movement and rotation. Libraries do not connect across separate vessels or between a vessel and terrain. Sable is optional, and no extra Rituals Not Rolls setting is needed. See [integration details](docs/API.md#sable-and-create-aeronautics).
+
 ## Migrating from Immersive Enchanting
 
 When Immersive Enchanting is no longer installed, saved ancient books can be converted into matching Rituals Not Rolls affinity pages as inventories/chunks load.

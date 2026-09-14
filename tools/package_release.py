@@ -22,6 +22,12 @@ if not jar.is_file():
 with zipfile.ZipFile(jar) as archive:
     members = archive.namelist()
     assert not any("/gametest/" in member for member in members), "Development classes in artifact"
+    assert not any(member.startswith("data/ritualsnotrolls_sable/") for member in members), "Sable test template in artifact"
+    bundled = json.loads(archive.read("META-INF/jarjar/metadata.json"))["jars"]
+    assert len(bundled) == 1 and bundled[0]["identifier"]["group"] == "dev.ryanhcode.sable-companion"
+    assert bundled[0]["version"]["artifactVersion"] == "1.6.0"
+    assert bundled[0]["path"] in members
+    assert "META-INF/licenses/sable-companion-LICENSE.txt" in members
     assert not any(member.endswith("/structure/network.nbt") or member.endswith("/structure/empty.nbt") for member in members)
     definitions = [member for member in members if "/ritual_enchanting/enchantments/" in member and member.endswith(".json")]
     assert len(definitions) == 70, f"Expected 70 bundled definition/exclusion files, got {len(definitions)}"
@@ -105,7 +111,7 @@ root_files = [
     "gradlew", "gradlew.bat", "LICENSE", "README.md", "SPECIFICATION.md", "CHANGELOG.md",
 ]
 source_files = [ROOT / path for path in root_files if (ROOT / path).is_file()]
-for directory in ["src", "gradle", "tools", "docs", "examples"]:
+for directory in ["src", "gradle", "tools", "docs", "examples", "THIRD_PARTY_LICENSES"]:
     source_files.extend(path for path in (ROOT / directory).rglob("*") if path.is_file() and "__pycache__" not in path.parts)
 source_zip = DIST / f"{name}-source.zip"
 with zipfile.ZipFile(source_zip, "w", zipfile.ZIP_DEFLATED) as archive:

@@ -99,7 +99,12 @@ public final class DebugCommands {
                         c -> {
                           var p = c.getSource().getPlayerOrException();
                           var n =
-                              RitualNetwork.scan(p.serverLevel(), p.blockPosition(), true, true);
+                              RitualNetwork.scan(
+                                  p.serverLevel(),
+                                  com.cappleapple.ritualsnotrolls.compat.RitualSpace
+                                      .trackedPosition(p),
+                                  true,
+                                  true);
                           c.getSource()
                               .sendSuccess(
                                   () ->

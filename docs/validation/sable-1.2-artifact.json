@@ -1,0 +1,45 @@
+{
+  "version": "1.2",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.244",
+  "unit_tests": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "jar": "build/libs/ritualsnotrolls-1.2.jar",
+  "sha256": "b5fcc0763d76372a60ab1e3131bc5445b61804b8357fea471fe11c14dd0ef8ef",
+  "production_classes_match_compiled": 145,
+  "development_classes_or_templates": 0,
+  "jarjar": {
+    "jars": [
+      {
+        "identifier": {
+          "group": "dev.ryanhcode.sable-companion",
+          "artifact": "sable-companion-common-1.21.1"
+        },
+        "version": {
+          "range": "[1.6.0,2.0)",
+          "artifactVersion": "1.6.0"
+        },
+        "path": "META-INF/jarjar/sable-companion-common-1.21.1-1.6.0.jar",
+        "isObfuscated": false
+      }
+    ]
+  },
+  "runtime_mods": [
+    {
+      "file": "create-1.21.1-6.0.10.jar",
+      "sha256": "ef87fe5709f1ba1f5b8bb20a2925b5afb4669e178fd6d8bf10c167759eefe37a"
+    },
+    {
+      "file": "create-aeronautics-bundled-1.21.1-1.3.2.jar",
+      "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e"
+    },
+    {
+      "file": "sable-neoforge-1.21.1-2.0.5.jar",
+      "sha256": "c8710f85bc780bbf523e6726ceaaf76dd0b8c61479db497b382c6bb34317e7ab"
+    }
+  ]
+}

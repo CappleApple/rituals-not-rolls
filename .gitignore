@@ -17,3 +17,5 @@ run-refinement-server/
 /dist/
 /output/
 __pycache__/
+
+run-sable-gametest/

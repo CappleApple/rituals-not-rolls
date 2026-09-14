@@ -1,6 +1,7 @@
 package com.cappleapple.ritualsnotrolls.ritual;
 
 import com.cappleapple.ritualsnotrolls.api.RitualApi;
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.ListTag;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 public final class RitualConsumption {
   public static final String KEY = "ritualsnotrolls_reserved_offerings";
   private final List<Transfers.Receipt> receipts = new ArrayList<>();
+  private final Map<BlockPos, UUID> frames = new HashMap<>();
 
   public int count(BlockPos pos) {
     return receipts.stream()
@@ -24,6 +26,7 @@ public final class RitualConsumption {
   public String take(ServerLevel level, ItemEntity target, RitualMath.Plan plan, BlockPos pos) {
     int amount = plan.withdrawals().getOrDefault(pos, 0) - count(pos);
     if (amount <= 0) return "";
+    if (!RitualSpace.loaded(level, pos)) return "A contributing pedestal is no longer loaded";
     var expected =
         plan.evaluation().used().stream().filter(p -> p.pos().equals(pos)).findFirst().orElse(null);
     var handler = RitualApi.pedestal(level, pos);
@@ -34,8 +37,12 @@ public final class RitualConsumption {
     var probe = handler.extractItem(0, amount, true);
     if (probe.getCount() != amount || !ItemStack.isSameItemSameComponents(probe, expected.stack()))
       return "A material cannot be extracted";
+    var frame = RitualSpace.frameId(level, pos);
     var removed = handler.extractItem(0, amount, false);
-    if (!removed.isEmpty()) receipts.add(new Transfers.Receipt(handler, 0, pos, removed));
+    if (!removed.isEmpty()) {
+      receipts.add(new Transfers.Receipt(handler, 0, pos, removed));
+      frames.put(pos.immutable(), frame);
+    }
     persist(level, target);
     if (removed.getCount() != amount || !ItemStack.isSameItemSameComponents(removed, probe))
       return "A material changed during extraction";
@@ -45,8 +52,11 @@ public final class RitualConsumption {
 
   public static void breakParticles(ServerLevel level, BlockPos pos, ItemStack stack) {
     var point =
-        com.cappleapple.ritualsnotrolls.pedestal.PedestalGeometry.displayPosition(
-            pos, level.getBlockState(pos));
+        RitualSpace.toWorld(
+            level,
+            pos,
+            com.cappleapple.ritualsnotrolls.pedestal.PedestalGeometry.displayPosition(
+                pos, level.getBlockState(pos)));
     level.sendParticles(
         new net.minecraft.core.particles.ItemParticleOption(
             net.minecraft.core.particles.ParticleTypes.ITEM, stack.copyWithCount(1)),
@@ -90,6 +100,7 @@ public final class RitualConsumption {
 
   public void finish(ItemEntity target) {
     receipts.clear();
+    frames.clear();
     target.getPersistentData().remove(KEY);
   }
 
@@ -97,7 +108,8 @@ public final class RitualConsumption {
     for (var receipt : receipts) {
       var pos = receipt.pos();
       var handler =
-          level.getChunkSource().hasChunk(pos.getX() >> 4, pos.getZ() >> 4)
+          RitualSpace.loaded(level, pos)
+                  && Objects.equals(frames.get(pos), RitualSpace.frameId(level, pos))
               ? RitualApi.pedestal(level, pos)
               : null;
       ItemStack rest =

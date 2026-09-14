@@ -1,10 +1,12 @@
 package com.cappleapple.ritualsnotrolls.ritual;
 
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.*;
 
 /**
@@ -24,9 +26,10 @@ public final class Transfers {
       Receipt r = receipts.get(i);
       ItemStack left = r.handler.insertItem(r.slot, r.stack, false);
       if (!left.isEmpty()) left = ItemHandlerHelper.insertItemStacked(r.handler, left, false);
-      if (!left.isEmpty())
-        Containers.dropItemStack(
-            level, r.pos.getX() + .5, r.pos.getY() + 1, r.pos.getZ() + .5, left);
+      if (!left.isEmpty()) {
+        var at = RitualSpace.toWorld(level, r.pos, Vec3.atBottomCenterOf(r.pos).add(0, 1, 0));
+        Containers.dropItemStack(level, at.x, at.y, at.z, left);
+      }
     }
   }
 

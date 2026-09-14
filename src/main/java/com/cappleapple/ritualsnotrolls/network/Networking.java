@@ -94,7 +94,7 @@ public final class Networking {
   private static final Map<String, StringBuilder> PARTS = new HashMap<>();
 
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("7");
+    var registrar = event.registrar("8");
     registrar.playToClient(
         PedestalModifiers.TYPE,
         PedestalModifiers.CODEC,

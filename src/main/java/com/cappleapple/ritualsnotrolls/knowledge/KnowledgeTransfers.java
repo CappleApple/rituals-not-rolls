@@ -2,6 +2,7 @@ package com.cappleapple.ritualsnotrolls.knowledge;
 
 import com.cappleapple.ritualsnotrolls.*;
 import com.cappleapple.ritualsnotrolls.api.RitualApi;
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import com.cappleapple.ritualsnotrolls.ritual.*;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -34,6 +35,7 @@ public final class KnowledgeTransfers {
       ItemEntity entity,
       ItemStack expected,
       BlockPos table,
+      UUID frame,
       Destination destination,
       Kind kind,
       Vec3 start,
@@ -53,9 +55,9 @@ public final class KnowledgeTransfers {
   public static boolean retrieve(
       ServerPlayer player, BlockPos table, ResourceLocation enchantment) {
     var level = player.serverLevel();
-    if (!loaded(level, table)
+    if (!RitualSpace.loaded(level, table)
         || !level.getBlockState(table).is(Blocks.ENCHANTING_TABLE)
-        || player.distanceToSqr(Vec3.atCenterOf(table)) > 64) return false;
+        || player.distanceToSqr(RitualSpace.worldCenter(level, table)) > 64) return false;
     var shelves = RitualNetwork.scan(level, table, false, true).shelves();
     for (var type : List.of(RitualsNotRolls.BOOK.get(), RitualsNotRolls.PAGE.get())) {
       for (var pos : shelves) {
@@ -73,7 +75,7 @@ public final class KnowledgeTransfers {
             continue;
           var taken = handler.extractItem(slot, 1, false);
           if (taken.isEmpty()) continue;
-          var start = shelfFront(level, pos, slot);
+          var start = RitualSpace.toWorld(level, table, shelfFront(level, pos, slot));
           var entity = new ItemEntity(level, start.x, start.y, start.z, taken);
           entity.setThrower(player);
           entity.getPersistentData().putBoolean(RETURNED, true);
@@ -103,11 +105,13 @@ public final class KnowledgeTransfers {
         || !(entity.getOwner() instanceof ServerPlayer player)
         || player.isRemoved()
         || player.serverLevel() != level
-        || player.distanceToSqr(Vec3.atCenterOf(table)) > 4096
         || !entity.isAlive()
-        || !loaded(level, table)
+        || !RitualSpace.loaded(level, table)
         || !level.getBlockState(table).is(Blocks.ENCHANTING_TABLE)
-        || !new AABB(table).inflate(1.3, 1.5, 1.3).contains(entity.position())) return false;
+        || player.distanceToSqr(RitualSpace.worldCenter(level, table)) > 4096
+        || !new AABB(table)
+            .inflate(1.3, 1.5, 1.3)
+            .contains(RitualSpace.toLocal(level, table, entity.position()))) return false;
     var data = Knowledge.data(entity.getItem());
     if (data == null) return false;
     List<Destination> choices = new ArrayList<>();
@@ -134,6 +138,7 @@ public final class KnowledgeTransfers {
           if (chunk == null) continue;
           for (var be : chunk.getBlockEntities().values()) {
             if (!(be instanceof ChiseledBookShelfBlockEntity shelf)
+                || !RitualSpace.sameSpace(level, table, shelf.getBlockPos())
                 || shelf.getBlockPos().distSqr(table) > radius * radius) continue;
             for (int slot = 0; slot < shelf.getContainerSize(); slot++)
               if (shelf.getItem(slot).isEmpty() && !reserved(level, shelf.getBlockPos(), slot))
@@ -172,7 +177,8 @@ public final class KnowledgeTransfers {
     entity.setDeltaMovement(Vec3.ZERO);
     entity.setPickUpDelay(10);
     entity.hasImpulse = true;
-    int duration = Math.min(50, 20 + (int) (entity.position().distanceTo(end) * 2));
+    var start = RitualSpace.toLocal(level, table, entity.position());
+    int duration = Math.min(50, 20 + (int) (start.distanceTo(end) * 2));
     FLIGHTS
         .computeIfAbsent(level, l -> new LinkedHashMap<>())
         .put(
@@ -181,14 +187,16 @@ public final class KnowledgeTransfers {
                 entity,
                 entity.getItem().copy(),
                 table.immutable(),
+                RitualSpace.frameId(level, table),
                 destination,
                 kind,
-                entity.position(),
+                start,
                 end,
                 level.getGameTime(),
                 duration));
     sparkle(level, entity.position(), 12);
-    level.playSound(null, table, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, .4F, 1.6F);
+    RitualSpace.sound(
+        level, table, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, .4F, 1.6F);
   }
 
   public static void tick(ServerLevel level) {
@@ -198,16 +206,20 @@ public final class KnowledgeTransfers {
       var entity = flight.entity;
       if (!entity.isAlive()
           || !ItemStack.matches(entity.getItem(), flight.expected)
-          || !loaded(level, flight.table)
-          || !loaded(level, flight.destination.pos)
-          || !level.getBlockState(flight.table).is(Blocks.ENCHANTING_TABLE)) {
+          || !RitualSpace.loaded(level, flight.table)
+          || !RitualSpace.loaded(level, flight.destination.pos)
+          || !Objects.equals(flight.frame, RitualSpace.frameId(level, flight.table))
+          || !RitualSpace.sameSpace(level, flight.table, flight.destination.pos)
+          || !level.getBlockState(flight.table).is(Blocks.ENCHANTING_TABLE)
+          || RitualApi.bookshelf(level, flight.destination.pos) == null) {
         release(entity);
         flights.remove(entity.getUUID());
         continue;
       }
       double t = Math.min(1, (level.getGameTime() - flight.started) / (double) flight.duration);
       double eased = t * t * (3 - 2 * t);
-      var at = flight.start.lerp(flight.end, eased).add(0, Math.sin(t * Math.PI) * .8, 0);
+      var local = flight.start.lerp(flight.end, eased).add(0, Math.sin(t * Math.PI) * .8, 0);
+      var at = RitualSpace.toWorld(level, flight.table, local);
       entity.setPos(at);
       entity.setDeltaMovement(Vec3.ZERO);
       entity.hasImpulse = true;
@@ -265,10 +277,6 @@ public final class KnowledgeTransfers {
                 f.kind != Kind.RETRIEVE
                     && f.destination.pos.equals(pos)
                     && f.destination.slot == slot);
-  }
-
-  private static boolean loaded(ServerLevel level, BlockPos pos) {
-    return level.getChunkSource().hasChunk(pos.getX() >> 4, pos.getZ() >> 4);
   }
 
   private static Vec3 shelfFront(ServerLevel level, BlockPos pos, int slot) {

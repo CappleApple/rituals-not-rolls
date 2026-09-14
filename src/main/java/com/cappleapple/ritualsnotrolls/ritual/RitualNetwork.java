@@ -2,6 +2,7 @@ package com.cappleapple.ritualsnotrolls.ritual;
 
 import com.cappleapple.ritualsnotrolls.*;
 import com.cappleapple.ritualsnotrolls.api.RitualApi;
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import com.cappleapple.ritualsnotrolls.data.Definitions;
 import com.cappleapple.ritualsnotrolls.knowledge.Knowledge;
 import java.util.*;
@@ -51,7 +52,7 @@ public final class RitualNetwork {
     }
   }
 
-  private record Topology(List<BlockPos> positions, long expires, int revision) {}
+  private record Topology(List<BlockPos> positions, long expires, int revision, UUID frameId) {}
 
   private static final Map<ServerLevel, Map<BlockPos, Topology>> CACHE = new WeakHashMap<>();
 
@@ -71,24 +72,27 @@ public final class RitualNetwork {
     if (fresh
         || topology == null
         || topology.expires < level.getGameTime()
-        || topology.revision != Definitions.SERVER.revision()) {
+        || topology.revision != Definitions.SERVER.revision()
+        || !Objects.equals(topology.frameId, RitualSpace.frameId(level, center))) {
       Set<BlockPos> positions = new TreeSet<>(Comparator.comparingLong(BlockPos::asLong));
       for (int cx = (center.getX() - radius) >> 4; cx <= (center.getX() + radius) >> 4; cx++)
         for (int cz = (center.getZ() - radius) >> 4; cz <= (center.getZ() + radius) >> 4; cz++) {
           LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
           if (chunk != null)
             for (BlockPos pos : chunk.getBlockEntitiesPos())
-              if (pos.distSqr(center) <= radius * radius) positions.add(pos.immutable());
+              if (pos.distSqr(center) <= radius * radius
+                  && RitualSpace.sameSpace(level, center, pos)) positions.add(pos.immutable());
         }
       for (var pos : RitualApi.extraCandidates(level, center, radius))
         if (pos.distSqr(center) <= radius * radius
-            && level.getChunkSource().hasChunk(pos.getX() >> 4, pos.getZ() >> 4))
-          positions.add(pos.immutable());
+            && RitualSpace.sameSpace(level, center, pos)
+            && RitualSpace.loaded(level, pos)) positions.add(pos.immutable());
       topology =
           new Topology(
               List.copyOf(positions),
               level.getGameTime() + Config.CACHE_TICKS.get(),
-              Definitions.SERVER.revision());
+              Definitions.SERVER.revision(),
+              RitualSpace.frameId(level, center));
       // Bound abandoned table caches without any world polling.
       if (cache.size() > 256)
         cache.entrySet().removeIf(e -> e.getValue().expires < level.getGameTime());
@@ -100,7 +104,7 @@ public final class RitualNetwork {
     List<Pedestal> pedestals = new ArrayList<>();
     List<SlotRef> storage = new ArrayList<>();
     for (BlockPos pos : topology.positions) {
-      if (!level.getChunkSource().hasChunk(pos.getX() >> 4, pos.getZ() >> 4)) continue;
+      if (!RitualSpace.loaded(level, pos) || !RitualSpace.sameSpace(level, center, pos)) continue;
       boolean ritualRange = pos.distSqr(center) <= Config.RADIUS.get() * Config.RADIUS.get();
       IItemHandler shelf = ritualRange ? RitualApi.bookshelf(level, pos) : null;
       if (shelf != null) {

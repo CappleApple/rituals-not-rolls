@@ -1,23 +1,40 @@
-# Testing notes - 1.1.3
+# Testing notes - 1.2
 
-Checked on 2026-09-13 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. Earlier evidence remains in [VALIDATION-1.1.2.md](VALIDATION-1.1.2.md).
+Checked on 2026-09-13 with Java 21.0.12, Minecraft 1.21.1 and NeoForge 21.1.244. Earlier particle and client evidence remains in [VALIDATION-1.1.3.md](VALIDATION-1.1.3.md).
 
-## Data and automated checks
+## Automated checks
 
-The 68 active presets now use 40 native particle types and 31 distinct sprite sets. Reuse is limited to four presets per particle ID. The [theme catalog](PARTICLES.md) explains each choice, including optional mod enchantments.
+The normal build passes 69 unit tests and all 134 required GameTests without Sable installed. The new particle tests round-trip ordinary and sub-level simple flights, spline routes and bursts through both JSON and network codecs, including the exact local origin, immutable table anchor and sub-level UUID.
 
-All 70 bundled definition/exclusion files were compared with 1.1.2. Only particle IDs and tints changed. Materials, source items, powers, thresholds, conflicts and exclusions were preserved. Both generators and the example datapack match the shipped definitions. No preset uses `minecraft:enchant`.
+```powershell
+.\gradlew.bat test build runGameTestServer
+```
 
-The build passed 66 unit tests and all 134 required GameTests. The mixed-enchantment test checks Sharpness blade slashes and Unbreaking coating sparks independently. Book placement/retrieval code is unchanged; the renderer preserves the prior rune path, including fallback runes.
+Evidence: [build and GameTests](validation/sable-1.2-baseline.log), [unit totals and JAR audit](validation/sable-1.2-artifact.json).
 
-Evidence: [build and GameTests](validation/themed-presets-1.1.3-tests.log), [unit totals](validation/release-1.1.3-unit-results.json), [preset audit](validation/themed-presets-1.1.3-audit.json).
+## Sable and Create Aeronautics
 
-## Native client checks
+Four integration GameTests pass in both environments:
 
-`runParticlePaletteClient`, connected to a dedicated development server, reads all 68 bundled presets, including optional definitions whose owning mods are absent. Each configured effect must resolve to its native provider and produce finite, nondegenerate quads at orbit ages through 550 ticks and completion-burst ages through 28 ticks. Visibility checks allow the vault particle's native first-quarter fade-in and require visible interior samples. The check covers the long cherry-leaf countdown that otherwise produces nonfinite motion.
+| Runtime | Result |
+| --- | --- |
+| Sable 2.0.5 | 4/4 passed |
+| Sable 2.0.5, Create 6.0.10, Create Aeronautics bundled 1.3.2 | 4/4 passed |
 
-The [native client log](validation/themed-presets-1.1.3-palette.log) records all 68 passing probes and six labeled screenshots. These verify the optional presets' native visuals; the optional mods' gameplay mechanics were not rerun for this cosmetic patch.
+The tests assemble a real table, filled chiseled bookshelf and pedestal through Sable's assembly API. They move and rotate the resulting native physics body throughout the test. Coverage includes plot inventory preservation, table discovery from world-space dropped items, menu reach including vertical distance, capture and cancellation, a complete enchantment with consumed offerings, book retrieval, page merging, whole-book filing, and exactly-once refunds after the source plot is removed.
 
-Screenshots: [1](validation/themed-presets-1.1.3-palette-1.png), [2](validation/themed-presets-1.1.3-palette-2.png), [3](validation/themed-presets-1.1.3-palette-3.png), [4](validation/themed-presets-1.1.3-palette-4.png), [5](validation/themed-presets-1.1.3-palette-5.png), [6](validation/themed-presets-1.1.3-palette-6.png).
+The Aeronautics run includes its bundled Simulated and Offroad modules. These tests exercise an assembled Sable setup while Aeronautics is loaded; they do not operate a pilot seat or test vehicle controls.
 
-The guide's active-ritual screenshots were recaptured with the updated effects; see the [guide capture log](validation/themed-presets-1.1.3-guide.log).
+Evidence: [Sable runtime](validation/sable-1.2-runtime.log), [Create Aeronautics runtime](validation/aeronautics-1.2-runtime.log).
+
+To reproduce with Sable alone, supply a locally obtained Sable JAR using `-PsableTestJar=<absolute-jar-path>` to `runSableGameTestServer`. For the combined run, place the three mod JARs listed above in `output/sable-test-mods`, then run:
+
+```powershell
+.\gradlew.bat runSableGameTestServer -PsableTestMods=output/sable-test-mods
+```
+
+The optional runtime properties do not bundle these mods into the release. The dedicated fixture runs in `run-sable-gametest`, uses the `ritualsnotrolls_sable` test namespace, and is excluded from the release JAR together with its structure template. The final JAR includes Sable Companion 1.6.0 and its license.
+
+## Client validation limits
+
+Particle serialization and shared flight geometry have automated coverage. This change has not received an in-game visual or audio check on a moving vessel. The older screenshots and native particle checks above document the existing appearance only.

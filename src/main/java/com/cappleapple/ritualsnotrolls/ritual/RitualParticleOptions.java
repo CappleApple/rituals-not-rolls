@@ -4,6 +4,9 @@ import com.cappleapple.ritualsnotrolls.RitualsNotRolls;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.Optional;
+import java.util.UUID;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.particles.*;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -11,8 +14,18 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
 
 /** Native particle appearance plus an optional server-defined curved flight and finishing orbit. */
-public record RitualParticleOptions(ResourceLocation effect, int rgb, Optional<Flight> flight)
+public record RitualParticleOptions(
+    ResourceLocation effect,
+    int rgb,
+    Optional<Flight> flight,
+    Optional<BlockPos> spaceAnchor,
+    Optional<Vec3> spaceOrigin,
+    Optional<UUID> spaceId)
     implements ParticleOptions {
+  public RitualParticleOptions {
+    spaceAnchor = spaceAnchor.map(BlockPos::immutable);
+  }
+
   public record Flight(
       Vec3 destination,
       Vec3 bend,
@@ -100,11 +113,47 @@ public record RitualParticleOptions(ResourceLocation effect, int rgb, Optional<F
   }
 
   public RitualParticleOptions(ResourceLocation effect, int rgb) {
-    this(effect, rgb, Optional.empty());
+    this(effect, rgb, Optional.empty(), Optional.empty(), Optional.empty());
+  }
+
+  public RitualParticleOptions(ResourceLocation effect, int rgb, Optional<Flight> flight) {
+    this(effect, rgb, flight, Optional.empty(), Optional.empty());
+  }
+
+  public RitualParticleOptions(
+      ResourceLocation effect, int rgb, Optional<Flight> flight, Optional<BlockPos> spaceAnchor) {
+    this(effect, rgb, flight, spaceAnchor, Optional.empty());
+  }
+
+  public RitualParticleOptions(
+      ResourceLocation effect,
+      int rgb,
+      Optional<Flight> flight,
+      Optional<BlockPos> spaceAnchor,
+      Optional<Vec3> spaceOrigin) {
+    this(effect, rgb, flight, spaceAnchor, spaceOrigin, Optional.empty());
   }
 
   public RitualParticleOptions flying(Flight route) {
-    return new RitualParticleOptions(effect, rgb, Optional.of(route));
+    return new RitualParticleOptions(
+        effect, rgb, Optional.of(route), spaceAnchor, spaceOrigin, spaceId);
+  }
+
+  /** Flight geometry stays in this block's coordinate space while its plot moves. */
+  public RitualParticleOptions inSpace(BlockPos anchor) {
+    return new RitualParticleOptions(effect, rgb, flight, Optional.of(anchor), Optional.empty());
+  }
+
+  /** Captures the local source independently of the packet's world position and transit time. */
+  public RitualParticleOptions inSpace(BlockPos anchor, Vec3 localOrigin) {
+    return new RitualParticleOptions(
+        effect, rgb, flight, Optional.of(anchor), Optional.of(localOrigin));
+  }
+
+  /** Pins the particle to one vessel even if its plot address is later reused. */
+  public RitualParticleOptions inSpace(BlockPos anchor, Vec3 localOrigin, UUID id) {
+    return new RitualParticleOptions(
+        effect, rgb, flight, Optional.of(anchor), Optional.of(localOrigin), Optional.of(id));
   }
 
   public static final MapCodec<RitualParticleOptions> CODEC =
@@ -119,7 +168,16 @@ public record RitualParticleOptions(ResourceLocation effect, int rgb, Optional<F
                           .forGetter(RitualParticleOptions::rgb),
                       Flight.CODEC
                           .optionalFieldOf("flight")
-                          .forGetter(RitualParticleOptions::flight))
+                          .forGetter(RitualParticleOptions::flight),
+                      BlockPos.CODEC
+                          .optionalFieldOf("space_anchor")
+                          .forGetter(RitualParticleOptions::spaceAnchor),
+                      Vec3.CODEC
+                          .optionalFieldOf("space_origin")
+                          .forGetter(RitualParticleOptions::spaceOrigin),
+                      UUIDUtil.CODEC
+                          .optionalFieldOf("space_id")
+                          .forGetter(RitualParticleOptions::spaceId))
                   .apply(i, RitualParticleOptions::new));
 
   private static void writeVec(RegistryFriendlyByteBuf b, Vec3 v) {
@@ -137,6 +195,12 @@ public record RitualParticleOptions(ResourceLocation effect, int rgb, Optional<F
           (b, p) -> {
             b.writeResourceLocation(p.effect);
             b.writeInt(p.rgb);
+            b.writeBoolean(p.spaceAnchor.isPresent());
+            p.spaceAnchor.ifPresent(b::writeBlockPos);
+            b.writeBoolean(p.spaceOrigin.isPresent());
+            p.spaceOrigin.ifPresent(origin -> writeVec(b, origin));
+            b.writeBoolean(p.spaceId.isPresent());
+            p.spaceId.ifPresent(b::writeUUID);
             b.writeBoolean(p.flight.isPresent());
             p.flight.ifPresent(
                 f -> {
@@ -170,6 +234,11 @@ public record RitualParticleOptions(ResourceLocation effect, int rgb, Optional<F
           b -> {
             var effect = b.readResourceLocation();
             int rgb = b.readInt();
+            Optional<BlockPos> spaceAnchor =
+                b.readBoolean() ? Optional.of(b.readBlockPos()) : Optional.empty();
+            Optional<Vec3> spaceOrigin =
+                b.readBoolean() ? Optional.of(readVec(b)) : Optional.empty();
+            Optional<UUID> spaceId = b.readBoolean() ? Optional.of(b.readUUID()) : Optional.empty();
             return new RitualParticleOptions(
                 effect,
                 rgb,
@@ -193,7 +262,10 @@ public record RitualParticleOptions(ResourceLocation effect, int rgb, Optional<F
                                 b.readVarInt(),
                                 b.readVarInt(),
                                 b.readVarInt())))
-                    : Optional.empty());
+                    : Optional.empty(),
+                spaceAnchor,
+                spaceOrigin,
+                spaceId);
           });
 
   private static Optional<RitualSpline.Curve> readRoute(RegistryFriendlyByteBuf b) {

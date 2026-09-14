@@ -2,6 +2,7 @@ package com.cappleapple.ritualsnotrolls.ritual;
 
 import com.cappleapple.ritualsnotrolls.*;
 import com.cappleapple.ritualsnotrolls.api.RitualEvent;
+import com.cappleapple.ritualsnotrolls.compat.RitualSpace;
 import com.cappleapple.ritualsnotrolls.data.Definitions;
 import com.cappleapple.ritualsnotrolls.knowledge.KnowledgeTransfers;
 import java.util.*;
@@ -30,6 +31,7 @@ public final class RitualEngine {
   // Visuals only: no item/player references, table reservation, resource charges, or rescans.
   private record Tail(
       BlockPos table,
+      UUID frameId,
       List<RitualEffects.Path> paths,
       RitualAnimation.Schedule animation,
       long started) {}
@@ -45,6 +47,7 @@ public final class RitualEngine {
     final List<RitualEffects.Path> paths;
     final RitualAnimation.Schedule animation;
     final Vec3 anchor;
+    final UUID frameId;
     final RitualConsumption consumption = new RitualConsumption();
     final Map<BlockPos, Integer> offeringTimes = new LinkedHashMap<>();
     final Set<ResourceLocation> failedSounds = new HashSet<>();
@@ -63,13 +66,15 @@ public final class RitualEngine {
       revision = Definitions.SERVER.revision();
       started = player.level().getGameTime();
       anchor = RitualEffects.targetCenter(table, attempt.visual()).add(0, -.2, 0);
+      frameId = RitualSpace.frameId(level, table);
       paths =
           RitualEffects.paths(
               player.serverLevel(),
               network,
               attempt.visual(),
               table,
-              player.position().add(0, player.getBbHeight() * .6, 0));
+              RitualSpace.toLocal(
+                  level, table, player.position().add(0, player.getBbHeight() * .6, 0)));
       animation =
           RitualEffects.schedule(
               paths,
@@ -114,12 +119,14 @@ public final class RitualEngine {
     if (!(entity.getOwner() instanceof ServerPlayer owner)
         || owner.serverLevel() != level
         || owner.isRemoved()
-        || !level.getChunkSource().hasChunk(table.getX() >> 4, table.getZ() >> 4)
-        || owner.distanceToSqr(Vec3.atCenterOf(table)) > 4096
+        || !RitualSpace.loaded(level, table)
+        || owner.position().distanceToSqr(RitualSpace.worldCenter(level, table)) > 4096
         || !entity.isAlive()
         || entity.getItem().getCount() != 1
         || !level.getBlockState(table).is(Blocks.ENCHANTING_TABLE)
-        || !new AABB(table).inflate(1.8, 1.5, 1.8).contains(entity.position())) return false;
+        || !new AABB(table)
+            .inflate(1.8, 1.5, 1.8)
+            .contains(RitualSpace.toLocal(level, table, entity.position()))) return false;
     var sessions = SESSIONS.computeIfAbsent(level, l -> new LinkedHashMap<>());
     if (sessions.containsKey(table) || sessions.values().stream().anyMatch(s -> s.entity == entity))
       return false;
@@ -145,7 +152,7 @@ public final class RitualEngine {
     entity.hasImpulse = true;
     entity.setPickUpDelay(10);
     sound(level, table, "capture");
-    RitualEffects.emit(level, session.paths, session.animation, owner, 0);
+    RitualEffects.emit(level, table, session.paths, session.animation, owner, 0);
     return true;
   }
 
@@ -204,21 +211,7 @@ public final class RitualEngine {
         drops.remove(entity.getUUID());
         continue;
       }
-      BlockPos center = entity.blockPosition();
-      List<BlockPos> tables = new ArrayList<>();
-      // At most four loaded chunk indexes for a 2-block capture radius, never a block-volume scan.
-      for (int cx = (center.getX() - 2) >> 4; cx <= (center.getX() + 2) >> 4; cx++)
-        for (int cz = (center.getZ() - 2) >> 4; cz <= (center.getZ() + 2) >> 4; cz++) {
-          var chunk = level.getChunkSource().getChunkNow(cx, cz);
-          if (chunk == null) continue;
-          for (var pos : chunk.getBlockEntitiesPos())
-            if (new AABB(pos).inflate(1.8, 1.5, 1.8).contains(entity.position())
-                && level.getBlockState(pos).is(Blocks.ENCHANTING_TABLE))
-              tables.add(pos.immutable());
-        }
-      tables.sort(
-          Comparator.<BlockPos>comparingDouble(p -> entity.distanceToSqr(Vec3.atCenterOf(p)))
-              .thenComparingLong(BlockPos::asLong));
+      var tables = RitualSpace.nearbyTables(level, entity);
       for (var table : tables)
         if (tryStart(level, table, entity)) {
           drops.remove(entity.getUUID());
@@ -234,10 +227,11 @@ public final class RitualEngine {
         tail -> {
           int age = (int) (level.getGameTime() - tail.started());
           if (age >= tail.animation().duration() + RitualEffects.tailDuration(tail.paths())
-              || !level
-                  .getChunkSource()
-                  .hasChunk(tail.table().getX() >> 4, tail.table().getZ() >> 4)) return true;
-          if (age % 2 == 0) RitualEffects.emitTail(level, tail.paths(), tail.animation(), age);
+              || !RitualSpace.loaded(level, tail.table())
+              || !Objects.equals(tail.frameId(), RitualSpace.frameId(level, tail.table())))
+            return true;
+          if (age % 2 == 0)
+            RitualEffects.emitTail(level, tail.table(), tail.paths(), tail.animation(), age);
           return false;
         });
     if (tails.isEmpty()) TAILS.remove(level);
@@ -255,8 +249,9 @@ public final class RitualEngine {
       Session s = entry.getValue();
       if (s.owner.isRemoved()
           || s.owner.serverLevel() != level
-          || s.owner.distanceToSqr(Vec3.atCenterOf(pos)) > 4096
-          || !level.getChunkSource().hasChunk(pos.getX() >> 4, pos.getZ() >> 4)
+          || s.owner.position().distanceToSqr(RitualSpace.worldCenter(level, pos)) > 4096
+          || !RitualSpace.loaded(level, pos)
+          || !Objects.equals(s.frameId, RitualSpace.frameId(level, pos))
           || !level.getBlockState(pos).is(Blocks.ENCHANTING_TABLE)
           || s.revision != Definitions.SERVER.revision()) {
         abort(s, "Ritual interrupted; no resources spent");
@@ -270,9 +265,9 @@ public final class RitualEngine {
       }
       int age = (int) (level.getGameTime() - s.started), duration = s.animation.duration();
       // Keep physics still on both sides; the vanilla item renderer supplies smooth bob/rotation.
-      Vec3 target = s.anchor;
+      Vec3 target = RitualSpace.toWorld(level, pos, s.anchor);
       s.entity.setPos(age < 15 ? s.entity.position().lerp(target, .3) : target);
-      if (age < 15) s.entity.hasImpulse = true;
+      if (age < 15 || s.frameId != null) s.entity.hasImpulse = true;
       s.entity.setDeltaMovement(Vec3.ZERO);
       s.entity.setPickUpDelay(10);
       if (age == 15) sound(level, pos, "knowledge");
@@ -295,7 +290,7 @@ public final class RitualEngine {
       for (var stage : s.animation.stages())
         if (stage.failAt() >= 0 && age >= stage.failAt() && s.failedSounds.add(stage.enchantment()))
           sound(level, pos, "failure");
-      if (age % 2 == 0) RitualEffects.emit(level, s.paths, s.animation, s.owner, age);
+      if (age % 2 == 0) RitualEffects.emit(level, pos, s.paths, s.animation, s.owner, age);
       if (age >= duration) {
         String failure;
         if (s.plan.selected().isEmpty()) {
@@ -309,8 +304,8 @@ public final class RitualEngine {
         else if (RitualEffects.tailDuration(s.paths) > 0) {
           TAILS
               .computeIfAbsent(level, l -> new ArrayList<>())
-              .add(new Tail(pos.immutable(), s.paths, s.animation, s.started));
-          if (age % 2 == 0) RitualEffects.emitTail(level, s.paths, s.animation, age);
+              .add(new Tail(pos.immutable(), s.frameId, s.paths, s.animation, s.started));
+          if (age % 2 == 0) RitualEffects.emitTail(level, pos, s.paths, s.animation, age);
         }
         sessions.remove(pos, s);
       }
@@ -466,7 +461,8 @@ public final class RitualEngine {
       sound(level, pos, "disenchant");
     RitualEffects.complete(
         level,
-        entity.position().add(0, .2, 0),
+        pos,
+        RitualSpace.toLocal(level, pos, entity.position()).add(0, .2, 0),
         target,
         selected,
         plan.experience().points() > 0 ? xp : 0);
@@ -474,7 +470,7 @@ public final class RitualEngine {
     if (first != null && first.sound().isPresent())
       BuiltInRegistries.SOUND_EVENT
           .getOptional(first.sound().get())
-          .ifPresent(sound -> level.playSound(null, pos, sound, SoundSource.BLOCKS, 1, 1));
+          .ifPresent(sound -> RitualSpace.sound(level, pos, sound, SoundSource.BLOCKS, 1, 1));
     NeoForge.EVENT_BUS.post(new RitualEvent.Complete(level, pos, player, result, selected));
     return "";
   }
@@ -506,6 +502,6 @@ public final class RitualEngine {
   }
 
   private static void sound(ServerLevel level, BlockPos pos, String name) {
-    level.playSound(null, pos, RitualsNotRolls.SOUNDS.get(name).get(), SoundSource.BLOCKS, 1, 1);
+    RitualSpace.sound(level, pos, RitualsNotRolls.SOUNDS.get(name).get(), SoundSource.BLOCKS, 1, 1);
   }
 }
