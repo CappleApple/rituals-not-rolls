@@ -1,0 +1,21 @@
+Calculating task graph as configuration cache cannot be reused because cached version information for dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:{require [1.6.0,2.0); prefer 1.6.0} has expired.
+> Task :processTestResources NO-SOURCE
+> Task :writeNeoForgeTestClasspath UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :jarJar UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareNeoForgeTestFiles UP-TO-DATE
+> Task :compileJava
+> Task :classes
+> Task :jar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+> Task :test
+> Task :check
+> Task :build
+
+BUILD SUCCESSFUL in 10s
+10 actionable tasks: 2 executed, 8 up-to-date
+Configuration cache entry stored.

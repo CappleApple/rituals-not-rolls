@@ -97,7 +97,7 @@ binderPagesPerSecond = 16
 
 `binderPagesPerSecond` limits each dropped binder to 1–1,024 page checks every 20 server ticks. The default is 16. Unusable or duplicate entries also count toward the check budget. Successful page transfers run concurrently; pages without a destination stay in the binder. Loose pages thrown separately are not subject to this binder budget.
 
-Each binder remembers its own **Auto-collect** and **Skip duplicates** toggles, both enabled by default. Auto-collect checks the player's inventory once every 20 ticks. With the filter enabled, it takes at most one page for each enchantment/material discovery already absent from that binder; it does not compare against the nearby library. Disable the filter to store extra copies. Collection pauses while the binder screen is open.
+Each binder remembers its own **Auto-collect** and **Skip duplicates** toggles, both enabled by default. The item tooltip shows these two settings only while Shift is held; the stored-page count remains visible. Auto-collect checks the player's inventory once every 20 ticks. With the filter enabled, it takes at most one page for each enchantment/material discovery already absent from that binder; it does not compare against the nearby library. Disable the filter to store extra copies. Collection pauses while the binder screen is open.
 
 Throwing a binder onto the table applies the same library rules as throwing its pages: existing discoveries remain stored, new discoveries enter matching books, and missing books require three nearby leather from the same throwing player and an empty chiseled bookshelf slot. Turning the collection filter off never allows duplicate discoveries to be added to library books.
 

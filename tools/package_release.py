@@ -59,6 +59,9 @@ with zipfile.ZipFile(jar) as archive:
     for component in ['knowledge/BinderData', 'knowledge/BinderItem', 'knowledge/BinderStorage', 'knowledge/BinderTransfers', 'menu/BinderMenu', 'client/BinderScreen']:
         assert 'com/cappleapple/ritualsnotrolls/' + component + '.class' in members
     assert 'assets/ritualsnotrolls/models/item/knowledge_binder.json' in members
+    binder_model = json.loads(archive.read('assets/ritualsnotrolls/models/item/knowledge_binder.json'))
+    assert binder_model == {'parent': 'minecraft:item/generated', 'textures': {'layer0': 'ritualsnotrolls:item/knowledge_binder'}}
+    assert archive.read('assets/ritualsnotrolls/textures/item/knowledge_binder.png') == (ROOT / 'src/main/resources/assets/ritualsnotrolls/textures/item/knowledge_binder.png').read_bytes()
     binder_recipe = json.loads(archive.read('data/ritualsnotrolls/recipe/knowledge_binder.json'))
     assert binder_recipe['pattern'] == ['LPL', 'PSP', 'LPL']
     assert binder_recipe['result']['id'] == 'ritualsnotrolls:knowledge_binder'

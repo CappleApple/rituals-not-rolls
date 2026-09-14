@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
@@ -31,11 +32,32 @@ public final class BinderScreen extends FittedScreen<BinderMenu> {
   @Override
   protected void init() {
     super.init();
-    back = button(23, 245, 30, "<", () -> action("page", Integer.toString(menu.viewPage() - 1)));
-    next = button(313, 245, 30, ">", () -> action("page", Integer.toString(menu.viewPage() + 1)));
-    auto = button(12, 278, 141, "", () -> action("auto", ""));
-    filter = button(158, 278, 141, "", () -> action("filter", ""));
-    button(305, 278, 49, Component.translatable("gui.done").getString(), this::onClose);
+    back =
+        addRenderableWidget(
+            new PageButton(
+                leftPos + 26,
+                topPos + 241,
+                false,
+                b -> action("page", Integer.toString(menu.viewPage() - 1)),
+                true));
+    next =
+        addRenderableWidget(
+            new PageButton(
+                leftPos + 318,
+                topPos + 241,
+                true,
+                b -> action("page", Integer.toString(menu.viewPage() + 1)),
+                true));
+    auto = standardButton(12, 141, Component.empty(), () -> action("auto", ""));
+    filter = standardButton(158, 141, Component.empty(), () -> action("filter", ""));
+    standardButton(305, 49, Component.translatable("gui.done"), this::onClose);
+  }
+
+  private Button standardButton(int x, int width, Component label, Runnable action) {
+    return addRenderableWidget(
+        Button.builder(label, b -> action.run())
+            .bounds(leftPos + x, topPos + 278, width, 20)
+            .build());
   }
 
   @Override
@@ -66,8 +88,8 @@ public final class BinderScreen extends FittedScreen<BinderMenu> {
     fill(g, 200, 40, 143, 1, 0xffbaa576);
     auto.setMessage(label("auto", label(menu.autoCollect() ? "on" : "off")));
     filter.setMessage(label("filter", label(menu.filterDuplicates() ? "on" : "off")));
-    back.active = menu.viewPage() > 0;
-    next.active = menu.viewPage() + 1 < menu.spreads();
+    back.visible = back.active = menu.viewPage() > 0;
+    next.visible = next.active = menu.viewPage() + 1 < menu.spreads();
 
     var cards = menu.cards();
     for (int card = 0; card < BinderMenu.CARDS_PER_SPREAD; card++) {
@@ -100,8 +122,10 @@ public final class BinderScreen extends FittedScreen<BinderMenu> {
       for (int i = 0; i < lines.size(); i++)
         g.drawString(font, lines.get(i), leftPos + 44, topPos + 140 + i * 10, 0x715a38, false);
     }
-    String position = label("spread", menu.viewPage() + 1, menu.spreads()).getString();
-    text(g, position, 183 - font.width(position) / 2, 250, 0xe8d9b4);
+    for (int leaf = 0; leaf < 2; leaf++) {
+      String number = label("page", menu.viewPage() * 2 + leaf + 1).getString();
+      text(g, number, (leaf == 0 ? 94 : 273) - font.width(number) / 2, 244, 0x725436);
+    }
   }
 
   private static String compactCount(int count) {
@@ -156,9 +180,7 @@ public final class BinderScreen extends FittedScreen<BinderMenu> {
                 .copy()
                 .withStyle(ChatFormatting.GOLD),
             affinityName(entry.page()),
-            label("count", entry.count()).withStyle(ChatFormatting.GRAY),
-            label("take").withStyle(ChatFormatting.YELLOW),
-            label("take_stack").withStyle(ChatFormatting.YELLOW)
+            label("count", entry.count()).withStyle(ChatFormatting.GRAY)
           }) lines.addAll(font.split(line, 235));
       g.renderTooltip(font, lines, mx, my);
       return;

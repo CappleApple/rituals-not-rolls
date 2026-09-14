@@ -80,14 +80,11 @@
   "ritualsnotrolls.guide.chapter.7.caption": "Subtraction Catalysts reverse material power to remove whole enchantment levels, including curses.",
   "item.ritualsnotrolls.knowledge_binder": "Knowledge Binder",
   "gui.ritualsnotrolls.binder.pages": "%s / %s pages",
-  "gui.ritualsnotrolls.binder.spread": "%s / %s",
   "gui.ritualsnotrolls.binder.auto": "Auto-collect: %s",
   "gui.ritualsnotrolls.binder.filter": "Skip duplicates: %s",
   "gui.ritualsnotrolls.binder.on": "On",
   "gui.ritualsnotrolls.binder.off": "Off",
   "gui.ritualsnotrolls.binder.empty": "Loose Knowledge Pages collect here automatically.",
-  "gui.ritualsnotrolls.binder.take": "Click: take one page",
-  "gui.ritualsnotrolls.binder.take_stack": "Shift-click: take up to 64",
   "gui.ritualsnotrolls.binder.filter_hint": "Auto-collection skips page types already stored in this binder.",
   "gui.ritualsnotrolls.binder.auto_hint": "Collects loose Knowledge Pages from your inventory.",
   "gui.ritualsnotrolls.binder.legacy": "Unknown affinity",
@@ -95,5 +92,5 @@
   "ritualsnotrolls.binder.pages": "Pages: %s / %s",
   "ritualsnotrolls.binder.auto_collect": "Auto-collect: %s",
   "ritualsnotrolls.binder.filter_duplicates": "Skip duplicates: %s",
-  "ritualsnotrolls.binder.hint": "Use to browse cards. Throw onto an enchanting table to file pages."
+  "gui.ritualsnotrolls.binder.page": "Page %s"
 }

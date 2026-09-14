@@ -46,17 +46,5 @@ public final class BinderItem extends Item {
         Component.translatable(
                 "ritualsnotrolls.binder.pages", data.total(), BinderStorage.capacity())
             .withStyle(ChatFormatting.GOLD));
-    lines.add(
-        Component.translatable(
-                "ritualsnotrolls.binder.auto_collect",
-                Component.translatable(data.autoCollect() ? "options.on" : "options.off"))
-            .withStyle(ChatFormatting.GRAY));
-    lines.add(
-        Component.translatable(
-                "ritualsnotrolls.binder.filter_duplicates",
-                Component.translatable(data.filterDuplicates() ? "options.on" : "options.off"))
-            .withStyle(ChatFormatting.GRAY));
-    lines.add(
-        Component.translatable("ritualsnotrolls.binder.hint").withStyle(ChatFormatting.DARK_GRAY));
   }
 }

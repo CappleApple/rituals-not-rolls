@@ -51,6 +51,30 @@ public final class ClientEvents {
   }
 
   @SubscribeEvent
+  public static void binderTooltip(
+      net.neoforged.neoforge.event.entity.player.ItemTooltipEvent event) {
+    if (!event.getItemStack().is(RitualsNotRolls.BINDER_ITEM)
+        || !net.minecraft.client.gui.screens.Screen.hasShiftDown()) return;
+    var data = com.cappleapple.ritualsnotrolls.knowledge.BinderStorage.data(event.getItemStack());
+    event
+        .getToolTip()
+        .add(
+            net.minecraft.network.chat.Component.translatable(
+                    "ritualsnotrolls.binder.auto_collect",
+                    net.minecraft.network.chat.Component.translatable(
+                        data.autoCollect() ? "options.on" : "options.off"))
+                .withStyle(net.minecraft.ChatFormatting.GRAY));
+    event
+        .getToolTip()
+        .add(
+            net.minecraft.network.chat.Component.translatable(
+                    "ritualsnotrolls.binder.filter_duplicates",
+                    net.minecraft.network.chat.Component.translatable(
+                        data.filterDuplicates() ? "options.on" : "options.off"))
+                .withStyle(net.minecraft.ChatFormatting.GRAY));
+  }
+
+  @SubscribeEvent
   public static void reload(RegisterClientReloadListenersEvent event) {
     event.registerReloadListener(
         (net.minecraft.server.packs.resources.ResourceManagerReloadListener)

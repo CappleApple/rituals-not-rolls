@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.1 — 2026-09-14
+
+### Changed
+
+- The Knowledge Binder now uses a flat item texture.
+- Binder navigation uses Minecraft book arrows inside the paper, with separate page numbers on each leaf.
+- The three lower binder controls use standard Minecraft button backgrounds.
+- Removed click instructions from card tooltips and the binder item usage hint. Auto-collect and duplicate-filter status now appear in the item tooltip only while holding Shift.
+
 ## 1.3 — 2026-09-14
 
 ### Added

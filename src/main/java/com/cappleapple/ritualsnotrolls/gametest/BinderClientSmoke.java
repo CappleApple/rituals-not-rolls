@@ -38,7 +38,7 @@ public final class BinderClientSmoke {
   private static void capture(String name) {
     var mc = Minecraft.getInstance();
     Screenshot.grab(
-        mc.gameDirectory, "binder-1.3-" + name + ".png", mc.getMainRenderTarget(), ignored -> {});
+        mc.gameDirectory, "binder-1.3.1-" + name + ".png", mc.getMainRenderTarget(), ignored -> {});
   }
 
   private static BinderScreen screen() {
@@ -110,17 +110,55 @@ public final class BinderClientSmoke {
             "Displayed capacity is not the synced server capacity");
         check(
             menu.autoCollect() && menu.filterDuplicates(), "Default toggles are not both enabled");
+        check(
+            screen().children().stream()
+                    .filter(w -> w.getClass() == net.minecraft.client.gui.components.Button.class)
+                    .count()
+                == 3,
+            "Footer controls must use vanilla buttons");
+        check(
+            screen().children().stream()
+                    .filter(w -> w instanceof net.minecraft.client.gui.screens.inventory.PageButton)
+                    .count()
+                == 2,
+            "Navigation must use vanilla book arrows");
+        check(
+            !mc.getItemRenderer()
+                .getModel(mc.player.getMainHandItem(), mc.level, mc.player, 0)
+                .isGui3d(),
+            "Binder item must use a flat generated model");
+        var tooltip =
+            mc
+                .player
+                .getMainHandItem()
+                .getTooltipLines(
+                    net.minecraft.world.item.Item.TooltipContext.of(mc.level),
+                    mc.player,
+                    net.minecraft.world.item.TooltipFlag.NORMAL)
+                .stream()
+                .map(net.minecraft.network.chat.Component::getString)
+                .toList();
+        check(
+            tooltip.stream().noneMatch(line -> line.contains("Use to browse")),
+            "Binder usage hint must be absent");
+        boolean shift = net.minecraft.client.gui.screens.Screen.hasShiftDown();
+        check(
+            tooltip.stream().anyMatch(line -> line.startsWith("Auto-collect:")) == shift,
+            "Auto-collect tooltip must follow Shift");
+        check(
+            tooltip.stream().anyMatch(line -> line.startsWith("Skip duplicates:")) == shift,
+            "Duplicate filter tooltip must follow Shift");
         originalTotal = menu.total();
         mc.getToasts().clear();
         capture("cards");
-        click(328, 253);
+        click(329, 247);
         next(5);
       } else if (stage == 5 && wait > 10) {
         check(
             screen().getMenu().viewPage() == 1 && screen().getMenu().cards().size() == 8,
             "Next spread did not synchronize");
         capture("second-spread");
-        click(38, 253);
+        click(37, 247);
         next(6);
       } else if (stage == 6 && wait > 10) {
         check(screen().getMenu().viewPage() == 0, "Previous spread did not synchronize");

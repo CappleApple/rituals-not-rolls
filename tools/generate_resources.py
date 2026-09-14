@@ -48,6 +48,21 @@ for name,kind in {
 for name,color in [('power_empty',(68,57,52)),('power_full',(124,153,97))]:
     p=Pixels(16,5);p.bevel(0,0,16,5,color);p.png(Path('assets/ritualsnotrolls/textures/gui/sprites/ritual')/(name+'.png'))
 
+# Flat leather binder with metal rings and a small card-pocket label.
+p=Pixels(16,16)
+p.rect(3,1,11,14,(47,30,24));p.rect(2,2,2,12,(47,30,24))
+p.rect(4,2,9,12,(115,72,43));p.rect(5,2,7,1,(171,119,67))
+p.rect(4,3,1,10,(146,92,49));p.rect(5,13,8,1,(75,45,31))
+p.rect(13,3,1,10,(220,204,162));p.rect(13,5,1,1,(153,131,91));p.rect(13,10,1,1,(153,131,91))
+p.rect(3,3,2,10,(73,45,34));p.rect(4,3,1,10,(93,57,36))
+for y in [4,8,12]:
+    p.rect(2,y,4,1,(184,186,174));p.rect(3,y-1,2,1,(236,231,203));p.rect(3,y+1,2,1,(75,72,62))
+p.rect(7,4,5,7,(68,43,30));p.rect(7,4,4,6,(223,205,159))
+p.rect(8,5,2,1,(252,236,189));p.rect(8,7,2,2,(152,118,65))
+p.rect(7,11,1,1,(172,122,66));p.rect(11,11,1,1,(172,122,66))
+p.png(Path('assets/ritualsnotrolls/textures/item/knowledge_binder.png'))
+data(Path('assets/ritualsnotrolls/models/item/knowledge_binder.json'),{'parent':'minecraft:item/generated','textures':{'layer0':'ritualsnotrolls:item/knowledge_binder'}})
+
 # Worn paper and leather book silhouettes, with an intentionally quiet center for the runtime book inset.
 # page_base.png is a supplied source texture; preserve it during resource generation.
 for name,colors in [('consumption_catalyst',[(70,35,39),(154,55,44),(239,118,62),(255,220,137)]),('experience_catalyst',[(28,57,44),(48,121,88),(128,195,97),(224,241,143)]),('subtraction_catalyst',[(41,28,66),(82,49,137),(162,121,224),(229,208,255)])]:

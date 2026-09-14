@@ -1,0 +1,11 @@
+{
+  "version": "1.3.1",
+  "unit_tests": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "binder_client": "passed",
+  "jar_sha256": "e55899993e64c8c54579b033946da7a61886a56680c43f826381ba0d183f7a3e"
+}
