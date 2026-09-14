@@ -195,6 +195,54 @@ public final class BinderStorage {
     return collected;
   }
 
+  /**
+   * Explicit cursor gathering honors the duplicate filter independently of automatic collection.
+   */
+  public static int gather(
+      Player player, net.minecraft.world.inventory.AbstractContainerMenu menu, ItemStack binder) {
+    if (player.level().isClientSide || !binder.is(RitualsNotRolls.BINDER_ITEM)) return 0;
+    int collected = 0;
+    var protectedPages = new ArrayList<ItemStack>();
+    for (var slot : menu.slots) {
+      if (!slot.mayPickup(player)) {
+        if (slot.container == player.getInventory() && isPage(slot.getItem()))
+          protectedPages.add(slot.getItem().copy());
+        continue;
+      }
+      int amount = gatherLimit(binder, slot.getItem());
+      if (amount == 0) continue;
+      ItemStack taken = slot.safeTake(amount, amount, player);
+      collected += insert(binder, taken, false, gatherLimit(binder, taken));
+      if (!taken.isEmpty()) Knowledge.returnLoose(player, taken);
+    }
+    var handler = inventory(player);
+    if (handler != null) {
+      for (int slot = 0; slot < handler.getSlots(); slot++) {
+        ItemStack candidate = handler.getStackInSlot(slot);
+        int amount = gatherLimit(binder, candidate);
+        if (amount == 0
+            || protectedPages.stream()
+                .anyMatch(p -> ItemStack.isSameItemSameComponents(p, candidate))) continue;
+        ItemStack taken = handler.extractItem(slot, amount, false);
+        collected += insert(binder, taken, false, gatherLimit(binder, taken));
+        if (!taken.isEmpty()) Knowledge.returnLoose(player, taken);
+      }
+    }
+    if (collected > 0) player.getInventory().setChanged();
+    menu.broadcastChanges();
+    return collected;
+  }
+
+  private static int gatherLimit(ItemStack binder, ItemStack page) {
+    int amount = insertionLimit(binder, page, false, Integer.MAX_VALUE);
+    if (amount > 0 && data(binder).filterDuplicates()) {
+      if (data(binder).entries().stream().anyMatch(entry -> sameKnowledge(entry.page(), page)))
+        return 0;
+      amount = Math.min(amount, 1);
+    }
+    return amount;
+  }
+
   private static boolean canCollect(Player player, ItemStack binder, IItemHandler handler) {
     for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++)
       if (insertionLimit(binder, player.getInventory().getItem(slot), true, 1) > 0) return true;

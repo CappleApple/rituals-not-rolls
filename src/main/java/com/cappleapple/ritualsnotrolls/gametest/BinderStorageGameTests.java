@@ -25,6 +25,110 @@ public final class BinderStorageGameTests {
   }
 
   @GameTest(template = "empty")
+  public static void doubleClickGathersWithAutoCollectOff(GameTestHelper h) {
+    var player = RitualGameTests.player(h);
+    var binder = binder();
+    binder.set(RitualsNotRolls.BINDER_DATA, BinderData.EMPTY.withAutoCollect(false));
+    player.getInventory().setItem(9, RitualGameTests.page("diamond").copyWithCount(4));
+    player
+        .getInventory()
+        .setItem(10, Knowledge.page(RitualGameTests.UNBREAKING, "diamond").copyWithCount(3));
+    var chest = new net.minecraft.world.SimpleContainer(27);
+    chest.setItem(0, RitualGameTests.page("diamond").copyWithCount(6));
+    chest.setItem(1, RitualGameTests.page("flint").copyWithCount(5));
+    var menu = net.minecraft.world.inventory.ChestMenu.threeRows(81, player.getInventory(), chest);
+    player.containerMenu = menu;
+    menu.setCarried(binder);
+    menu.clicked(0, 0, net.minecraft.world.inventory.ClickType.PICKUP_ALL, player);
+    h.assertTrue(
+        menu.getCarried() == binder && dataTotal(binder) == 3,
+        "Cursor binder collects one of each discovery across enchantments");
+    h.assertTrue(
+        chest.getItem(0).getCount() == 5
+            && chest.getItem(1).getCount() == 4
+            && player.getInventory().getItem(9).getCount() == 4
+            && player.getInventory().getItem(10).getCount() == 2,
+        "Duplicate copies stay in their inventories");
+    menu.clicked(0, 0, net.minecraft.world.inventory.ClickType.PICKUP_ALL, player);
+    h.assertTrue(
+        dataTotal(binder) == 3 && !BinderStorage.data(binder).autoCollect(),
+        "Repeated gather respects filter and preserves auto setting");
+    binder.set(RitualsNotRolls.BINDER_DATA, BinderStorage.data(binder).withFilterDuplicates(false));
+    menu.clicked(0, 0, net.minecraft.world.inventory.ClickType.PICKUP_ALL, player);
+    h.assertTrue(
+        dataTotal(binder) == 18
+            && chest.isEmpty()
+            && player.getInventory().getItem(9).isEmpty()
+            && player.getInventory().getItem(10).isEmpty(),
+        "Filter off gathers every remaining page");
+    h.succeed();
+  }
+
+  @GameTest(template = "empty")
+  public static void doubleClickRespectsRemainingCapacity(GameTestHelper h) {
+    var player = RitualGameTests.player(h);
+    var binder = binder();
+    binder.set(
+        RitualsNotRolls.BINDER_DATA,
+        new BinderData(
+            List.of(
+                new BinderData.Entry(RitualGameTests.page("flint"), BinderStorage.capacity() - 2)),
+            false,
+            false));
+    var pages = RitualGameTests.page("diamond").copyWithCount(9);
+    player.getInventory().setItem(9, pages);
+    var menu = player.inventoryMenu;
+    menu.setCarried(binder);
+    menu.clicked(9, 0, net.minecraft.world.inventory.ClickType.PICKUP_ALL, player);
+    h.assertTrue(
+        dataTotal(binder) == BinderStorage.capacity()
+            && player.getInventory().getItem(9).getCount() == 7,
+        "Gather fills only available capacity");
+    h.succeed();
+  }
+
+  @GameTest(template = "empty")
+  public static void doubleClickHonorsDeniedSlotsAndTakeCallbacks(GameTestHelper h) {
+    var player = RitualGameTests.player(h);
+    var binder = binder();
+    player.getInventory().setItem(9, RitualGameTests.page("diamond").copyWithCount(4));
+    var chest = new net.minecraft.world.SimpleContainer(27);
+    chest.setItem(0, RitualGameTests.page("flint").copyWithCount(3));
+    var menu = net.minecraft.world.inventory.ChestMenu.threeRows(82, player.getInventory(), chest);
+    var takes = new int[1];
+    menu.slots.set(
+        0,
+        new net.minecraft.world.inventory.Slot(chest, 0, 0, 0) {
+          @Override
+          public void onTake(net.minecraft.world.entity.player.Player owner, ItemStack stack) {
+            takes[0]++;
+            super.onTake(owner, stack);
+          }
+        });
+    menu.slots.set(
+        27,
+        new net.minecraft.world.inventory.Slot(player.getInventory(), 9, 0, 0) {
+          @Override
+          public boolean mayPickup(net.minecraft.world.entity.player.Player owner) {
+            return false;
+          }
+        });
+    menu.setCarried(binder);
+    menu.clicked(0, 0, net.minecraft.world.inventory.ClickType.PICKUP_ALL, player);
+    h.assertTrue(
+        dataTotal(binder) == 1 && takes[0] == 1 && chest.getItem(0).getCount() == 2,
+        "Allowed slot uses onTake exactly once");
+    h.assertTrue(
+        player.getInventory().getItem(9).getCount() == 4,
+        "Capability fallback cannot bypass denied player slot");
+    h.succeed();
+  }
+
+  private static int dataTotal(ItemStack binder) {
+    return BinderStorage.data(binder).total();
+  }
+
+  @GameTest(template = "empty")
   public static void duplicateFilterUsesKnowledgeIdentity(GameTestHelper h) {
     var binder = binder();
     h.assertTrue(

@@ -162,9 +162,9 @@ public final class AutomaticRitualGameTests {
     var target = r.drop(new ItemStack(Items.DIAMOND_SWORD));
     var plan = r.plan(target.getItem());
     h.assertTrue(
-        plan.selected().get(RitualGameTests.SHARP) == 4
+        plan.selected().get(RitualGameTests.SHARP) == 3
             && plan.evaluation().lines().getFirst().power() == 130,
-        "Only marked diamond is multiplied: 45 + 55 + 30 = 130");
+        "Only marked diamond is multiplied: 45 + 55 + 30 = 130, reaching Sharpness III");
     h.assertTrue(commit(r, target, plan).isEmpty(), "Automatic sacrifice commits");
     h.assertTrue(
         scrap.items.getStackInSlot(0).is(Items.NETHERITE_SCRAP),

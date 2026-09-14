@@ -2,7 +2,13 @@
 
 ## 1.3.1 — 2026-09-14
 
+### Added
+
+- Double-click a Knowledge Binder in an inventory to gather pages, respecting its duplicate filter and capacity even when Auto-collect is off.
+
 ### Changed
+
+- Replaced Sharpness's amethyst material group with Prismarine Shard at the same 16 power. Level costs now follow the new distinct-material total, with Sharpness V costing 213 power.
 
 - The Knowledge Binder now uses a flat item texture.
 - Binder navigation uses Minecraft book arrows inside the paper, with separate page numbers on each leaf.

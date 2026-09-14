@@ -1,0 +1,148 @@
+Calculating task graph as configuration cache cannot be reused because file 'gradle.properties' has changed.
+> Task :writeNeoForgeTestClasspath UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :jarJar UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :prepareNeoForgeTestFiles UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun UP-TO-DATE
+
+> Task :compileJava
+C:\Users\astra\Documents\ChatGPT\Rituals Not Rolls\src\main\java\com\cappleapple\ritualsnotrolls\gametest\BinderStorageGameTests.java:221: warning: [deprecation] RegistryFriendlyByteBuf(ByteBuf,RegistryAccess) in RegistryFriendlyByteBuf has been deprecated
+    var buffer = new RegistryFriendlyByteBuf(Unpooled.buffer(), h.getLevel().registryAccess());
+
+                 ^
+1 warning
+> Task :classes
+> Task :compileTestJava UP-TO-DATE
+> Task :testClasses UP-TO-DATE
+> Task :jar
+> Task :assemble
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[13:06:27] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.244, --fml.neoFormVersion, 20240808.144430]
+[13:06:27] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12+8-LTS
+[13:06:27] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[13:06:27] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[13:06:27] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/astra/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[13:06:28] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[13:06:28] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.244 (neoforge)
+		Rituals Not Rolls 1.3.1 (ritualsnotrolls)
+		Sable Companion 1.6.0 (sablecompanion)
+[13:06:29] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[13:06:29] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[13:06:31] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[13:06:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:06:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:06:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:06:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:06:36] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:06:36] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.244, for MC 1.21.1
+[13:06:36] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[13:06:37] [main/WARN] [ne.ne.ne.co.CommonHooks/WP]: The following mods have version differences that were not resolved:
+ritualsnotrolls (version 1.3 -> 1.3.1)
+Things may not work well.
+[13:06:37] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[13:06:37] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/moddev/artifacts/neoforge-21.1.244.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[13:06:37] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [ritualsnotrolls]
+
+> Task :test
+> Task :check
+> Task :build
+
+> Task :runGameTestServer
+[13:06:38] [main/INFO] [minecraft/RecipeManager]: Loaded 1298 recipes
+[13:06:38] [main/INFO] [minecraft/AdvancementTree]: Loaded 1400 advancements
+[13:06:38] [main/INFO] [co.ca.ri.RitualsNotRolls/]: Loaded 42 ritual enchantment definitions, 2 explicitly disabled, revision 1
+[13:06:38] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[13:06:38] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[13:06:38] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 134 ms
+[13:06:38] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[13:06:38] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[13:06:38] [Server thread/INFO] [minecraft/GameTestServer]: 171 tests are now running at position -6507229, -59, 5441565!
+[13:06:40] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (50 tests)...
+[13:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [                                                                                                                                                                           ]
+[13:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+_++++++_++__+_+_+__+++++_+++++++++_++                                                                                                                           ]
+[13:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+_++++++_+++_+_+_++_+++++_++++++++++++++                                                                                                                         ]
+[13:06:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++_+_++++++_+++_+_+_++_+++++_++++++++++++++                                                                                                                         ]
+[13:06:41] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_+++++_+_++_+++++_++++++++++++++                                                                                                                         ]
+[13:06:41] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_+++++_+_++_+++++_++++++++++++++                                                                                                                         ]
+[13:06:41] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_+++++_++++_++++++++++++++++++++                                                                                                                         ]
+[13:06:41] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++_+++++++++++++++++++++++++++++++                                                                                                                         ]
+[13:06:41] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:1' (50 tests)...
+[13:06:42] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                         ]
+[13:06:42] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_++_+++++++++++++++++++++++++_++++++                                                                       ]
+[13:06:42] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_++_+++++++++++++++++++++++++_++++++                                                                       ]
+[13:06:42] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_++_++++++++++++++++++++++++++++++++                                                                       ]
+[13:06:42] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++                                                                       ]
+[13:06:42] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++                                                                       ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:2' (50 tests)...
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                                                                       ]
+[13:06:43] [Server thread/WARN] [co.ca.ri.RitualsNotRolls/]: Preserving unresolved knowledge entry minecraft:sharpness/removed_affinity; restore its stable datapack ID to reactivate it
+[13:06:43] [Server thread/WARN] [co.ca.ri.RitualsNotRolls/]: Ignoring ritual data ritualsnotrolls:enchantments/bad: Not a boolean: "not a boolean"
+[13:06:43] [Server thread/WARN] [co.ca.ri.RitualsNotRolls/]: Ignoring legacy ritual rules.json; move its settings to ritualsnotrolls-server.toml [rules]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++__++__+++_+++++++++++_++_+++++++_+++ +++++ ++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++__+++_+++_+++++++++++_++_+++++++_+++++++++ ++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++_+++_+++++++++++_++_+++++++_+++++++++_++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++_+++++++++++_++_+++++++_+++++++++_++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++_+++++++++++_++_+++++++_+++++++++_++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++_++_+++++++_+++++++++_++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++_++_+++++++_+++++++++_++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++_++_+++++++_+++++++++_++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++_++++++++++_+++++++++_++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_++++++++++_++++++++++++                     ]
+[13:06:43] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:3' (19 tests)...
+[13:06:43] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                     ]
+[13:06:44] [Server thread/WARN] [co.ca.ri.RitualsNotRolls/]: Preserving unresolved knowledge entry minecraft:sharpness/netherite_scrap; restore its stable datapack ID to reactivate it
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++_++++_    ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++_+++++_   ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++_+++++_+  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++_+  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++_+  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'binder_configured_rate:0' (1 tests)...
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'binding_unload:0' (1 tests)...
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++]
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: ========= 171 GAME TESTS COMPLETE IN 5.550 s ======================
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: All 171 required tests passed :)
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[13:06:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[13:06:44] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///C:/Users/astra/Documents/ChatGPT/Rituals%20Not%20Rolls/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 20s
+13 actionable tasks: 4 executed, 9 up-to-date
+Configuration cache entry stored.

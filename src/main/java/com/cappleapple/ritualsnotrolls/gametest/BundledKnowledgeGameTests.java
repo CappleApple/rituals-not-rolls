@@ -46,6 +46,9 @@ public final class BundledKnowledgeGameTests {
     if (!ModList.get().isLoaded("bundlednotsiloed")) return List.of();
     return List.of(
         test(
+            "binder_double_click_gathers_stowed_pages",
+            BundledKnowledgeGameTests::binderDoubleClick),
+        test(
             "capability_enumerates_and_extracts_hidden_pages",
             BundledKnowledgeGameTests::capability),
         test("book_button_gathers_stowed_pages", BundledKnowledgeGameTests::bookButton),
@@ -206,6 +209,35 @@ public final class BundledKnowledgeGameTests {
     h.assertTrue(
         chest.getItem(0).getCount() == 1, "Repeated double-click preserves chest duplicates");
     f.count(80, 2, "Repeated double-click preserves stowed duplicates");
+    f.valid();
+    h.succeed();
+  }
+
+  private static void binderDoubleClick(GameTestHelper h) {
+    var f = new Fixture(h);
+    f.put(9, page("diamond", 3));
+    f.put(80, page("flint", 4));
+    f.put(81, Knowledge.page(RitualGameTests.UNBREAKING, "diamond").copyWithCount(5));
+    var chest = new SimpleContainer(27);
+    chest.setItem(0, page("diamond", 2));
+    var menu = ChestMenu.threeRows(83, f.player.getInventory(), chest);
+    f.player.containerMenu = menu;
+    var binder = new ItemStack(RitualsNotRolls.BINDER_ITEM.get());
+    binder.set(RitualsNotRolls.BINDER_DATA, BinderStorage.data(binder).withAutoCollect(false));
+    menu.setCarried(binder);
+    menu.clicked(0, 0, ClickType.PICKUP_ALL, f.player);
+    h.assertTrue(
+        BinderStorage.data(binder).total() == 3 && menu.getCarried() == binder,
+        "Cursor binder collects unique visible and hidden discoveries");
+    f.count(9, 3, "Visible duplicate preserved");
+    f.count(80, 3, "Hidden new discovery collected once");
+    f.count(81, 4, "Other enchantments also collected");
+    binder.set(RitualsNotRolls.BINDER_DATA, BinderStorage.data(binder).withFilterDuplicates(false));
+    menu.clicked(0, 0, ClickType.PICKUP_ALL, f.player);
+    h.assertTrue(
+        BinderStorage.data(binder).total() == 14 && chest.isEmpty(),
+        "Filter off collects all pages across expanded storage");
+    f.count(80, 0, "Hidden pages exhausted");
     f.valid();
     h.succeed();
   }

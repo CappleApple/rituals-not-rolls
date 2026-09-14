@@ -1,6 +1,6 @@
 # Default enchantment affinities and effects
 
-Generated from the bundled data. Material powers precede consumption, duplicate diminishing returns, XP, sharing, and return bonuses. At enchantability 10, the full distinct explicit material set equals the vanilla maximum cost. Multi-level vanilla enchantments extend through X; existing thresholds are preserved, and VIII-X each cost 50% more than the preceding level. Single-level enchantments stay at I. Mending I costs **256**.
+Generated from the bundled data. Material powers precede consumption, duplicate diminishing returns, XP, sharing, and return bonuses. At enchantability 10, the full distinct explicit material set equals the vanilla maximum cost. Multi-level vanilla enchantments extend through X; VIII-X each cost 50% more than the preceding level. Single-level enchantments stay at I. Mending I costs **256**.
 
 | Enchantment | Material power | Level thresholds | Particle | RGB |
 | --- | --- | --- | --- | --- |
@@ -36,7 +36,7 @@ Generated from the bundled data. Material powers precede consumption, duplicate 
 | minecraft:quick_charge | redstone 38, tripwire_hook 22, copper_ingot 18, breeze_rod 62, clock 40 | 1: 36.0, 2: 84.0, 3: 180, 4: 312.0, 5: 504.0, 6: 768.0, 7: 1152.0, 8: 1728.0, 9: 2592.0, 10: 3888.0 | minecraft:sculk_charge_pop | `#C1FFF0` |
 | minecraft:respiration | kelp 12, prismarine_shard 28, nautilus_shell 48, turtle_scute 60, heart_of_the_sea 90 | 1: 47.6, 2: 111.0667, 3: 238, 4: 412.5333, 5: 666.4, 6: 1015.4667, 7: 1523.2, 8: 2284.8, 9: 3427.2, 10: 5140.8 | minecraft:bubble_pop | `#53C9E8` |
 | minecraft:riptide | prismarine_crystals 32, heart_of_the_sea 104, breeze_rod 48, wind_charge 80 | 1: 52.8, 2: 123.2, 3: 264, 4: 457.6, 5: 739.2, 6: 1126.4, 7: 1689.6, 8: 2534.4, 9: 3801.6, 10: 5702.4 | minecraft:gust | `#A8E8EF` |
-| minecraft:sharpness | flint 7, iron_ingot 8, diamond 30, netherite_scrap 55, quartz 44, amethyst_shard 53, #c:gems/amethyst 16 | 1: 14.0714, 2: 32.8333, 3: 70.3571, 4: 121.9524, 5: 197, 6: 300.1905, 7: 450.2857, 8: 675.4286, 9: 1013.1429, 10: 1519.7143 | minecraft:sweep_attack | `#AFCFFF` |
+| minecraft:sharpness | flint 7, iron_ingot 8, diamond 30, netherite_scrap 55, quartz 44, amethyst_shard 53, prismarine_shard 16 | 1: 15.2143, 2: 35.5, 3: 76.0714, 4: 131.8571, 5: 213, 6: 324.5714, 7: 486.8571, 8: 730.2857, 9: 1095.4286, 10: 1643.1429 | minecraft:sweep_attack | `#AFCFFF` |
 | minecraft:silk_touch | string 24, cobweb 46, honeycomb 30, slime_block 38, amethyst_cluster 54 | 1: 192 | minecraft:item_cobweb | `#E2DAF2` |
 | minecraft:smite | bone 24, rotten_flesh 12, gold_ingot 28, glowstone_dust 42, ghast_tear 68 | 1: 12.4286, 2: 29.0, 3: 62.1429, 4: 107.7143, 5: 174, 6: 265.1429, 7: 397.7143, 8: 596.5714, 9: 894.8571, 10: 1342.2857 | minecraft:instant_effect | `#FFE89C` |
 | minecraft:soul_speed | soul_sand 22, soul_soil 34, ghast_tear 58, echo_shard 78, nether_star 115 | 1: 61.4, 2: 143.2667, 3: 307, 4: 532.1333, 5: 859.6, 6: 1309.8667, 7: 1964.8, 8: 2947.2, 9: 4420.8, 10: 6631.2 | minecraft:soul | `#B6FFF6` |

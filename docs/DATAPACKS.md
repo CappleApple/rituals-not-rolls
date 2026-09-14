@@ -21,7 +21,7 @@ Do not add a second file for the same enchantment: duplicate enchantment IDs are
   "enchantment": "minecraft:sharpness",
   "materials": [
     { "id": "diamond", "item": "minecraft:diamond", "power": 30, "resource_value": 5 },
-    { "id": "amethyst_group", "tag": "c:gems/amethyst", "power": 16, "resource_value": 2 }
+    { "id": "prismarine_shard", "item": "minecraft:prismarine_shard", "power": 16, "resource_value": 2 }
   ],
   "levels": { "1": 15, "2": 35, "3": 75, "6": 320 },
   "conflict_groups": ["damage"],
@@ -75,7 +75,7 @@ A Subtraction Catalyst makes a pedestal contribution negative. Net negative powe
 
 ## Bundled balance
 
-All 42 vanilla definitions explicitly assign their own material weights and unique particle/color pairs. See [particle themes](PARTICLES.md) for the full vanilla and optional-mod palette. Iron gives 8 power to Sharpness and 24 to Knockback; Mending I costs 256 power. At enchantability 10, the complete distinct set of each default definition's explicit materials totals exactly the vanilla maximum level's threshold, before consumption, XP, return visits, sharing, and conflict penalties. Removing any one of those materials falls short. All vanilla enchantments with a native maximum above I have explicit thresholds through X. Existing thresholds are preserved; VIII–X each cost 50% more than the preceding level. Single-level enchantments remain at I. This is a shipped-data convention only, not a validation rule for custom definitions. Material overlap between enchants on the same equipment has been reduced. The full [defaults catalog](DEFAULTS.md) is generated from the shipped JSON. Removed default affinities remain stored as inactive knowledge until their IDs are restored by a pack.
+All 42 vanilla definitions explicitly assign their own material weights and unique particle/color pairs. See [particle themes](PARTICLES.md) for the full vanilla and optional-mod palette. Iron gives 8 power to Sharpness and 24 to Knockback; Mending I costs 256 power. At enchantability 10, the complete distinct set of each default definition's explicit materials totals exactly the vanilla maximum level's threshold, before consumption, XP, return visits, sharing, and conflict penalties. Removing any one of those materials falls short. All vanilla enchantments with a native maximum above I have explicit thresholds through X. VIII–X each cost 50% more than the preceding level. Single-level enchantments remain at I. This is a shipped-data convention only, not a validation rule for custom definitions. Material overlap between enchants on the same equipment has been reduced. The full [defaults catalog](DEFAULTS.md) is generated from the shipped JSON. Removed default affinities remain stored as inactive knowledge until their IDs are restored by a pack.
 
 ## Page distribution and crafting
 

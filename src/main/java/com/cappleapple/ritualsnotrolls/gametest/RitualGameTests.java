@@ -268,8 +268,31 @@ public final class RitualGameTests {
         "Current datapack page total");
     check(
         h,
-        d.affinity("amethyst_group").matches(new ItemStack(Items.AMETHYST_SHARD)),
+        new com.cappleapple.ritualsnotrolls.data.Affinity(
+                "tag_fixture",
+                java.util.Optional.empty(),
+                java.util.Optional.of(ResourceLocation.parse("c:gems/amethyst")),
+                16,
+                2)
+            .matches(new ItemStack(Items.AMETHYST_SHARD)),
         "NeoForge tag affinity resolves");
+    check(
+        h,
+        d.affinity("amethyst_group") == null,
+        "Sharpness no longer includes the overlapping amethyst group");
+    var replacement = d.affinity("prismarine_shard");
+    check(
+        h,
+        replacement != null
+            && replacement.power() == 16
+            && replacement.value() == 2
+            && replacement.matches(new ItemStack(Items.PRISMARINE_SHARD)),
+        "Prismarine Shard replaces the group at the same power and value");
+    check(
+        h,
+        d.materials().stream().filter(a -> a.matches(new ItemStack(Items.AMETHYST_SHARD))).count()
+            == 1,
+        "Amethyst Shard has only its explicit material entry");
     h.succeed();
   }
 

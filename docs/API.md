@@ -63,6 +63,8 @@ Handler stacks are inspected without mutation; only extracted pages are consumed
 
 `ritualsnotrolls:knowledge_binder` stores pages in the `ritualsnotrolls:binder` data component. `BinderData` keeps immutable entries containing a single-page stack prototype and a separate count, plus the binder's `auto_collect` and `filter_duplicates` flags. Page components are preserved, and capacity counts copies rather than distinct entries. Lowering capacity prevents insertion without discarding existing contents.
 
+`BinderStorage.gather` handles cursor double-clicks through the same `PICKUP_ALL` menu interaction as Knowledge Books. It uses `Slot.safeTake` for visible slots, then the player capability for expanded storage. Gathering honors pickup restrictions, capacity and the duplicate filter independently of Auto-collect.
+
 `BinderStorage` checks player inventories once every 20 ticks, with one shared gate per player even when several binders are carried. Collection pauses while a binder menu is open. It uses visible inventory stacks and the same NeoForge capability fallback as book gathering to reach stowed pages and binders. Capability-returned stacks are treated as snapshots: a stowed binder is extracted before editing and reinserted through its handler afterward.
 
 The automatic duplicate filter compares enchantment and affinity-entry identity, regardless of other page components. Exact item/component matches share one counted entry when copies are allowed; different components remain separate. The filter is local to each binder and does not query the player's library. Book Auto-Add can consume a newly acquired page before the periodic binder collection sees it.

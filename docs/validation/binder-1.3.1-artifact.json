@@ -7,5 +7,9 @@
     "skipped": 0
   },
   "binder_client": "passed",
-  "jar_sha256": "e55899993e64c8c54579b033946da7a61886a56680c43f826381ba0d183f7a3e"
+  "jar_sha256": "f14637527be6116c34f54d5ae23a5b0a3b7d56a2784fb92ac60584d4af83152a",
+  "gametests": {
+    "baseline": 171,
+    "bundled_not_siloed": 9
+  }
 }

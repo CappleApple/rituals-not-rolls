@@ -19,6 +19,10 @@ public abstract class ContainerMenuMixin {
       Knowledge.gather(player, menu, menu.getCarried());
       return;
     }
+    if (type == ClickType.PICKUP_ALL && menu.getCarried().is(RitualsNotRolls.BINDER_ITEM)) {
+      BinderStorage.gather(player, menu, menu.getCarried());
+      return;
+    }
     if (!player.level().isClientSide
         && type == ClickType.QUICK_MOVE
         && slotId >= 0
